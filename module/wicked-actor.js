@@ -155,8 +155,9 @@ export class WickedActor extends Actor {
     // Make modifications to data here.
     data.clock_active_1 = (data.clock1.max != 0);
     data.clock_active_2 = (data.clock2.max != 0);
-    data.clock_uid_1 = this._id + "-1";
-    data.clock_uid_2 = this._id + "-2";
+      // Use this.id (document id) in modern Foundry versions
+      data.clock_uid_1 = this.id + "-1";
+      data.clock_uid_2 = this.id + "-2";
   }
 
   /* -------------------------------------------- */

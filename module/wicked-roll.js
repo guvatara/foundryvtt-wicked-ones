@@ -154,8 +154,9 @@ if (game.version >= 12) {
   if (game.dice3d && dice3dDelay){
     await game.dice3d.showForRoll(r);
   }
-  let chat = await CONFIG.ChatMessage.documentClass.create(messageData, messageOptions)
-  return {roll: r, result: roll_status, chat: chat}
+    // Use the standard document creation API
+    let chat = await ChatMessage.create(messageData, messageOptions);
+    return {roll: r, result: roll_status, chat: chat};
 }
 
 /**
