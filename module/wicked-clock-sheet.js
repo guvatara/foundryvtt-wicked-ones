@@ -51,8 +51,8 @@ export class WickedClockSheet extends WickedSheet {
     let data = [];
 
     tokens.forEach(function (token) {
-			data.push(mergeObject(
-				{_id: token.id},
+			data.push(foundry.utils.mergeObject(
+				{ _id: token.id },
 				update
 			));
     });

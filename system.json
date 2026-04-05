@@ -349,7 +349,7 @@
   ],
   "id": "wicked-ones",
   "compatibility": {
-    "minimum": "11",
-    "verified": "13.0"
+    "minimum": "13",
+    "verified": "13.346"
   }
 }

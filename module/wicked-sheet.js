@@ -1,9 +1,11 @@
 /**
  * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
+ * @extends {foundry.appv1.sheets.ActorSheet}
  */
 
-export class WickedSheet extends ActorSheet {
+const BaseActorSheet = foundry.appv1.sheets.ActorSheet;
+
+export class WickedSheet extends BaseActorSheet {
 
   /* -------------------------------------------- */
 
