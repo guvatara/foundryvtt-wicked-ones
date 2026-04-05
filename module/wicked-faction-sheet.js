@@ -1,6 +1,5 @@
 
 import { WickedSheet } from "./wicked-sheet.js";
-//import { TextEditor } from "./foundry/applications/ux/text-editor.js";
 
 /**
  * @extends {WickedSheet}
@@ -27,7 +26,7 @@ export class WickedFactionSheet extends WickedSheet {
 
     sheetData.actor = sheetData.data;
     sheetData.system = sheetData.document.system // project system data so that handlebars has the same name and value paths
-    sheetData.notes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.object.system.description, { async: true });
+    sheetData.notes = await TextEditor.enrichHTML(this.object.system.description, { async: true });
 		
     // Override Code for updating the sheet goes here
 

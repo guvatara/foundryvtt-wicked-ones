@@ -12,13 +12,13 @@
       <label>{{ localize "FITD.GMType" }}</label>
       <div class="flex-vertical type-selector">
         <select class="list-with-custom" id="goldmonger-type-select" name="system.gm_type" data-property-to-set="gm_type_custom">
-          {{#selectOptions system.gm_type}}
+          {{#select system.gm_type}}
           <option value="">{{localize "FITD.NoneParentheses"}}</option>
           <option value="custom">{{localize "FITD.Custom"}}</option>
           {{#each config.goldmonger_types as |name type|}}
           <option value="{{name}}">{{localize name}}</option>
           {{/each}}
-          {{/selectOptions}}
+          {{/select}}
         </select>
         {{#if (eq system.gm_type "custom")}}
         <input id="goldmonger-custom-type" type="text" name="system.gm_type_custom" value="{{system.gm_type_custom}}" placeholder="{{localize "FITD.CustomGMTypeHint"}}">
@@ -30,13 +30,13 @@
       <label>{{ localize "FITD.GMAntiType" }}</label>
       <div class="flex-vertical type-selector">
         <select class="list-with-custom" id="goldmonger-antitype-select" name="system.gm_antitype" data-property-to-set="gm_antitype_custom">
-          {{#selectOptions system.gm_antitype}}
+          {{#select system.gm_antitype}}
           <option value="">{{localize "FITD.NoneParentheses"}}</option>
           <option value="custom">{{localize "FITD.Custom"}}</option>
           {{#each config.goldmonger_types as |name type|}}
           <option value="{{name}}">{{localize name}}</option>
           {{/each}}
-          {{/selectOptions}}
+          {{/select}}
         </select>
         {{#if (eq system.gm_antitype "custom")}}
         <input id="goldmonger-custom-antitype" type="text" name="system.gm_antitype_custom" value="{{system.gm_antitype_custom}}" placeholder="{{localize "FITD.CustomGMTypeHint"}}">

@@ -11,11 +11,11 @@
     <div class="form-group">
       <label>{{ localize "FITD.GearOrSupply" }}</label>
       <select id="gearsupply-type-select" name="system.gear_or_supply">
-        {{#selectOptions system.gear_or_supply}}
+        {{#select system.gear_or_supply}}
         {{#each config.gear_supply_types as |name type|}}
         <option value="{{type}}">{{localize name}}</option>
         {{/each}}
-        {{/selectOptions}}
+        {{/select}}
       </select>
     </div>
 
@@ -23,11 +23,11 @@
     <div class="form-group">
       <label>{{ localize "FITD.QualityCategory" }}</label>
       <select id="gearsupply-quality-select" name="system.quality_category">
-        {{#selectOptions system.quality_category}}
+        {{#select system.quality_category}}
         {{#each config.gear_quality_types as |name type|}}
         <option value="{{type}}">{{localize name}}</option>
         {{/each}}
-        {{/selectOptions}}
+        {{/select}}
       </select>
     </div>
 
@@ -55,11 +55,11 @@
     <div class="form-group">
       <label>{{ localize "FITD.UsageLimit" }}</label>
       <select id="gearsupply-limit-select" name="system.use_type">
-        {{#selectOptions system.use_type}}
+        {{#select system.use_type}}
         {{#each config.gear_supply_use_types as |name type|}}
         <option value="{{type}}">{{localize name}}</option>
         {{/each}}
-        {{/selectOptions}}
+        {{/select}}
       </select>
     </div>
 

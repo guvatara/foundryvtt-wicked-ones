@@ -10,11 +10,11 @@
   <div class="form-group">
     <label>{{ localize "FITD.MinionUpgradeType" }}</label>
     <select id="upgrade-type-select" name="system.upgrade_type">
-      {{#selectOptions system.upgrade_type}}
+      {{#select system.upgrade_type}}
       {{#each config.minion_upgrade_types as |name type|}}
       <option value="{{type}}">{{localize name}}</option>
       {{/each}}
-      {{/selectOptions}}
+      {{/select}}
     </select>
   </div>
 
@@ -43,11 +43,11 @@
         <label>{{localize "FITD.SkillName"}}</label>
         <select id="upgrade-skill-select" name="system.upgrade_skill_name">
           <option value="">{{localize "FITD.NoneParentheses"}}</option>
-          {{#selectOptions system.upgrade_skill_name}}
+          {{#select system.upgrade_skill_name}}
           {{#each config.rollable_skills as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
           {{/each}}
-          {{/selectOptions}}
+          {{/select}}
         </select>
       </div>
       <div>

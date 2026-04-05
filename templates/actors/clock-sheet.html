@@ -7,20 +7,20 @@
   <section id="clock-{{actor._id}}-sheet" class="flex-horizontal">
     <div class="flexcol blades-clock-type">
       <select data-type="String" name="system.type">
-        {{#selectOptions system.type}}
+        {{#select system.type}}
         <option value="4">4</option>
         <option value="6">6</option>
         <option value="8">8</option>
-        {{/selectOptions}}
+        {{/select}}
       </select>
       <select data-type="String" name="system.style">
-        {{#selectOptions system.style}}
+        {{#select system.style}}
         <option value="transparent">{{localize "FITD.ClockColors.Transparent"}}</option>
         <option value="red">{{localize "FITD.ClockColors.Red"}}</option>
         <option value="blue">{{localize "FITD.ClockColors.Blue"}}</option>
         <option value="green">{{localize "FITD.ClockColors.Green"}}</option>
         <option value="yellow">{{localize "FITD.ClockColors.Yellow"}}</option>
-        {{/selectOptions}}
+        {{/select}}
       </select>
       <div class="clocks clocks-{{system.type}}">
         {{{blades-clock "system.value" system.type system.value actor._id}}}

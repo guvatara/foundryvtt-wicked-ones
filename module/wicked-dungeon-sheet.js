@@ -26,7 +26,7 @@ export class WickedDungeonSheet extends WickedSheet {
 
     sheetData.actor = sheetData.data;
     sheetData.system = sheetData.document.system // project system data so that handlebars has the same name and value paths
-    sheetData.notes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.object.system.description, { async: true });
+    sheetData.notes = await TextEditor.enrichHTML(this.object.system.description, { async: true });
 
 		// Add flexibility flag on mismatched theme
     let theme = "";
