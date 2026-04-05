@@ -4567,6 +4567,10 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   flex-direction: column;
 }
 
+.sheet.wicked-ones .flex-vertical.tab[data-tab]:not(.active) {
+    display: none;
+}
+
 .sheet.wicked-ones table.base-info {
   border-top: 5px solid #68332c;
 }
