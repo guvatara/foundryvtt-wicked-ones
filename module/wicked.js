@@ -49,19 +49,25 @@ Hooks.once("init", async function() {
   // Register System Settings
   registerSystemSettings();
 
-  // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("wicked", WickedActorSheet, { types: ["character"], makeDefault: true });
-  Actors.registerSheet("wicked", WickedMinionSheet, { types: ["minion_pack"], makeDefault: true });
-  Actors.registerSheet("wicked", WickedDungeonSheet, { types: ["dungeon"], makeDefault: true });
-  Actors.registerSheet("wicked", WickedConquestSheet, { types: ["conquest_ua"], makeDefault: true });
-  Actors.registerSheet("wicked", WickedPartySheet, { types: ["party"], makeDefault: true });
-  Actors.registerSheet("wicked", WickedFactionSheet, { types: ["faction"], makeDefault: true });
-  Actors.registerSheet("wicked", WickedFactionUASheet, { types: ["faction_ua"], makeDefault: true });
-  Actors.registerSheet("wicked", WickedGMSheet, { types: ["gm_sheet"], makeDefault: true });
-  Actors.registerSheet("wicked", WickedClockSheet, { types: ["clock"], makeDefault: true });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("wicked", WickedItemSheet, {makeDefault: true});
+  // Register sheet application classes (DocumentSheetConfig avoids deprecated global Actors/Items and core touching global ActorSheet/ItemSheet)
+  const DocumentSheetConfig = foundry.applications.apps.DocumentSheetConfig;
+  const ActorDocument = foundry.documents.Actor;
+  const ItemDocument = foundry.documents.Item;
+  const CoreActorSheet = foundry.appv1.sheets.ActorSheet;
+  const CoreItemSheet = foundry.appv1.sheets.ItemSheet;
+
+  DocumentSheetConfig.unregisterSheet(ActorDocument, "core", CoreActorSheet);
+  DocumentSheetConfig.registerSheet(ActorDocument, "wicked", WickedActorSheet, { types: ["character"], makeDefault: true });
+  DocumentSheetConfig.registerSheet(ActorDocument, "wicked", WickedMinionSheet, { types: ["minion_pack"], makeDefault: true });
+  DocumentSheetConfig.registerSheet(ActorDocument, "wicked", WickedDungeonSheet, { types: ["dungeon"], makeDefault: true });
+  DocumentSheetConfig.registerSheet(ActorDocument, "wicked", WickedConquestSheet, { types: ["conquest_ua"], makeDefault: true });
+  DocumentSheetConfig.registerSheet(ActorDocument, "wicked", WickedPartySheet, { types: ["party"], makeDefault: true });
+  DocumentSheetConfig.registerSheet(ActorDocument, "wicked", WickedFactionSheet, { types: ["faction"], makeDefault: true });
+  DocumentSheetConfig.registerSheet(ActorDocument, "wicked", WickedFactionUASheet, { types: ["faction_ua"], makeDefault: true });
+  DocumentSheetConfig.registerSheet(ActorDocument, "wicked", WickedGMSheet, { types: ["gm_sheet"], makeDefault: true });
+  DocumentSheetConfig.registerSheet(ActorDocument, "wicked", WickedClockSheet, { types: ["clock"], makeDefault: true });
+  DocumentSheetConfig.unregisterSheet(ItemDocument, "core", CoreItemSheet);
+  DocumentSheetConfig.registerSheet(ItemDocument, "wicked", WickedItemSheet, { makeDefault: true });
   preloadHandlebarsTemplates();
 
 
@@ -294,19 +300,78 @@ Hooks.on("deleteItem", (item, options, userId) => {
   return true;
 });
 
-// renderSceneControls
-Hooks.on("renderSceneControls", async (app, html) => {
-  let dice_roller = $('<li class="scene-control" title="' + game.i18n.localize("FITD.TOOLTIP.RollDice") + '"><i class="fas fa-dice"></i></li>');
-  dice_roller.click(function() {
-    simpleRollPopup();
-  });
+/**
+ * Registers the dice roller as a token-layer scene control tool.
+ * In v13+ `tools` may be undefined when the hook runs; it must be initialized.
+ * Some builds pass `controls` as an array of layers instead of a Record.
+ * @param {Record<string, object>|object[]} controls
+ */
+function addWickedDiceSceneControl(controls) {
+  let tokenLayer = null;
 
-  $(html).children().first().append(dice_roller);
+  if (Array.isArray(controls)) {
+    tokenLayer = controls.find(
+      (c) => c && (c.name === "tokens" || c.name === "token")
+    );
+  } else if (controls && typeof controls === "object") {
+    tokenLayer = controls.tokens ?? controls.token;
+    if (!tokenLayer) {
+      for (const key of Object.keys(controls)) {
+        const layer = controls[key];
+        if (!layer || typeof layer !== "object") continue;
+        if (
+          key === "tokens" ||
+          key === "token" ||
+          layer.name === "tokens" ||
+          layer.name === "token"
+        ) {
+          tokenLayer = layer;
+          break;
+        }
+      }
+    }
+  }
 
+  if (!tokenLayer) {
+    console.warn(
+      "Wicked Ones: token scene control layer (tokens) not found; dice toolbar button was not registered."
+    );
+    return;
+  }
+
+  if (!tokenLayer.tools) tokenLayer.tools = {};
+
+  const tools = tokenLayer.tools;
+  if (tools.wickedRollDice) return;
+
+  const nextOrder =
+    Object.values(tools).reduce(
+      (max, t) => Math.max(max, Number(t?.order) || 0),
+      -1
+    ) + 1;
+
+  tools.wickedRollDice = {
+    name: "wickedRollDice",
+    title: "FITD.TOOLTIP.RollDice",
+    icon: "fa-solid fa-dice",
+    order: nextOrder,
+    button: true,
+    visible: true,
+    onChange: () => {
+      void simpleRollPopup();
+    }
+  };
+}
+
+Hooks.on("getSceneControlButtons", (controls) => {
+  try {
+    addWickedDiceSceneControl(controls);
+  } catch (err) {
+    console.error("Wicked Ones: getSceneControlButtons hook failed", err);
+  }
 });
 
-Hooks.on("renderChatMessage", (app, html, data) => {
-
-  // Optionally expand the dice results
-  if (game.settings.get("wicked-ones", "showExpandedRollResults")) html.find(".dice-tooltip").addClass('exp');
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  if (!game.settings.get("wicked-ones", "showExpandedRollResults")) return;
+  html.querySelector(".dice-tooltip")?.classList.add("exp");
 });
