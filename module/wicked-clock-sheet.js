@@ -26,7 +26,7 @@ export class WickedClockSheet extends WickedSheet {
 
     sheetData.actor = sheetData.data;
     sheetData.system = sheetData.data.system // project system data so that handlebars has the same name and value paths
-    sheetData.notes = await TextEditor.enrichHTML(this.object.system.notes, { async: true });
+    sheetData.notes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.object.system.notes, { async: true });
 
     // Override Code for updating the sheet goes here
 

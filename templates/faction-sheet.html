@@ -21,11 +21,11 @@
       <div class="text-input flex-horizontal">
         <label for="faction-{{actor._id}}-side">{{localize "FITD.Side"}}</label>
         <select class="" id="faction-{{actor._id}}-side" name="system.category">
-          {{#select system.category}}
+          {{#selectOptions system.category}}
           <option value="dark">{{localize "FITD.FACTION_SIDE.Dark"}}</option>
           <option value="neutral">{{localize "FITD.FACTION_SIDE.Neutral"}}</option>
           <option value="light">{{localize "FITD.FACTION_SIDE.Light"}}</option>
-          {{/select}}
+          {{/selectOptions}}
         </select>
       </div>
     </div>
@@ -75,22 +75,22 @@
         <tr>
           <td>
             <select class="clock-configuration" id="faction-{{actor._id}}-clock-1-select" name="system.clock1.max">
-              {{#select system.clock1.max}}
+              {{#selectOptions system.clock1.max}}
               <option value="0">{{localize "FITD.Off"}}</option>
               <option value="4">4 {{localize "FITD.Segements"}}</option>
               <option value="6">6 {{localize "FITD.Segements"}}</option>
               <option value="8">8 {{localize "FITD.Segements"}}</option>
-              {{/select}}
+              {{/selectOptions}}
             </select>
           </td>
           <td>
             <select class="clock-configuration" id="faction-{{actor._id}}-clock-2-select" name="system.clock2.max">
-              {{#select system.clock2.max}}
+              {{#selectOptions system.clock2.max}}
               <option value="0">{{localize "FITD.Off"}}</option>
               <option value="4">4 {{localize "FITD.Segements"}}</option>
               <option value="6">6 {{localize "FITD.Segements"}}</option>
               <option value="8">8 {{localize "FITD.Segements"}}</option>
-              {{/select}}
+              {{/selectOptions}}
             </select>
           </td>
         </tr>

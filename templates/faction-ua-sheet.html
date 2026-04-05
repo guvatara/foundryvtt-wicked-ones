@@ -23,12 +23,12 @@
       <div class="text-input flex-horizontal">
         <label for="faction-{{actor._id}}-domain">{{localize "FITD.UA_CONQUEST_SHEET.Domain"}}</label>
         <select class="" id="faction-{{actor._id}}-domain" name="system.domain">
-          {{#select system.domain}}
+          {{#selectOptions system.domain}}
           <option value="none">{{localize "FITD.NoneParentheses"}}</option>
           <option value="horde">{{localize "FITD.UA_CONQUEST_SHEET.Horde"}}</option>
           <option value="horror">{{localize "FITD.UA_CONQUEST_SHEET.Horror"}}</option>
           <option value="corruption">{{localize "FITD.UA_CONQUEST_SHEET.Corruption"}}</option>
-          {{/select}}
+          {{/selectOptions}}
         </select>
       </div>
     </div>
