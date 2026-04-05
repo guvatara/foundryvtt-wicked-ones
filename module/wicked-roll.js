@@ -40,7 +40,7 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
   if (speaker.alias == char_name) {
     char_name = "";
   }
-  let isBelow070 = foundry.utils.isNewerVersion('0.7.0', game.version ?? game.data.version);
+  let isBelow070 = foundry.utils.isNewerVersion('0.7.0', game.version);
   let rolls = [];
   let attribute_label = WickedHelpers.getAttributeLabel(attribute_name);
 
@@ -124,25 +124,22 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
 
   let result = await renderTemplate("systems/wicked-ones/templates/wicked-roll.html", { rolls: rolls, method: method, roll_type: roll_type, roll_status_class: roll_status, roll_status_text: roll_status_text, attribute_label: attribute_label, position: position_localize, effect: effect_localize, roll_description: roll_description, zeromode: zeromode, char_name: char_name });
 
-  let messageData;
-if (game.version >= 12) {
-	messageData = {
-		user: game.user.id,
-		speaker: speaker,
-		content: result,
-		sound: CONFIG.sounds.dice,
-		rolls: [r]
-		}
-	} else {
-		messageData = {
-			user: game.user.id,
-			speaker: speaker,
-			content: result,
-			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-			sound: CONFIG.sounds.dice,
-			rolls: [r]
-		}
-	}
+  const messageData = !foundry.utils.isNewerVersion("12.0.0", game.version)
+    ? {
+        user: game.user.id,
+        speaker: speaker,
+        content: result,
+        sound: CONFIG.sounds.dice,
+        rolls: [r]
+      }
+    : {
+        user: game.user.id,
+        speaker: speaker,
+        content: result,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        sound: CONFIG.sounds.dice,
+        rolls: [r]
+      };
 
   // Prepare message options
   const rMode = game.settings.get("core", "rollMode");
@@ -171,7 +168,7 @@ if (game.version >= 12) {
 export function getWickedRollStatus(rolls, zeromode = false) {
 
   // Dice API has changed in 0.7.0 so need to keep that in mind.
-  let isBelow070 = foundry.utils.isNewerVersion('0.7.0', game.version ?? game.data.version);
+  let isBelow070 = foundry.utils.isNewerVersion('0.7.0', game.version);
 
   let sorted_rolls; //= [];
   // Sort roll values from lowest to highest.

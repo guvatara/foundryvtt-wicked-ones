@@ -1,13 +1,16 @@
 /**
  * Extend the basic ItemSheet
- * @extends {ItemSheet}
+ * @extends {foundry.appv1.sheets.ItemSheet}
  */
-export class WickedItemSheet extends ItemSheet {
+
+const BaseItemSheet = foundry.appv1.sheets.ItemSheet;
+
+export class WickedItemSheet extends BaseItemSheet {
 
   /** @override */
 	static get defaultOptions() {
 
-	  return mergeObject(super.defaultOptions, {
+	  return foundry.utils.mergeObject(super.defaultOptions, {
           classes: ["wicked-ones", "sheet", "item"],
 			width: 'auto',
 			height: 'auto',
@@ -21,7 +24,7 @@ export class WickedItemSheet extends ItemSheet {
 
   /** @override */
   async getData(options) {
-    const sheetData = super.getData(options);
+    const sheetData = await super.getData(options);
     sheetData.editable = this.options.editable;
     sheetData.config = CONFIG.WO;
 

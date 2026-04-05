@@ -70,8 +70,8 @@ export class WickedFactionSheet extends WickedSheet {
     let tokens = this.actor.getActiveTokens();
 
     tokens.forEach(function (token) {
-			data.push(mergeObject(
-				{_id: token.id},
+			data.push(foundry.utils.mergeObject(
+				{ _id: token.id },
 				image
 			));
     });
