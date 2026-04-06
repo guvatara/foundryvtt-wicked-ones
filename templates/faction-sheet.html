@@ -21,11 +21,9 @@
       <div class="text-input flex-horizontal">
         <label for="faction-{{actor._id}}-side">{{localize "FITD.Side"}}</label>
         <select class="" id="faction-{{actor._id}}-side" name="system.category">
-          {{#select system.category}}
-          <option value="dark">{{localize "FITD.FACTION_SIDE.Dark"}}</option>
-          <option value="neutral">{{localize "FITD.FACTION_SIDE.Neutral"}}</option>
-          <option value="light">{{localize "FITD.FACTION_SIDE.Light"}}</option>
-          {{/select}}
+          <option value="dark" {{#if (eq system.category "dark")}}selected{{/if}}>{{localize "FITD.FACTION_SIDE.Dark"}}</option>
+          <option value="neutral" {{#if (eq system.category "neutral")}}selected{{/if}}>{{localize "FITD.FACTION_SIDE.Neutral"}}</option>
+          <option value="light" {{#if (eq system.category "light")}}selected{{/if}}>{{localize "FITD.FACTION_SIDE.Light"}}</option>
         </select>
       </div>
     </div>
@@ -75,22 +73,18 @@
         <tr>
           <td>
             <select class="clock-configuration" id="faction-{{actor._id}}-clock-1-select" name="system.clock1.max">
-              {{#select system.clock1.max}}
-              <option value="0">{{localize "FITD.Off"}}</option>
-              <option value="4">4 {{localize "FITD.Segements"}}</option>
-              <option value="6">6 {{localize "FITD.Segements"}}</option>
-              <option value="8">8 {{localize "FITD.Segements"}}</option>
-              {{/select}}
+              <option value="0" {{#if (eq system.clock1.max 0)}}selected{{else}}{{#if (eq system.clock1.max "0")}}selected{{/if}}{{/if}}>{{localize "FITD.Off"}}</option>
+              <option value="4" {{#if (eq system.clock1.max 4)}}selected{{else}}{{#if (eq system.clock1.max "4")}}selected{{/if}}{{/if}}>4 {{localize "FITD.Segements"}}</option>
+              <option value="6" {{#if (eq system.clock1.max 6)}}selected{{else}}{{#if (eq system.clock1.max "6")}}selected{{/if}}{{/if}}>6 {{localize "FITD.Segements"}}</option>
+              <option value="8" {{#if (eq system.clock1.max 8)}}selected{{else}}{{#if (eq system.clock1.max "8")}}selected{{/if}}{{/if}}>8 {{localize "FITD.Segements"}}</option>
             </select>
           </td>
           <td>
             <select class="clock-configuration" id="faction-{{actor._id}}-clock-2-select" name="system.clock2.max">
-              {{#select system.clock2.max}}
-              <option value="0">{{localize "FITD.Off"}}</option>
-              <option value="4">4 {{localize "FITD.Segements"}}</option>
-              <option value="6">6 {{localize "FITD.Segements"}}</option>
-              <option value="8">8 {{localize "FITD.Segements"}}</option>
-              {{/select}}
+              <option value="0" {{#if (eq system.clock2.max 0)}}selected{{else}}{{#if (eq system.clock2.max "0")}}selected{{/if}}{{/if}}>{{localize "FITD.Off"}}</option>
+              <option value="4" {{#if (eq system.clock2.max 4)}}selected{{else}}{{#if (eq system.clock2.max "4")}}selected{{/if}}{{/if}}>4 {{localize "FITD.Segements"}}</option>
+              <option value="6" {{#if (eq system.clock2.max 6)}}selected{{else}}{{#if (eq system.clock2.max "6")}}selected{{/if}}{{/if}}>6 {{localize "FITD.Segements"}}</option>
+              <option value="8" {{#if (eq system.clock2.max 8)}}selected{{else}}{{#if (eq system.clock2.max "8")}}selected{{/if}}{{/if}}>8 {{localize "FITD.Segements"}}</option>
             </select>
           </td>
         </tr>

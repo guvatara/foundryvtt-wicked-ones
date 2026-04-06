@@ -14,11 +14,9 @@
       <label class="label-stripe">{{localize "FITD.UA_CONQUEST_SHEET.Domain"}}</label>
       <div class="form-group">
         <select id="ability-domain-select" name="system.domain">
-          {{#select system.domain}}
           {{#each config.ua_conquest_domains as |name domain|}}
-          <option value="{{domain}}">{{localize name}}</option>
+          <option value="{{domain}}" {{#if (eq @root.system.domain domain)}}selected{{/if}}>{{localize name}}</option>
           {{/each}}
-          {{/select}}
         </select>
       </div>
     </div>

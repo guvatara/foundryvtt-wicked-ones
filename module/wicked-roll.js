@@ -230,12 +230,12 @@ export function getWickedRollStatus(rolls, zeromode = false) {
  */
 export async function simpleRollPopup() {
 
-  new Dialog({
-    title: `Dice Roller`,
+  new foundry.applications.api.DialogV2({
+    window: { title: `Dice Roller` },
     content: `
       <h2>${game.i18n.localize("FITD.RollSomeDice")}</h2>
       <p>${game.i18n.localize("FITD.RollTokenDescription")}</p>
-      <form id="dice-roller">
+      <div id="dice-roller">
 		<div class="form-group">
 		<label>${game.i18n.localize('FITD.RollType')}:</label>
 		<select id="type" name="type">
@@ -259,23 +259,24 @@ export async function simpleRollPopup() {
             ${Array(11).fill().map((item, i) => `<option value="${i}">${i}D</option>`).join('')}
           </select>
         </div>
-      </form>
+      </div>
     `,
-    buttons: {
-      yes: {
-        icon: "<i class='fas fa-check'></i>",
+    buttons: [
+      {
+        action: "roll",
+        icon: "fas fa-check",
         label: `Roll`,
-        callback: (html) => {
-          let diceQty = html.find('[name="qty"]')[0].value;
-		  let type = html.find('[name="type"]')[0].value;
-          wickedRoll(diceQty, "", "default", "default", type);
+        default: true,
+        callback: (event, button) => {
+          const form = button.form;
+          wickedRoll(form.elements.qty.value, "", "default", "default", form.elements.type.value);
         },
       },
-      no: {
-        icon: "<i class='fas fa-times'></i>",
+      {
+        action: "cancel",
+        icon: "fas fa-times",
         label: game.i18n.localize('Cancel'),
       },
-    },
-    default: "yes"
-  }).render(true);
+    ],
+  }).render({ force: true });
 }
