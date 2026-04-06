@@ -28,6 +28,12 @@
       "name": "English",
       "path": "lang/en.json",
       "flags": {}
+    },
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "lang/ru.json",
+      "flags": {}
     }
   ],
   "url": "https://github.com/eHanus/foundryvtt-wicked-ones",
