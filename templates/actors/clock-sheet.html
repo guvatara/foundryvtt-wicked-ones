@@ -7,20 +7,16 @@
   <section id="clock-{{actor._id}}-sheet" class="flex-horizontal">
     <div class="flexcol blades-clock-type">
       <select data-type="String" name="system.type">
-        {{#select system.type}}
-        <option value="4">4</option>
-        <option value="6">6</option>
-        <option value="8">8</option>
-        {{/select}}
+        <option value="4" {{#if (eq system.type "4")}}selected{{else}}{{#if (eq system.type 4)}}selected{{/if}}{{/if}}>4</option>
+        <option value="6" {{#if (eq system.type "6")}}selected{{else}}{{#if (eq system.type 6)}}selected{{/if}}{{/if}}>6</option>
+        <option value="8" {{#if (eq system.type "8")}}selected{{else}}{{#if (eq system.type 8)}}selected{{/if}}{{/if}}>8</option>
       </select>
       <select data-type="String" name="system.style">
-        {{#select system.style}}
-        <option value="transparent">{{localize "FITD.ClockColors.Transparent"}}</option>
-        <option value="red">{{localize "FITD.ClockColors.Red"}}</option>
-        <option value="blue">{{localize "FITD.ClockColors.Blue"}}</option>
-        <option value="green">{{localize "FITD.ClockColors.Green"}}</option>
-        <option value="yellow">{{localize "FITD.ClockColors.Yellow"}}</option>
-        {{/select}}
+        <option value="transparent" {{#if (eq system.style "transparent")}}selected{{/if}}>{{localize "FITD.ClockColors.Transparent"}}</option>
+        <option value="red" {{#if (eq system.style "red")}}selected{{/if}}>{{localize "FITD.ClockColors.Red"}}</option>
+        <option value="blue" {{#if (eq system.style "blue")}}selected{{/if}}>{{localize "FITD.ClockColors.Blue"}}</option>
+        <option value="green" {{#if (eq system.style "green")}}selected{{/if}}>{{localize "FITD.ClockColors.Green"}}</option>
+        <option value="yellow" {{#if (eq system.style "yellow")}}selected{{/if}}>{{localize "FITD.ClockColors.Yellow"}}</option>
       </select>
       <div class="clocks clocks-{{system.type}}">
         {{{blades-clock "system.value" system.type system.value actor._id}}}

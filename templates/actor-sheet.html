@@ -3,10 +3,8 @@
     {{!-- Character Sheet Type Selection --}}
     <div class="sheet-type">
       <select name="system.pc_type">
-        {{#select system.pc_type}}
-        <option value="wicked_one">{{localize "FITD.WickedOne"}}</option>
-        <option value="awakened">{{localize "FITD.Awakened"}}</option>
-        {{/select}}
+        <option value="wicked_one" {{#if (eq system.pc_type "wicked_one")}}selected{{/if}}>{{localize "FITD.WickedOne"}}</option>
+        <option value="awakened" {{#if (eq system.pc_type "awakened")}}selected{{/if}}>{{localize "FITD.Awakened"}}</option>
       </select>
     </div>
     <div class="top-decoration">
@@ -119,12 +117,10 @@
             <div class="text-input flex-vertical">
               <label for="character-{{actor._id}}-minionpack">{{localize "FITD.MinionPack"}}</label>
               <select name="system.minionpack">
-                {{#select system.minionpack}}
-                <option value="">{{localize "FITD.NoneParentheses"}}</option>
+                <option value="" {{#if (eq system.minionpack "")}}selected{{/if}}>{{localize "FITD.NoneParentheses"}}</option>
                 {{#each system.existing_minions as |minion id|}}
-                <option value="{{this.id}}">{{minion.name}}</option>
+                <option value="{{minion.id}}" {{#if (eq ../system.minionpack minion.id)}}selected{{/if}}>{{minion.name}}</option>
                 {{/each}}
-                {{/select}}
               </select>
             </div>
             <button class="open-minion-pack" {{#if (eq system.minionpack "")}} disabled {{/if}}>{{localize "FITD.Open"}}</button>
@@ -172,12 +168,10 @@
             <div class="text-input flex-vertical">
               <label for="character-{{actor._id}}-minionpack">{{localize "FITD.MinionPack"}}</label>
               <select name="system.minionpack">
-                {{#select system.minionpack}}
-                <option value="">{{localize "FITD.NoneParentheses"}}</option>
+                <option value="" {{#if (eq system.minionpack "")}}selected{{/if}}>{{localize "FITD.NoneParentheses"}}</option>
                 {{#each system.existing_minions as |minion id|}}
-                <option value="{{this.id}}">{{minion.name}}</option>
+                <option value="{{minion.id}}" {{#if (eq ../system.minionpack minion.id)}}selected{{/if}}>{{minion.name}}</option>
                 {{/each}}
-                {{/select}}
               </select>
             </div>
             <button class="open-minion-pack" {{#if (eq system.minionpack "")}} disabled {{/if}}>{{localize "FITD.Open"}}</button>

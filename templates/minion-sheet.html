@@ -3,10 +3,8 @@
     {{!-- Minion Sheet Type Selection --}}
     <div class="sheet-type">
       <select name="system.mp_type">
-        {{#select system.mp_type}}
-        <option value="normal">{{localize "FITD.Normal_MP"}}</option>
-        <option value="undead">{{localize "FITD.Undead_MP"}}</option>
-        {{/select}}
+        <option value="normal" {{#if (eq system.mp_type "normal")}}selected{{/if}}>{{localize "FITD.Normal_MP"}}</option>
+        <option value="undead" {{#if (eq system.mp_type "undead")}}selected{{/if}}>{{localize "FITD.Undead_MP"}}</option>
       </select>
     </div>
     <div class="top-decoration">
