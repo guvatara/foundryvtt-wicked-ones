@@ -36,9 +36,9 @@
       "flags": {}
     }
   ],
-  "url": "https://github.com/guvatara/foundryvtt-wicked-ones",
-  "manifest": "https://raw.githubusercontent.com/guvatara/foundryvtt-wicked-ones/releases/latest/download/system.json",
-  "download": "https://github.com/guvatara/foundryvtt-wicked-ones/releases/latest/download/system.zip",
+  "url": "https://github.com/eHanus/foundryvtt-wicked-ones",
+  "manifest": "https://raw.githubusercontent.com/eHanus/foundryvtt-wicked-ones/releases/latest/download/system.json",
+  "download": "https://github.com/eHanus/foundryvtt-wicked-ones/releases/latest/download/system.zip",
   "packs": [
     {
       "name": "adventurer",
