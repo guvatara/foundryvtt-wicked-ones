@@ -124,22 +124,20 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
 
   let result = await foundry.applications.handlebars.renderTemplate("systems/wicked-ones/templates/wicked-roll.html", { rolls: rolls, method: method, roll_type: roll_type, roll_status_class: roll_status, roll_status_text: roll_status_text, attribute_label: attribute_label, position: position_localize, effect: effect_localize, roll_description: roll_description, zeromode: zeromode, char_name: char_name });
 
-  const messageData = !foundry.utils.isNewerVersion("12.0.0", game.version)
-    ? {
-        user: game.user.id,
-        speaker: speaker,
-        content: result,
-        sound: CONFIG.sounds.dice,
-        rolls: [r]
-      }
-    : {
-        user: game.user.id,
-        speaker: speaker,
-        content: result,
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-        sound: CONFIG.sounds.dice,
-        rolls: [r]
-      };
+  // v12+: use embedded rolls (no type / CONST.CHAT_MESSAGE_TYPES — removed in v14).
+  // v14+: ChatMessage uses `author`; older cores use `user`.
+  const coreMajor = Number(String(game.version ?? "").match(/^\d+/)?.[0] ?? 0);
+  const messageData = {
+    speaker,
+    content: result,
+    sound: CONFIG.sounds.dice,
+    rolls: [r]
+  };
+  if (coreMajor >= 14) {
+    messageData.author = game.user.id;
+  } else {
+    messageData.user = game.user.id;
+  }
 
   // Prepare message options
   const rMode = game.settings.get("core", "rollMode");
