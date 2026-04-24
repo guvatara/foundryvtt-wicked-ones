@@ -1,4 +1,13 @@
 /**
+ * Core version string for comparisons (v10+ exposes `game.version`; older clients used `game.data.version`).
+ * @returns {string}
+ */
+function getGameVersionString() {
+  const v = game.version ?? game.data?.version;
+  return v != null && v !== "" ? String(v) : "10.0.0";
+}
+
+/**
  * Roll Dice.
  * @param {int} dice_amount
  * @param {string} attribute_name
@@ -40,7 +49,7 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
   if (speaker.alias == char_name) {
     char_name = "";
   }
-  let isBelow070 = foundry.utils.isNewerVersion('0.7.0', game.version);
+  let isBelow070 = foundry.utils.isNewerVersion('0.7.0', getGameVersionString());
   let rolls = [];
   let attribute_label = WickedHelpers.getAttributeLabel(attribute_name);
 
@@ -126,7 +135,7 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
 
   // v12+: use embedded rolls (no type / CONST.CHAT_MESSAGE_TYPES — removed in v14).
   // v14+: ChatMessage uses `author`; older cores use `user`.
-  const coreMajor = Number(String(game.version ?? "").match(/^\d+/)?.[0] ?? 0);
+  const coreMajor = Number(String(getGameVersionString()).match(/^\d+/)?.[0] ?? 0);
   const messageData = {
     speaker,
     content: result,
@@ -166,7 +175,7 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
 export function getWickedRollStatus(rolls, zeromode = false) {
 
   // Dice API has changed in 0.7.0 so need to keep that in mind.
-  let isBelow070 = foundry.utils.isNewerVersion('0.7.0', game.version);
+  let isBelow070 = foundry.utils.isNewerVersion('0.7.0', getGameVersionString());
 
   let sorted_rolls; //= [];
   // Sort roll values from lowest to highest.
@@ -229,10 +238,12 @@ export function getWickedRollStatus(rolls, zeromode = false) {
 export async function simpleRollPopup() {
 
   new foundry.applications.api.DialogV2({
-    window: { title: `Dice Roller` },
+    id: "wicked-simple-roll-popup",
+    window: { title: game.i18n.localize("FITD.RollSomeDice") },
     content: `
       <h2>${game.i18n.localize("FITD.RollSomeDice")}</h2>
       <p>${game.i18n.localize("FITD.RollTokenDescription")}</p>
+      <form id="wicked-simple-roll-form">
       <div id="dice-roller">
 		<div class="form-group">
 		<label>${game.i18n.localize('FITD.RollType')}:</label>
@@ -258,6 +269,7 @@ export async function simpleRollPopup() {
           </select>
         </div>
       </div>
+      </form>
     `,
     buttons: [
       {
@@ -266,7 +278,11 @@ export async function simpleRollPopup() {
         label: `Roll`,
         default: true,
         callback: (event, button) => {
-          const form = button.form;
+          const form =
+            button?.form
+            ?? event?.currentTarget?.closest?.("form")
+            ?? document.getElementById("wicked-simple-roll-form");
+          if (!form) return;
           wickedRoll(form.elements.qty.value, "", "default", "default", form.elements.type.value);
         },
       },

@@ -93,6 +93,9 @@ Hooks.once("init", async function() {
     return html;
   });
 
+  // Compares actor/item names to compendium English or current-language FITD.GAME_LOGIC label
+  Handlebars.registerHelper("eqCompName", (name, key) => WickedHelpers.matchesCompendiumName(name, String(key)));
+
   // Debug Helper
   Handlebars.registerHelper("debug", function (optionalValue) {
     console.log("Current Context");
@@ -352,7 +355,7 @@ function addWickedDiceSceneControl(controls) {
 
   tools.wickedRollDice = {
     name: "wickedRollDice",
-    title: "FITD.TOOLTIP.RollDice",
+    title: "FITD.RollSomeDice",
     icon: "fa-solid fa-dice",
     order: nextOrder,
     button: true,
