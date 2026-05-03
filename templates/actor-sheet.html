@@ -87,7 +87,7 @@
             {{/each}}
           </div>
           {{else}}
-          {{#if (eq actor.system.primal_monster_type (localize "FITD.GAME_LOGIC.Goldmonger"))}}
+          {{#if (eqCompName actor.system.primal_monster_type "Goldmonger")}}
           <div class="item-block flex-vertical draggable-items">
             <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="goldmonger_type">{{localize "FITD.GMType"}}</a></div>
             {{#each actor.items as |item id|}}
@@ -132,7 +132,7 @@
         {{#unless system.is_awakened}}
         <td>
           {{!-- Revelry --}}
-          {{#unless (eq actor.system.primal_monster_type (localize "FITD.GAME_LOGIC.Goldmonger"))}}
+          {{#unless (eqCompName actor.system.primal_monster_type "Goldmonger")}}
           <div class="item-block flex-vertical draggable-items">
             <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="revelry">{{localize "FITD.Revelry"}}</a></div>
             {{#each actor.items as |item id|}}
@@ -180,7 +180,7 @@
         {{/unless}}
       </tr>
       <tr class="xp-stripe">
-        {{#unless (eq actor.system.primal_monster_type (localize "FITD.GAME_LOGIC.Goldmonger"))}}
+        {{#unless (eqCompName actor.system.primal_monster_type "Goldmonger")}}
         <td>
           {{#if system.has_gold}}
           {{!-- Gold --}}
@@ -238,7 +238,7 @@
           </div>
 
           {{else}}
-          {{#unless (eq actor.system.primal_monster_type (localize "FITD.GAME_LOGIC.Doomseeker"))}}
+          {{#unless (eqCompName actor.system.primal_monster_type "Doomseeker")}}
           {{!-- Reckless XP --}}
           <div id="character-{{actor._id}}-recklessxp" class="big-teeth xp-bar">
             {{#multiboxes system.recklessxp.value}}
@@ -378,7 +378,7 @@
       {{!-- Nav menu --}}
     <nav class="tabs flex-horizontal">
       <a class="item" data-tab="abilities">{{localize "FITD.Abilities"}}</a>
-      {{#unless (eq actor.system.primal_monster_type (localize "FITD.GAME_LOGIC.Goldmonger"))}}
+      {{#unless (eqCompName actor.system.primal_monster_type "Goldmonger")}}
       <a class="item" data-tab="loadout">{{localize "FITD.Loadout"}}</a>
       {{/unless}}
       <a class="item" data-tab="duties">{{#if system.is_awakened}}{{localize "FITD.ConquestTab"}}{{else}}{{localize "FITD.DutiesProjects"}}{{/if}}</a>
@@ -884,8 +884,8 @@
       {{!-- Gear & Supply Tab --}}
       <div id="loadout" class="tab flex-vertical" data-tab="loadout">
         {{!-- Gear Table --}}
-        {{#unless (eq actor.system.primal_monster_type (localize "FITD.GAME_LOGIC.Facestealer"))}}
-        {{#unless (eq actor.system.primal_monster_type (localize "FITD.GAME_LOGIC.Doomseeker"))}}
+        {{#unless (eqCompName actor.system.primal_monster_type "Facestealer")}}
+        {{#unless (eqCompName actor.system.primal_monster_type "Doomseeker")}}
         <div class="label-stripe flex-horizontal">
           <p>{{#if system.is_awakened}}{{localize "FITD.GearAnatomy"}}{{else}}{{localize "FITD.Gear"}}{{/if}}</p>
           <p><a class="item-add-popup" data-item-type="gearsupply"><i class="fas fa-plus-square"></i></a></p>
@@ -1076,7 +1076,7 @@
       <div id="duties-tab" class="tab flex-vertical" data-tab="duties">
         <div class="label-stripe flex-horizontal">
           <p><label>{{localize "FITD.DowntimeActions"}}</label></p>
-          {{#if (eq actor.system.primal_monster_type (localize "FITD.GAME_LOGIC.Goldmonger"))}}
+          {{#if (eqCompName actor.system.primal_monster_type "Goldmonger")}}
           <p class="rollable-text roll-basic" data-roll-type="slumber" data-roll-default="0" data-roll-max="10">{{localize "FITD.ROLL.SLUMBER.Name"}}<i class="fa-light fa-dice"></i></p>
           {{else}}
           <p class="rollable-text roll-basic" data-roll-type="loot" data-roll-default="0" data-roll-max="10">{{localize "FITD.ROLL.LOOT.Name"}}<i class="fa-light fa-dice"></i></p>
