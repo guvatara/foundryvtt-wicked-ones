@@ -106,7 +106,7 @@ export class WickedItem extends Item {
       }
 
     }
-    await super.create(data, options);
+    return super.create(data, options);
   }
 
   /* override */
