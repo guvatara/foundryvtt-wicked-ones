@@ -52,7 +52,7 @@ export class WickedActor extends Actor {
         );
       }
     }
-    await super.create(data, options);
+    return super.create(data, options);
   }
 
   /* -------------------------------------------- */
