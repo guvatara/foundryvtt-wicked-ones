@@ -1,6 +1,6 @@
 
 import { WickedSheet } from "./wicked-sheet.js";
-
+import { WickedHelpers } from "./wicked-helpers.js";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {WickedSheet}
@@ -27,7 +27,7 @@ export class WickedActorSheet extends WickedSheet {
 
     sheetData.actor = sheetData.data;
     sheetData.system = sheetData.document.system // project system data so that handlebars has the same name and value paths
-    sheetData.notes = await TextEditor.enrichHTML(this.object.system.description, { async: true });
+    sheetData.notes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.object.system.description, { async: true });
 
     // Change the action ratings on display and flags depending on the sheet type
     sheetData.system.is_awakened = false;
@@ -52,25 +52,25 @@ export class WickedActorSheet extends WickedSheet {
     sheetData.system.supply.max = 2;
     sheetData.items.forEach(i => {
       if (i.type == "specialability") {
-        if (i.name == game.i18n.localize("FITD.GAME_LOGIC.PackMule")) {
+        if (WickedHelpers.matchesCompendiumName(i.name, "PackMule")) {
           sheetData.system.supply.max += 1;
-        } else if (i.name == game.i18n.localize("FITD.GAME_LOGIC.StickyFingers")) {
+        } else if (WickedHelpers.matchesCompendiumName(i.name, "StickyFingers")) {
           sheetData.system.gold.max = 3;
-        } else if (i.name == game.i18n.localize("FITD.GAME_LOGIC.Lair") && i.system.primal.gm_path_value == 3) {
+        } else if (WickedHelpers.matchesCompendiumName(i.name, "Lair") && i.system.primal.gm_path_value == 3) {
           sheetData.system.dark_hearts.max = 3;
-        } else if (i.name == game.i18n.localize("FITD.GAME_LOGIC.GearLocker")) {
+        } else if (WickedHelpers.matchesCompendiumName(i.name, "GearLocker")) {
           sheetData.system.supply.max += 1;
         }
       }
     });
 
     // check if Braineater and remove invoke skill
-    if (sheetData.system.primal_monster_type == game.i18n.localize("FITD.GAME_LOGIC.Braineater")) {
+    if (WickedHelpers.matchesCompendiumName(sheetData.system.primal_monster_type, "Braineater")) {
       delete sheetData.system.attributes.guts.skills.invoke;
     }
 
-    // check if Goldmonger and set Gold to bot be tracked
-    if (sheetData.system.primal_monster_type == game.i18n.localize("FITD.GAME_LOGIC.Goldmonger")) {
+    // check if Goldmonger and set Gold to not be tracked
+    if (WickedHelpers.matchesCompendiumName(sheetData.system.primal_monster_type, "Goldmonger")) {
       sheetData.system.has_gold = false;
     }
 

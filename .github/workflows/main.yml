@@ -1,29 +1,52 @@
 name: Release Creation
 
-on: 
+on:
   release:
     types: [published]
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     # Substitute the Manifest and Download URLs in the system.json
     - name: Substitute Manifest and Download Links For Versioned Ones
       id: sub_manifest_link_version
-      uses: microsoft/variable-substitution@v1
-      with:
-        files: 'system.json'
+      shell: bash
       env:
-        version: ${{github.event.release.tag_name}}
-        url: https://github.com/${{github.repository}}
-        manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
-        download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/system.zip
+        RELEASE_TAG: ${{ github.event.release.tag_name }}
+        RELEASE_REPOSITORY: ${{ github.repository }}
+      run: |
+        node <<'NODE'
+        const fs = require('fs');
+
+        const manifestPath = 'system.json';
+        const releaseTag = process.env.RELEASE_TAG;
+        const repository = process.env.RELEASE_REPOSITORY;
+        const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+
+        manifest.version = releaseTag;
+        manifest.url = `https://github.com/${repository}`;
+        manifest.manifest = `https://github.com/${repository}/releases/latest/download/system.json`;
+        manifest.download = `https://github.com/${repository}/releases/download/${releaseTag}/system.zip`;
+
+        fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+        NODE
 
     # Create a zip file with all files required by the system to add to the release
-    - run: zip -r ./system.zip system.json template.json CHANGELOG.txt LICENSE.txt fonts/ lang/ module/ packs/ sample-images/ styles/ templates/
+    - name: Build System Archive
+      shell: bash
+      run: |
+        paths=(system.json template.json CHANGELOG.txt LICENSE.txt fonts lang module packs styles templates)
+        if [ -d sample-images ]; then
+          paths+=(sample-images)
+        fi
+
+        zip -r ./system.zip "${paths[@]}"
 
     # Create a release for this specific version
     - name: Update Release with Files
@@ -35,6 +58,6 @@ jobs:
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: './system.json, ./system.zip'
+        artifacts: './system.json,./system.zip'
         tag: ${{ github.event.release.tag_name }}
         body: ${{ github.event.release.body }}

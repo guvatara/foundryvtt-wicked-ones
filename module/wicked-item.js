@@ -12,17 +12,15 @@ export class WickedItem extends Item {
     await super._preCreate(data, options, user);
 
     if (data.type == "adventurer") {
+      data.system = data.system || {};
       if (data.system.adventurer_type == "hireling" && data.system.hireling_type == "") {
         const hirelingType = this.getRandomHirelingType();
         const i18n = game.i18n.localize(hirelingType);
 
-        this.updateSource({
-          name: i18n,
-          system: {
-            hireling_type: hirelingType,
-            hireling_type_custom: i18n
-          }
-        });
+          // Set initial creation data instead of calling updateSource (compatibility)
+          data.name = i18n;
+          data.system.hireling_type = hirelingType;
+          data.system.hireling_type_custom = i18n;
       }
     }
   }

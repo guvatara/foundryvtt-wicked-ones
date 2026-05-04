@@ -26,7 +26,7 @@ export class WickedFactionSheet extends WickedSheet {
 
     sheetData.actor = sheetData.data;
     sheetData.system = sheetData.document.system // project system data so that handlebars has the same name and value paths
-    sheetData.notes = await TextEditor.enrichHTML(this.object.system.description, { async: true });
+    sheetData.notes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.object.system.description, { async: true });
 		
     // Override Code for updating the sheet goes here
 
@@ -70,8 +70,8 @@ export class WickedFactionSheet extends WickedSheet {
     let tokens = this.actor.getActiveTokens();
 
     tokens.forEach(function (token) {
-			data.push(mergeObject(
-				{_id: token.id},
+			data.push(foundry.utils.mergeObject(
+				{ _id: token.id },
 				image
 			));
     });

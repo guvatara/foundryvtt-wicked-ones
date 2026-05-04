@@ -225,3 +225,20 @@ WO.ua_conquest_domains = {
   "horror": "FITD.UA_CONQUEST_SHEET.Horror",
   "corruption": "FITD.UA_CONQUEST_SHEET.Corruption"
 };
+
+/**
+ * Canonical English names (official compendium) for data comparisons.
+ * `FITD.GAME_LOGIC.*` in lang files is for display / optional alternate names; logic uses
+ * WickedHelpers.matchesCompendiumName or Handlebars `eqCompName` (also accept localized labels).
+ * @type {Readonly<Record<string, string>>}
+ */
+WO.cmpName = Object.freeze({
+  PackMule: "Pack Mule",
+  StickyFingers: "Sticky Fingers",
+  Lair: "Lair",
+  GearLocker: "Gear Locker",
+  Braineater: "Braineater",
+  Doomseeker: "Doomseeker",
+  Facestealer: "Facestealer",
+  Goldmonger: "Goldmonger"
+});

@@ -228,16 +228,25 @@ export class WickedHelpers {
    * @param {string} attribute_name
    * @returns {bool}
    */
+  /**
+   * True if `name` is the compendium English name or the current language label for a GAME_LOGIC id.
+   * @param {string} name
+   * @param {string} key  e.g. Braineater, Goldmonger, PackMule
+   */
+  static matchesCompendiumName(name, key) {
+    if (name == null) return false;
+    const c = CONFIG.WO.cmpName[key];
+    if (name === c) return true;
+    return name === game.i18n.localize(`FITD.GAME_LOGIC.${key}`);
+  }
+
   static isPrimalCalling(source_name) {
-    switch (source_name) {
-      case game.i18n.localize("FITD.GAME_LOGIC.Braineater"):
-      case game.i18n.localize("FITD.GAME_LOGIC.Doomseeker"):
-      case game.i18n.localize("FITD.GAME_LOGIC.Facestealer"):
-      case game.i18n.localize("FITD.GAME_LOGIC.Goldmonger"):
-        return true;
-      default:
-        return false;
-    }
+    return (
+      WickedHelpers.matchesCompendiumName(source_name, "Braineater") ||
+      WickedHelpers.matchesCompendiumName(source_name, "Doomseeker") ||
+      WickedHelpers.matchesCompendiumName(source_name, "Facestealer") ||
+      WickedHelpers.matchesCompendiumName(source_name, "Goldmonger")
+    );
   }
 
 /* -------------------------------------------- */

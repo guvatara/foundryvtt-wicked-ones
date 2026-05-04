@@ -1,9 +1,11 @@
 /**
  * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
+ * @extends {foundry.appv1.sheets.ActorSheet}
  */
 
-export class WickedSheet extends ActorSheet {
+const BaseActorSheet = foundry.appv1.sheets.ActorSheet;
+
+export class WickedSheet extends BaseActorSheet {
 
   /* -------------------------------------------- */
 
@@ -207,30 +209,27 @@ export class WickedSheet extends ActorSheet {
     const label = CONFIG.Item?.typeLabels?.[item_type] ?? item_type;
     let title = game.i18n.has(label) ? game.i18n.localize(label) : item_type;
 
-    let options = {
-      id: "add-items-popup"
-    }
-
-    let dialog = new Dialog({
-      title: `${game.i18n.localize('Add')} ${game.i18n.localize(title)}`,
+    new foundry.applications.api.DialogV2({
+      id: "add-items-popup",
+      window: { title: `${game.i18n.localize('Add')} ${game.i18n.localize(title)}` },
       content: html,
-      buttons: {
-        one: {
-          icon: '<i class="fas fa-check"></i>',
+      buttons: [
+        {
+          action: "add",
+          icon: "fas fa-check",
           label: game.i18n.localize('Add'),
-          callback: () => this.addItemsToSheet(item_type, $(document).find('#items-to-add'))
+          callback: () => {
+            this.addItemsToSheet(item_type, $(document).find('#items-to-add'));
+          },
         },
-        two: {
-          icon: '<i class="fas fa-times"></i>',
+        {
+          action: "cancel",
+          icon: "fas fa-times",
           label: game.i18n.localize('Cancel'),
-          callback: () => false
-        }
-      },
-      default: "two",
-      render: html => {},
-    }, options);
-
-    dialog.render(true);
+          default: true,
+        },
+      ],
+    }).render({ force: true });
   }
 
   /* -------------------------------------------- */

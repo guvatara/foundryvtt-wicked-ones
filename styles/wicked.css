@@ -4506,13 +4506,15 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
  */
 /*
  *   Layout Styles
+ *   v13: never use bare .sheet / section / .flex-horizontal — Foundry reuses these in the sidebar and core UI.
  */
-.sheet {
+.sheet.wicked-ones {
   min-width: min-content;
 }
 
-/* WO-Borders for windows and sheets*/
-.window-app .window-content {
+/* WO-Borders for Wicked sheets only */
+.window-app.sheet.wicked-ones .window-content,
+.application.sheet.wicked-ones .window-content {
   background: url(../styles/assets/images/background-light.webp) repeat;
   color: #191919;
   overflow-y: auto;
@@ -4521,59 +4523,70 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   background-size: 70px, 70px, 300px;
   background-position: left, right, bottom;
 }
-.window-app .window-content form.actor-sheet {
+.window-app.sheet.wicked-ones .window-content form.actor-sheet,
+.window-app.sheet.wicked-ones .window-content form.item-sheet,
+.window-app.sheet.wicked-ones .window-content form.clock-block,
+.application.sheet.wicked-ones .window-content form.actor-sheet,
+.application.sheet.wicked-ones .window-content form.item-sheet,
+.application.sheet.wicked-ones .window-content form.clock-block {
   z-index: 0;
   padding: 20px 12px;
 }
 
-/* Overlay-Style for visibility for dialogs (else borders disrupt readability) */
-.dialog-content {
+/* Overlay for Wicked system dialogs only (not every core dialog) */
+#add-items-popup .dialog-content,
+#dice-roll-popup .dialog-content {
   background-color: rgba(255, 250, 240, 0.5882352941);
   border-radius: 5px;
   box-shadow: 0 0 6px 7px rgba(255, 250, 240, 0.5882352941);
 }
 
-section {
+.sheet.wicked-ones section {
   display: flex;
   flex-direction: column;
 }
-section > form:last-child {
+.sheet.wicked-ones section > form:last-child {
   margin-right: 0px;
 }
-section .grow-one {
+.sheet.wicked-ones section .grow-one {
   flex-grow: 1;
 }
-section .grow-two {
+.sheet.wicked-ones section .grow-two {
   flex-grow: 2;
 }
 
-.flex-horizontal {
+.sheet.wicked-ones .flex-horizontal,
+#add-items-popup .flex-horizontal {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.flex-vertical {
+.sheet.wicked-ones .flex-vertical {
   display: flex;
   flex-direction: column;
 }
 
-table.base-info {
+.sheet.wicked-ones .flex-vertical.tab[data-tab]:not(.active) {
+    display: none;
+}
+
+.sheet.wicked-ones table.base-info {
   border-top: 5px solid #68332c;
 }
-table.base-info tr td:nth-of-type(1) {
+.sheet.wicked-ones table.base-info tr td:nth-of-type(1) {
   min-width: 150px;
 }
-table.base-info tr .item-add-popup {
+.sheet.wicked-ones table.base-info tr .item-add-popup {
   color: #68332c;
 }
-table.base-info tr .text-input {
+.sheet.wicked-ones table.base-info tr .text-input {
   color: #68332c;
 }
-table.base-info tr .text-input label {
+.sheet.wicked-ones table.base-info tr .text-input label {
   font-weight: 700;
 }
-table.base-info tr .text-input input {
+.sheet.wicked-ones table.base-info tr .text-input input {
   font-weight: normal;
   font-family: Piedra;
   font-size: 20px;
@@ -4582,27 +4595,27 @@ table.base-info tr .text-input input {
 }
 
 /*
- *   Navigation Styles
+ *   Navigation Styles (scoped: global nav.tabs matches Foundry v13 sidebar — never unscoped)
  */
-nav {
+.wicked-ones.sheet nav {
   margin-bottom: 10px;
 }
 
-.tab-content {
+.wicked-ones.sheet .tab-content {
   margin-right: 8px;
 }
-.tab-content nav a {
+.wicked-ones.sheet .tab-content nav a {
   flex: none;
 }
-.tab-content .tab .label-stripe {
+.wicked-ones.sheet .tab-content .tab .label-stripe {
   margin-bottom: 0px;
 }
-.tab-content .tab table {
+.wicked-ones.sheet .tab-content .tab table {
   margin-top: 0px;
   border: 0px;
 }
 
-.tabs .item.active {
+.wicked-ones.sheet .tabs .item.active {
   font-weight: 700;
   color: #400000;
   text-shadow: 2px 2px 7px #d46c1f;
@@ -4610,39 +4623,43 @@ nav {
 
 /*
  *   Element Styles
+ *   v13+: do not set font on body — cascades into core UI and breaks icon fonts on buttons.
  */
 body {
-  font-family: Bitter, sans-serif;
-  font-weight: 500;
-  font-size: 14px;
   background: url("../styles/assets/images/WO-Background.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
-table {
+.sheet.wicked-ones {
+  font-family: Bitter, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.sheet.wicked-ones table {
   width: 100.1%;
 }
-table th:hover .item-add-popup {
+.sheet.wicked-ones table th:hover .item-add-popup {
   transition: opacity 0.5s;
   opacity: 1;
 }
-table th .item-add-popup {
+.sheet.wicked-ones table th .item-add-popup {
   transition: opacity 0.5s;
   opacity: 0.1;
 }
-table tr:nth-child(even) {
+.sheet.wicked-ones table tr:nth-child(even) {
   background-color: initial;
 }
-table td, table th {
+.sheet.wicked-ones table td, .sheet.wicked-ones table th {
   padding: 5px;
 }
-table td:first-child {
+.sheet.wicked-ones table td:first-child {
   padding-left: 5px;
 }
 
-h1, h2, h3, h4 {
+.sheet.wicked-ones h1, .sheet.wicked-ones h2, .sheet.wicked-ones h3, .sheet.wicked-ones h4 {
   font-weight: bold;
 }
 
@@ -4650,7 +4667,7 @@ h1, h2, h3, h4 {
   font-weight: 700;
 }
 
-select {
+.sheet.wicked-ones select {
   font-family: Bitter, Lucida Console, monospace;
   font-weight: 600;
   font-size: 15px;
@@ -4658,12 +4675,12 @@ select {
   border: 1px solid #68332c;
 }
 
-option {
+.sheet.wicked-ones option {
   font-weight: 600;
 }
 
-input[type=text], input[type=number], input[type=password],
-input[type=date], input[type=time], input[type=range] {
+.sheet.wicked-ones input[type=text], .sheet.wicked-ones input[type=number], .sheet.wicked-ones input[type=password],
+.sheet.wicked-ones input[type=date], .sheet.wicked-ones input[type=time], .sheet.wicked-ones input[type=range] {
   font-weight: 600;
   border: 1px solid #68332c;
   border-radius: 0;
@@ -4685,7 +4702,7 @@ input[type=date], input[type=time], input[type=range] {
   border-radius: 0;
 }
 
-textarea {
+.sheet.wicked-ones textarea {
   color: #400000;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -4737,19 +4754,26 @@ textarea {
 /*
  *   Button Styles
  */
-.dialog .dialog-buttons button.default, * * form button, .dialog .dialog-buttons button, button {
+.dialog .dialog-buttons button.default,
+.dialog .dialog-buttons button,
+.wicked-ones.sheet form button,
+.wicked-ones.sheet button {
   background: #68332c;
   border-top: 1px outset #d46c1f;
   border-bottom: 2px outset #d46c1f;
   border-left: 2px solid darkslategrey;
   border-right: 2px solid darkslategrey;
 }
-.dialog .dialog-buttons button:hover, button:hover, .dialog .dialog-buttons button:focus, button:focus {
+.dialog .dialog-buttons button:hover,
+.dialog .dialog-buttons button:focus,
+.wicked-ones.sheet button:hover,
+.wicked-ones.sheet button:focus {
   outline: none;
   box-shadow: 0 0 5px #d46c1f;
   background: #d46c1f;
 }
-.dialog .dialog-buttons button:disabled, button:disabled {
+.dialog .dialog-buttons button:disabled,
+.wicked-ones.sheet button:disabled {
   outline: none;
   border-top: 1px outset #999;
   border-bottom: 2px outset #999;
@@ -4757,7 +4781,7 @@ textarea {
   background: #999;
 }
 
-button {
+.wicked-ones.sheet button {
   font-family: Bitter, sans-serif;
   font-weight: 500;
   color: #fff8e8;
@@ -5081,16 +5105,16 @@ div.item i.fa-trash, tr.item i.fa-trash {
   display: none;
 }
 
-.rollable-text {
+.sheet.wicked-ones .rollable-text {
   transition: color 0.2s;
 }
-.rollable-text:hover {
+.sheet.wicked-ones .rollable-text:hover {
   cursor: pointer;
   color: #a20000;
 }
 
-.editor,
-.editor-content {
+.sheet.wicked-ones .editor,
+.sheet.wicked-ones .editor-content {
   min-height: 280px;
   background: rgba(0, 0, 0, 0.05);
   padding: 10px;
@@ -5108,23 +5132,23 @@ div.item i.fa-trash, tr.item i.fa-trash {
   content: url("assets/decorations/pause-logo.webp");
 }
 
-form .notes, form .hint {
+.sheet.wicked-ones form .notes, .sheet.wicked-ones form .hint {
   font-weight: 600;
 }
 
-form .form-group label {
+.sheet.wicked-ones form .form-group label {
   font-weight: 700;
 }
 
-/* Global Tab Style Formatting */
-nav.tabs.flex-horizontal {
+/* Tab row styling (scoped: same classes as Foundry core sidebar / scene tabs in v13) */
+.wicked-ones.sheet nav.tabs.flex-horizontal {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0;
 }
-nav.tabs.flex-horizontal .item {
+.wicked-ones.sheet nav.tabs.flex-horizontal .item {
   text-align: center;
   color: black;
   background-color: rgba(128, 128, 128, 0.2392156863);
@@ -5135,16 +5159,16 @@ nav.tabs.flex-horizontal .item {
   box-shadow: inset 0 2px 3px 0px #68332c;
   flex: auto;
 }
-nav.tabs.flex-horizontal .item.active {
+.wicked-ones.sheet nav.tabs.flex-horizontal .item.active {
   font-weight: 700;
   color: white;
   background-color: #68332c;
   box-shadow: none;
 }
-nav.tabs.flex-horizontal > :first-child {
+.wicked-ones.sheet nav.tabs.flex-horizontal > :first-child {
   margin-left: 0;
 }
-nav.tabs.flex-horizontal > :last-child {
+.wicked-ones.sheet nav.tabs.flex-horizontal > :last-child {
   margin-right: 0;
 }
 

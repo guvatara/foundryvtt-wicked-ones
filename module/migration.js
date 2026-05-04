@@ -5,20 +5,21 @@
 export const migrateWorld = async function() {
   ui.notifications.info(`Applying WO Actors migration for version ${game.system.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
 
-  // Migrate World Actors
-  for ( let a of game.actors.entities ) {
-    if (a.type === 'character') {
-      try {
-        const updateData = _migrateActor(a);
-        if ( !isObjectEmpty(updateData) ) {
-          console.log(`Migrating Actor entity ${a.name}`);
-          await a.update(updateData, {enforceTypes: false});
+    // Migrate World Actors
+    // Use game.actors.contents (array of Actor documents) for Foundry VTT 13+
+    for ( let a of game.actors.contents ) {
+        if (a.type === 'character') {
+            try {
+                const updateData = _migrateActor(a);
+                if ( !isObjectEmpty(updateData) ) {
+                    console.log(`Migrating Actor entity ${a.name}`);
+                    await a.update(updateData, {enforceTypes: false});
+                }
+            } catch(err) {
+                console.error(err);
+            }
         }
-      } catch(err) {
-        console.error(err);
-      }
     }
-  }
 
   // Set the migration as complete
   game.settings.set("wicked-ones", "systemMigrationVersion", game.system.version);
