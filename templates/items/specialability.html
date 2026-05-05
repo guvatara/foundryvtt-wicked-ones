@@ -35,6 +35,9 @@
     <div class="flex-vertical">
       <label class="label-stripe">{{localize "FITD.Source"}}</label>
       <input id="ability-source" type="text" name="system.source" value="{{system.source}}" placeholder="{{localize 'FITD.SourceExample'}}">
+      {{#if system.localized_display.hasSource}}
+      <label>{{localize "FITD.Source"}} (Localized): {{system.localized_display.source}}</label>
+      {{/if}}
       <input type="checkbox" name="system.is_ua_ability" {{checked system.is_ua_ability}}>
       <label>{{localize "FITD.IsUAAbilityHint"}}</label>
     </div>
@@ -62,6 +65,9 @@
       <div class="flex-vertical">
         <label class="label-stripe">{{localize "FITD.Source"}}</label>
         <input id="ability-source" type="text" name="system.source" value="{{system.source}}" placeholder="{{localize 'FITD.SourceExample'}}">
+        {{#if system.localized_display.hasSource}}
+        <label>{{localize "FITD.Source"}} (Localized): {{system.localized_display.source}}</label>
+        {{/if}}
         <input type="checkbox" name="system.is_ua_ability" {{checked system.is_ua_ability}}>
       <label>{{localize "FITD.IsUAAbilityHint"}}</label>
       </div>

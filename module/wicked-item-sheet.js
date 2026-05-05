@@ -4,6 +4,7 @@
  */
 
 const BaseItemSheet = foundry.appv1.sheets.ItemSheet;
+import { WickedHelpers } from "./wicked-helpers.js";
 
 export class WickedItemSheet extends BaseItemSheet {
 
@@ -29,6 +30,26 @@ export class WickedItemSheet extends BaseItemSheet {
     sheetData.config = CONFIG.WO;
 
     sheetData.system = sheetData.data.system // project system data so that handlebars has the same name and value paths
+    sheetData.system.localized_display = {};
+
+    const entries = await WickedHelpers.getCompendiumTranslationEntries(sheetData.item.type);
+    const translatedEntry = entries?.[sheetData.item._id] ?? null;
+    const localizeGameLogicName = (value) => {
+      if (!value) return "";
+      const key = String(value).replace(/\s+/g, "");
+      const i18nKey = `FITD.GAME_LOGIC.${key}`;
+      return game.i18n.has(i18nKey) ? game.i18n.localize(i18nKey) : String(value);
+    };
+
+    const sourceDisplay = translatedEntry?.source ?? localizeGameLogicName(sheetData.system.source);
+    sheetData.system.localized_display.source = sourceDisplay;
+    sheetData.system.localized_display.hasSource =
+      Boolean(sourceDisplay) && sourceDisplay !== sheetData.system.source;
+
+    const themeDisplay = translatedEntry?.theme ?? "";
+    sheetData.system.localized_display.theme = themeDisplay;
+    sheetData.system.localized_display.hasTheme =
+      Boolean(themeDisplay) && themeDisplay !== sheetData.system.theme;
 
     // Prepare special ability data
     if (sheetData.item.type == "specialability") {

@@ -7,6 +7,50 @@ const BaseActorSheet = foundry.appv1.sheets.ActorSheet;
 
 export class WickedSheet extends BaseActorSheet {
 
+  /** @override */
+  async getData(options) {
+    const sheetData = await super.getData(options);
+    await this._applyCompendiumTranslationsForDisplay(sheetData.items ?? []);
+    return sheetData;
+  }
+
+  async _applyCompendiumTranslationsForDisplay(items) {
+    if (!Array.isArray(items) || items.length === 0) return;
+
+    for (const item of items) {
+      if (!item?.type) continue;
+
+      const entries = await WickedHelpers.getCompendiumTranslationEntries(item.type);
+      if (!entries) continue;
+
+      const translatedEntry = entries[item._id];
+      if (!translatedEntry) continue;
+
+      if (translatedEntry.name) item.name = translatedEntry.name;
+
+      if (item.system) {
+        if (translatedEntry.systemDescription || translatedEntry.description) {
+          item.system.description = translatedEntry.systemDescription ?? translatedEntry.description;
+        }
+        if (translatedEntry.systemFlashbackClues || translatedEntry.flashbackClues) {
+          item.system.flashback_clues = translatedEntry.systemFlashbackClues ?? translatedEntry.flashbackClues;
+        }
+        if (translatedEntry.source) {
+          item.system.source = translatedEntry.source;
+        } else if (item.system.source) {
+          const sourceKey = String(item.system.source).replace(/\s+/g, "");
+          const sourceI18n = `FITD.GAME_LOGIC.${sourceKey}`;
+          if (game.i18n.has(sourceI18n)) {
+            item.system.source = game.i18n.localize(sourceI18n);
+          }
+        }
+        if (translatedEntry.theme) {
+          item.system.theme = translatedEntry.theme;
+        }
+      }
+    }
+  }
+
   /* -------------------------------------------- */
 
   /** @override */
@@ -131,11 +175,21 @@ export class WickedSheet extends BaseActorSheet {
     }
 
     let html = `<div id="items-to-add">`;
+    const translationEntries = await WickedHelpers.getCompendiumTranslationEntries(item_type);
+    const localizeGameLogicName = (value) => {
+      if (!value) return value;
+      const key = String(value).replace(/\s+/g, "");
+      const i18nKey = `FITD.GAME_LOGIC.${key}`;
+      return game.i18n.has(i18nKey) ? game.i18n.localize(i18nKey) : value;
+    };
 
     items.forEach(e => {
+      const translatedEntry = translationEntries?.[e._id] ?? null;
       let itemPrefix = ``;
       let itemSuffix = ``;
-      let itemTooltip = e.system.description ?? "";
+      const translatedDescription = translatedEntry?.systemDescription ?? translatedEntry?.description;
+      let itemTooltip = translatedDescription ?? e.system.description ?? "";
+      const displayName = translatedEntry?.name ?? e.name;
       switch (item_type) {
 
         case "conquest_ability":
@@ -163,7 +217,8 @@ export class WickedSheet extends BaseActorSheet {
 
         case "specialability":
           if (typeof e.system.source !== "undefined") {
-            itemPrefix += `(${e.system.source}): `
+            const sourceText = translatedEntry?.source ?? localizeGameLogicName(e.system.source);
+            itemPrefix += `(${sourceText}): `
           }
           if (e.system.ability_group == 'group_core') {
             itemSuffix += ` (` + game.i18n.localize(`FITD.Core`) + `)`
@@ -177,7 +232,8 @@ export class WickedSheet extends BaseActorSheet {
 
         case "tier3room":
           if (typeof e.system.theme !== "undefined") {
-            itemPrefix += `(${e.system.theme}): `
+            const themeText = translatedEntry?.theme ?? e.system.theme;
+            itemPrefix += `(${themeText}): `
           }
           break;
 
@@ -196,7 +252,7 @@ export class WickedSheet extends BaseActorSheet {
         html += `flex-horizontal cross-system`;
       }
       html += `" for="select-item-${e._id}">`;
-      html += `${itemPrefix}${game.i18n.localize(e.name)}${itemSuffix}`;
+      html += `${itemPrefix}${game.i18n.localize(displayName)}${itemSuffix}`;
       if (itemTooltip != "") {
         var cleanTip = itemTooltip.replace('"', '&quot;');
         html += `<i class="tooltip quick fas fa-question-circle" data-tooltip="${cleanTip}"></i>`;
