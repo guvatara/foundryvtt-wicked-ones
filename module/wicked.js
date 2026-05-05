@@ -43,6 +43,8 @@ Hooks.once("init", async function() {
     dice: wickedRoll
   }
 
+  WickedHelpers.installCompendiumLocalization();
+
   // Define Roll template.
   // CONFIG.Dice.template = "systems/wicked-ones/templates/wicked-roll.html"
   // CONFIG.Dice.tooltip = "systems/wicked-ones/templates/wicked-roll-tooltip.html"
@@ -274,6 +276,10 @@ Hooks.once("ready", function() {
   // Perform the migration
   if ( needMigration && game.user.isGM ) {
     migrations.migrateWorld();
+  }
+
+  for (const pack of game.packs) {
+    void WickedHelpers.localizeCompendiumMetadata(pack);
   }
 });
 

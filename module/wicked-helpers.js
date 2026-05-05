@@ -1,5 +1,7 @@
 export class WickedHelpers {
   static _compendiumTranslationCache = new Map();
+  static _compendiumTranslationDataCache = new Map();
+  static _compendiumLocalizationInstalled = false;
 
   /**
    * Removes a duplicate item type from charlist.
@@ -224,6 +226,170 @@ export class WickedHelpers {
 
     WickedHelpers._compendiumTranslationCache.set(cacheKey, null);
     return null;
+  }
+
+  /**
+   * Loads the full compendium translation file for the current language.
+   * Returns null when no translation file exists.
+   *
+   * @param {string} item_type
+   * @returns {Promise<Object|null>}
+   */
+  static async getCompendiumTranslationData(item_type) {
+    const lang = String(game.i18n.lang || "en").toLowerCase();
+    if (lang === "en" || lang.startsWith("en-")) return null;
+
+    const cacheKey = `${lang}:${item_type}`;
+    if (WickedHelpers._compendiumTranslationDataCache.has(cacheKey)) {
+      return WickedHelpers._compendiumTranslationDataCache.get(cacheKey);
+    }
+
+    const langBase = lang.split("-")[0];
+    const langCandidates = [...new Set([lang, langBase])];
+
+    for (const locale of langCandidates) {
+      const path = `systems/wicked-ones/packs/translations/${locale}/wicked-ones.${item_type}.json`;
+      try {
+        const response = await fetch(path);
+        if (!response.ok) continue;
+        const data = await response.json();
+        WickedHelpers._compendiumTranslationDataCache.set(cacheKey, data);
+        WickedHelpers._compendiumTranslationCache.set(cacheKey, data?.entries ?? null);
+        return data;
+      } catch (_err) {
+        // Missing translation file is expected for many locales.
+      }
+    }
+
+    WickedHelpers._compendiumTranslationDataCache.set(cacheKey, null);
+    WickedHelpers._compendiumTranslationCache.set(cacheKey, null);
+    return null;
+  }
+
+  static async localizeCompendiumMetadata(pack) {
+    const item_type = pack?.metadata?.name;
+    if (!item_type) return;
+
+    const data = await WickedHelpers.getCompendiumTranslationData(item_type);
+    if (!data?.label) return;
+
+    pack.metadata.label = data.label;
+  }
+
+  static async localizeCompendiumIndex(pack, index) {
+    const item_type = pack?.metadata?.name;
+    if (!item_type) return index;
+
+    const data = await WickedHelpers.getCompendiumTranslationData(item_type);
+    const entries = data?.entries;
+    if (!entries) return index;
+
+    await WickedHelpers.localizeCompendiumMetadata(pack);
+
+    const localizeEntry = (entry) => {
+      if (!entry) return;
+      const translated = entries[entry._id ?? entry.id];
+      if (!translated?.name) return;
+      entry.name = translated.name;
+    };
+
+    if (Array.isArray(index)) {
+      index.forEach(localizeEntry);
+    } else if (typeof index?.forEach === "function") {
+      index.forEach(localizeEntry);
+    }
+
+    return index;
+  }
+
+  static async localizeCompendiumDocuments(pack, documents) {
+    const item_type = pack?.metadata?.name;
+    if (!item_type) return documents;
+
+    const data = await WickedHelpers.getCompendiumTranslationData(item_type);
+    const entries = data?.entries;
+    if (!entries) return documents;
+
+    await WickedHelpers.localizeCompendiumMetadata(pack);
+
+    for (const document of documents ?? []) {
+      const translated = entries[document?.id];
+      if (!translated) continue;
+
+      if (typeof document.updateSource === "function") {
+        const update = {};
+        if (translated.name) update.name = translated.name;
+        if (translated.description) update.description = translated.description;
+        if (translated.systemDescription) {
+          foundry.utils.setProperty(update, "system.description", translated.systemDescription);
+        }
+        if (translated.specialName) {
+          foundry.utils.setProperty(update, "system.special_name", translated.specialName);
+        }
+        if (translated.specialFeature) {
+          foundry.utils.setProperty(update, "system.special_feature", translated.specialFeature);
+        }
+        if (translated.themeCheckbox1Text) {
+          foundry.utils.setProperty(update, "system.theme_checkbox_1_text", translated.themeCheckbox1Text);
+        }
+        if (translated.flashbackClues || translated.systemFlashbackClues) {
+          foundry.utils.setProperty(
+            update,
+            "system.flashback_clues",
+            translated.systemFlashbackClues ?? translated.flashbackClues
+          );
+        }
+        if (translated.source) {
+          foundry.utils.setProperty(update, "system.source", translated.source);
+        }
+        if (translated.theme) {
+          foundry.utils.setProperty(update, "system.theme", translated.theme);
+        }
+        if (Object.keys(update).length) document.updateSource(update);
+      }
+
+      if (!translated.results || !document?.results) continue;
+
+      for (const result of document.results) {
+        const range = result?.range ?? [];
+        const rangeKey = `${range[0]}-${range[1]}`;
+        const text = translated.results[rangeKey];
+        if (!text) continue;
+
+        if (typeof result.updateSource === "function") {
+          result.updateSource({ text });
+        } else {
+          result.text = text;
+        }
+      }
+    }
+
+    return documents;
+  }
+
+  static installCompendiumLocalization() {
+    if (WickedHelpers._compendiumLocalizationInstalled) return;
+
+    const proto = globalThis.CompendiumCollection?.prototype;
+    if (!proto) return;
+
+    const originalGetIndex = proto.getIndex;
+    if (typeof originalGetIndex === "function") {
+      proto.getIndex = async function(...args) {
+        const index = await originalGetIndex.apply(this, args);
+        return WickedHelpers.localizeCompendiumIndex(this, index);
+      };
+    }
+
+    const originalGetDocuments = proto.getDocuments;
+    if (typeof originalGetDocuments === "function") {
+      proto.getDocuments = async function(...args) {
+        const documents = await originalGetDocuments.apply(this, args);
+        return WickedHelpers.localizeCompendiumDocuments(this, documents);
+      };
+    }
+
+    WickedHelpers._compendiumLocalizationInstalled = true;
   }
 
   /* -------------------------------------------- */
