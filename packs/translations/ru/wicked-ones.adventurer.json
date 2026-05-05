@@ -1,0 +1,116 @@
+{
+  "lang": "ru",
+  "label": "Авантюристы",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "5wtKWwLdLTUb2Miw": {
+      "name": "Копейщик"
+    },
+    "74IduIfd1PqLbl7W": {
+      "name": "Маг хаоса"
+    },
+    "Bz6lRsRLT4xNfJ3d": {
+      "name": "Наёмник 1"
+    },
+    "DD6WUhCKYqmN5fgB": {
+      "name": "Оружейник"
+    },
+    "FbZ0ncPURbAkbLyv": {
+      "name": "Рыцарь смерти"
+    },
+    "I68nK49xyyVhh0O0": {
+      "name": "Буканьер"
+    },
+    "IFC3xj1c2EM7WsE5": {
+      "name": "Инквизитор"
+    },
+    "JYb4uBseieYTtFDe": {
+      "name": "Аристократ"
+    },
+    "Ld3PICMDOEx2gRex": {
+      "name": "Бард"
+    },
+    "UEU2ECU0yH85WYsV": {
+      "name": "Убийца"
+    },
+    "VJQJQG0vAUJ1QGxH": {
+      "name": "Тамплиер"
+    },
+    "Vd8qLqUmAznSS53F": {
+      "name": "Рыцарь"
+    },
+    "XhrgKIBYVSPvdfbb": {
+      "name": "Следопыт"
+    },
+    "YX6Lb3NLmkgKtGGj": {
+      "name": "Друид"
+    },
+    "ZEqspUXS6ArVKxCo": {
+      "name": "Академик"
+    },
+    "b3vDHdSmklipago0": {
+      "name": "Мистический воин"
+    },
+    "cSpnRqWvEfpcGZhW": {
+      "name": "Иллюзионист"
+    },
+    "d2OkBZTaylyMJepB": {
+      "name": "Танцор теней"
+    },
+    "eNb66MMPkzYer9OY": {
+      "name": "Центурион"
+    },
+    "emIDpnvLoXUpn3Cr": {
+      "name": "Маг-лучник"
+    },
+    "fz9nA2EBzZpxzX67": {
+      "name": "Алхимик"
+    },
+    "iAqSSTG6Ew3JNRMd": {
+      "name": "Пращник"
+    },
+    "kYOyHH1dmF3g35QY": {
+      "name": "Варвар"
+    },
+    "mqRDrmau1pzznTOG": {
+      "name": "Наёмник 4"
+    },
+    "nTijuSfwyAH1P5mJ": {
+      "name": "Жрец"
+    },
+    "oEJSumTWjLSwUw3Q": {
+      "name": "Монах"
+    },
+    "oRlwp8OxVihG8swY": {
+      "name": "Охотник на мистику"
+    },
+    "r5IzEtpJ3h8Jp2GP": {
+      "name": "Наёмник 3"
+    },
+    "s3A994uKShGvEHXR": {
+      "name": "Защитник"
+    },
+    "sZLs343UdmzF7hE7": {
+      "name": "Разведчик"
+    },
+    "vMloyuRuvVvFbAdc": {
+      "name": "Охотник на магов"
+    },
+    "vfeQ5BStkQrFWKxW": {
+      "name": "Наёмник 2"
+    },
+    "xQrdchHYXMdq3Fgv": {
+      "name": "Дикарь"
+    },
+    "yi1QXOJNLvMnO28g": {
+      "name": "Амазонка"
+    }
+  }
+}

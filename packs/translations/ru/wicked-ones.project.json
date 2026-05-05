@@ -1,0 +1,29 @@
+{
+  "lang": "ru",
+  "label": "Проекты",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "1JsTjg9FgjiYPKR3": {
+      "name": "Новый проект 3-го круга"
+    },
+    "5nDx0u7AEmlWAFGc": {
+      "name": "Новый краткосрочный проект"
+    },
+    "61mg4R7Vdj9iITvo": {
+      "name": "Новый долгосрочный проект"
+    },
+    "DV3TnFD2mvkX53Zk": {
+      "name": "Новый среднесрочный проект"
+    },
+    "Xw9PWchJRtlt4UcK": {
+      "name": "Новый проект 2-го круга"
+    }
+  }
+}

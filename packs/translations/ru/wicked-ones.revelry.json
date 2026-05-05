@@ -1,0 +1,32 @@
+{
+  "lang": "ru",
+  "label": "Разгулы",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "0GbyUKjjMof6D8fb": {
+      "name": "Вожделение"
+    },
+    "43dWmFJgAeqcsOJl": {
+      "name": "Насилие"
+    },
+    "Lp7ezgXB3USzviHa": {
+      "name": "Оккультное"
+    },
+    "VNt88GVp0Td0Q8H6": {
+      "name": "Азарт"
+    },
+    "Y0aq94hQO9LyMJN9": {
+      "name": "Поклонение"
+    },
+    "ueBoUHFBMHlCowB0": {
+      "name": "Пьянство"
+    }
+  }
+}

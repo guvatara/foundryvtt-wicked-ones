@@ -1,0 +1,47 @@
+{
+  "lang": "ru",
+  "label": "Порывы миньонов",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "6yvctydUd2eCRwDH": {
+      "name": "Зависимый"
+    },
+    "AmUYK8GfMd8IGRle": {
+      "name": "Ленивый"
+    },
+    "EQr0oYiryvA85a5R": {
+      "name": "Нетерпеливый"
+    },
+    "LxNSouludbXK9b1s": {
+      "name": "Голод"
+    },
+    "PopjAEskVegi7dZj": {
+      "name": "Агрессивный"
+    },
+    "QDA5IrNvDcozITgR": {
+      "name": "Неверный"
+    },
+    "aAVAemzRWoLt0cSy": {
+      "name": "Переменчивый"
+    },
+    "dXFfgPwlWCTE0JYI": {
+      "name": "Мучение"
+    },
+    "mdnKqeHepmKx1AQ1": {
+      "name": "Грёзы"
+    },
+    "rkniNqjuO3D38Lsc": {
+      "name": "Суеверный"
+    },
+    "tYxntcYLoOY2bRA2": {
+      "name": "Жадный"
+    }
+  }
+}

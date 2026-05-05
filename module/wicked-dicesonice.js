@@ -1,6 +1,6 @@
 
 Hooks.on('diceSoNiceReady', (dice3d) => {
-  dice3d.addSystem({ id: "WhiteDots", name: "Wicked Dots"},"default");
+  dice3d.addSystem({ id: "WhiteDots", name: game.i18n.localize("FITD.DICE.WhiteDots")},"default");
    dice3d.addDicePreset({
 	   type: "d6",
 	   labels: [
@@ -20,10 +20,10 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
        "../systems/wicked-ones/styles/assets/dice/whitedots/d6-6-b.webp"	  
 		],
 		system: "WhiteDots",
-		colorset:"Wicked Dice"
+		colorset: game.i18n.localize("FITD.DICE.ColorsetName")
    },"d6");
 
-  dice3d.addSystem({ id: "BlackDots", name: "Wicked Dark Dots"},"default");
+  dice3d.addSystem({ id: "BlackDots", name: game.i18n.localize("FITD.DICE.BlackDots")},"default");
    dice3d.addDicePreset({
 	   type: "d6",
 	   labels: [
@@ -43,10 +43,10 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
        "../systems/wicked-ones/styles/assets/dice/dots/d6-6-b.webp"	  
 		],
 		system: "BlackDots",
-		colorset:"Wicked Dice"
+		colorset: game.i18n.localize("FITD.DICE.ColorsetName")
    },"d6");
 
-  dice3d.addSystem({ id: "Claws", name: "Wicked Claws"},"preferred");
+  dice3d.addSystem({ id: "Claws", name: game.i18n.localize("FITD.DICE.Claws")},"preferred");
 
    dice3d.addDicePreset({
 	   type: "d6",
@@ -67,10 +67,10 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
        "../systems/wicked-ones/styles/assets/dice/claws/d6-6-b.webp"	  
 		],
 		system: "Claws",
-		colorset:"Wicked Dice"
+		colorset: game.i18n.localize("FITD.DICE.ColorsetName")
    },"d6");   
 
-   dice3d.addSystem({ id: "Numbers", name: "Wicked Numbers"},"default");
+   dice3d.addSystem({ id: "Numbers", name: game.i18n.localize("FITD.DICE.Numbers")},"default");
    dice3d.addDicePreset({
 	   type: "d6",
 	   labels: [
@@ -82,13 +82,13 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
        "6"	   
 	   ],
 	   	system: "Numbers",
-	   	colorset:"Wicked Dice"
+	   	colorset: game.i18n.localize("FITD.DICE.ColorsetName")
    },"d6");  
 
       dice3d.addColorset({
-        name: 'Wicked Dice',
-        description: "Wicked Style",
-        category: "Wicked Ones",
+        name: game.i18n.localize("FITD.DICE.ColorsetName"),
+        description: game.i18n.localize("FITD.DICE.ColorsetDescription"),
+        category: game.i18n.localize("FITD.DICE.Category"),
 		foreground: "#750000",
 		background: "#d1d1d1",
 		outline: "#cc0000",

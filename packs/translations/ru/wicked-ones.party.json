@@ -1,0 +1,22 @@
+{
+  "lang": "ru",
+  "label": "Примеры партий авантюристов",
+  "mapping": {
+    "name": "name",
+    "tokenName": "prototypeToken.name"
+  },
+  "entries": {
+    "5RSZUS66bPqO7BUS": {
+      "name": "Смертельная партия",
+      "tokenName": "Смертельная партия"
+    },
+    "EnZcRCapP7RiGqQq": {
+      "name": "Партия низкого круга",
+      "tokenName": "Партия низкого круга"
+    },
+    "LfjRz1ZU3SOCRmch": {
+      "name": "Классическая партия",
+      "tokenName": "Классическая партия"
+    }
+  }
+}

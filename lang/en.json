@@ -3,6 +3,9 @@
     "WOExpandedResults": {
       "Name": "Expanded roll results",
       "Label": "Show expanded dice roll result information by default"
+    },
+    "SystemMigrationVersion": {
+      "Name": "System Migration Version"
     }
   },
   "TYPES": {
@@ -55,7 +58,6 @@
     "UAMinionsHint": "This upgrade is for Minion Packs in Undead Awakening",
     "UACheckboxText": "Undead Awakening",
     "UAImpulseHint": "This impulse is for use with Undead Awakening",
-
     "DowntimeAction": "Downtime Action",
     "DowntimeActions": "Downtime Actions",
     "DowntimeActionHint": "<div><b>Brew</b> potions and alchemicals</div><div><b>Build</b> locks, traps, tricks, and rooms.</div><div><b>Contact</b> vile friends, npcs, or factions.</div><div><b>Craft</b> an item, edge, or contraption.</div><div><b>Incant</b> a ritual.</div><div><b>Recruit</b> a pack of minions.</div><div><b>Torture</b> a prisoner.</div>",
@@ -173,7 +175,6 @@
     "Passive": "Passive",
     "Heart": "Heart",
     "Move": "Move",
-
     "TOOLTIP": {
       "Reset": "Reset",
       "Coin": "<strong>You can pay Gold to:</strong><br>• Attract a creature<br>• Get help from your vile friend<br>• Get a minion downtime action<br>• Get minions to join a raid<br>• Recruit a minion<br>• Upgrade a minion",
@@ -194,7 +195,6 @@
       "GMSize3": "At tier 3, you have scale against humanoids.",
       "PleasedXP": "You do not gain wicked or reckless xp. Instead, at the end of each session, you can give 1 xp to the PC that pleased you the most this session. You can still gain practice xp.",
       "Guardian": "You mark 1 xp for each session in which you were neither bloodied nor went feral. When you hit 3 xp, you can either increase an eye ray's action rating (max of 3d) or add an action dot.",
-
       "Skillsscan": "When you SCAN, you perceptively read situations or search for information.",
       "Skillstinker": "When you TINKER, you cleverly fiddle with a device, mechanism, or concoction.",
       "Skillstrick": "When you TRICK, you slyly deceive, confuse, or manipulate someone.",
@@ -207,25 +207,21 @@
       "Skillsinvoke": "When you INVOKE, you magically interact with dark, mystical forces.",
       "Skillsthreaten": "When you THREATEN, you forcefully compel someone to obey or fear you."
     },
-
     "Roll": "Roll",
     "RollOptions": "Roll Options",
     "PositionDominant": "Dominant",
     "PositionDefault": "Default",
     "PositionDire": "Dire",
     "PositionDeadly": "Deadly",
-
     "EffectStrong": "Strong",
     "EffectDefault": "Default",
     "EffectWeak": "Weak",
     "EffectZero": "Zero",
-
     "PosEffEqual": "Equal Footing",
     "RollSomeDice": "Dice Roller",
     "RollDice": "Dice Roll",
     "RollTokenDescription": "Choose your Roll type and how many dice to roll:",
     "RollNumberOfDice": "Number of Dice",
-
     "SkillsBrains": "Brains",
     "SkillsScan": "Scan",
     "SkillsTinker": "Tinker",
@@ -234,7 +230,6 @@
     "SkillsscanDescription": "perceptively",
     "SkillstinkerDescription": "cleverly",
     "SkillstrickDescription": "slyly",
-
     "SkillsMuscles": "Muscles",
     "SkillsFinesse": "Finesse",
     "SkillsSkulk": "Skulk",
@@ -243,8 +238,6 @@
     "SkillsfinesseDescription": "precisely",
     "SkillsskulkDescription": "sneakily",
     "SkillssmashDescription": "powerfully",
-
-
     "SkillsGuts": "Guts",
     "SkillsBanter": "Banter",
     "SkillsInvoke": "Invoke",
@@ -257,8 +250,6 @@
     "SkillsthreatenDescription": "forcefully",
     "SkillscommandDescription": "(undead)",
     "SkillshorrifyDescription": "(humans)",
-
-
     "Position": "Position",
     "DeadlyPosition": "Roll to resist death",
     "No": "No",
@@ -270,7 +261,6 @@
     "RollType": "Roll Type",
     "ActionsHelp": "<strong>Assist:</strong> Give +Effect, but open to Consequence<br><strong>Go Hard: </strong>Trade: +Effect for -Position<br><span id='team-up'><strong>Team Up:</strong> Take the highest result, but each PC with a Mixed or Failure takes Stress.</span><br><strong>Dark Bargain:</strong> Trade +1D for a Consequence<br><strong>Dark Heart:</strong> Take +1D on a Roll",
     "ProjectsHelp": "<strong>•Brew</strong> potions and alchemicals.<br><strong>•Build</strong> locks, traps, tricks, and rooms.<br><strong>•Contact</strong> vile friends, npcs, or factions.<br><strong>•Craft</strong> an item, edge, or contraption.<br><strong>•Incant</strong> a ritual.<br><strong>•Recruit</strong> a pack of minions.<br><strong>•Torture</strong> a prisoner.<br><br><strong>•Risk it!</strong><br>Re-roll a Downtime Action but lose its Dominant Position.",
-
     "Bloodied": "Bloodied",
     "Exposed": "Exposed",
     "Morale": "Morale",
@@ -285,7 +275,6 @@
     "Rot": "Rot",
     "Choice": "Choice",
     "Name": "Name",
-
     "ItemAbilityType": "Special Ability Type",
     "Basic": "Basic",
     "Advanced": "Advanced",
@@ -299,7 +288,6 @@
     "CustomGMTypeHint": "Enter custom type here",
     "GMPleasedXP": "Pleased XP",
     "DSGuardianXP": "Guardian XP",
-
     "AbilityGroup": "Ability Group",
     "BasicPrimalAbilities": "Base Primal Monster Abilities",
     "FaceStealerFaces": "Facestealer Faces",
@@ -312,14 +300,12 @@
     "External": "External",
     "ExternalAbilities": "External Abilities",
     "MagicPath": "Magic Path",
-
     "MinionUpgradeType": "Upgrade Type",
     "Regular": "Regular",
     "InvocationPath": "Invocation Path",
     "RollableSkill": "Rollable Skill",
     "SkillName": "Skill Name",
     "SkillRating": "Skill Rating",
-
     "Source": "Source",
     "SourceExample": "Source of Ability (Calling, Primal, etc)",
     "Braineater": "Braineater",
@@ -336,7 +322,6 @@
     "DisplayName": "Display Name",
     "ValueTrackerExample": "Enter text to display a value tracker",
     "MaximumValue": "Maximum Value",
-
     "BESkillName": "Psionics Skill Name",
     "BESkillNameHint": "Name to show up next to the skill dots",
     "BESkillTooltip": "Psionics Skill Tooltip",
@@ -346,13 +331,11 @@
     "BEMasteryAbilityName2": "Second Mastery Name",
     "BEMasteryAbilityDesc2": "Second Mastery Description",
     "BEMasteryTaken": "Mastery taken",
-
     "DSMainEye": "Main Eye",
     "DSOuterEyes": "Outer Eyes",
     "DSOtherEyes": "Other Eyes",
     "DSConfigureRays": "Configure Eye Rays",
     "NoneParentheses": "(None)",
-
     "EYE_RAYS": {
       "NONE": {
         "Name": "(none)",
@@ -395,16 +378,13 @@
         "Tooltip": "Sees the unseeable, such as through walls or at great distances."
       }
     },
-
     "FSGrafted": "Grafted",
-
     "GMStage1": "Stage One",
     "GMStage1Box": "Stage One Checkbox",
     "GMStage2": "Stage Two",
     "GMStage2Box": "Stage Two Checkbox",
     "GMStage3": "Stage Three",
     "GMStage3Box": "Stage Three Checkbox",
-
     "Brute": "Brute",
     "Conniver": "Conniver",
     "Crafter": "Crafter",
@@ -414,15 +394,12 @@
     "Shaman": "Shaman",
     "Warlock": "Warlock",
     "Zealot": "Zealot",
-
     "Defiler": "Defiler",
-
     "Clock": "Clock",
     "Clocks": "Clocks",
     "Segements": "Segments",
     "Off": "Off",
     "Project": "Project",
-
     "BasicInformation": "Basic Information",
     "Custom": "(Custom)",
     "Random": "(Random)",
@@ -449,20 +426,17 @@
     "Open": "Open",
     "ZeroModeHint": "(0D roll)",
     "CustomDutyTypeHint": "Enter a custom duty type here",
-
     "ROLL": {
       "Critical": "Critical!",
       "Success": "Success",
       "Mixed": "Mixed",
       "Failure": "Failure",
-
       "DO": {
         "Critical": "<strong>Yes, and… !</strong> Not only do you get what you want, but you get something else to go along with it!",
         "Success": "<strong>Yes!</strong> You get the results that you hoped for!",
         "Mixed": "<strong>Yes, but…</strong> You get the results, but they come at a cost. There will be some consequences coming your way. At other times, it may just result in a less effective result.",
         "Failure": "<strong>No, and…</strong> Things go as poorly as they could have in that situation. You fail to do it and suffer a consequence."
       },
-
       "ACTION": {
         "Name": "Action Roll",
         "Critical": "<strong>Yes, and… !</strong> Not only do you get what you want, but you get something else to go along with it!",
@@ -470,7 +444,6 @@
         "Mixed": "<strong>Yes, but…</strong> You get the results, but they come at a cost. There will be some consequences coming your way. At other times, it may just result in a less effective result.",
         "Failure": "<strong>No, and…</strong> Things go as poorly as they could have in that situation. You fail to do it and suffer a consequence."
       },
-
       "BLOWBACK": {
         "Name": "Blowback Roll",
         "Critical": "Each PC gains a <strong>dark heart</strong>. Also, you can choose a faction to take the blame instead of you.",
@@ -478,7 +451,6 @@
         "Mixed": "You suffer minor blowback.",
         "Failure": "You suffer major blowback!"
       },
-
       "CALAMITY": {
         "Name": "Calamity Roll",
         "Critical": "Your minions gain <strong>morale</strong> and join the next raid for free. Also, your imps dig into a <strong>success discovery</strong>!",
@@ -486,7 +458,6 @@
         "Mixed": "You suffer a minor calamity.",
         "Failure": "You suffer a major calamity!"
       },
-
       "DEFENSIVE": {
         "Name": "Defensive Move Roll",
         "Critical": "They fully resist it and immediately make a free offensive move.",
@@ -494,7 +465,6 @@
         "Mixed": "They partially resist it, reducing it in severity.",
         "Failure": "They resist nothing."
       },
-
       "DISCOVERY": {
         "Name": "Discovery Roll",
         "Critical": "A success should clearly improve the dungeon or make the PCs lives better. They're usually placed in the perfect area to best help out the dungeon. <strong>A critical counts as two successes!</strong>",
@@ -502,7 +472,6 @@
         "Mixed": "A mixed should be light in impact, perhaps a little good or bad for the PCs depending on how they respond to it. They're usually placed in areas of slight inconvenience.",
         "Failure": "A failure should clearly hurt your dungeon, causing immediate problems for you or making dungeon defense more difficult. They're almost always placed in positions that make it easier for invaders to bypass defenses or interfere with your layout."
       },
-
       "ENGAGEMENT": {
         "Name": "Engagement Roll",
         "Critical": "You start with the <strong>upper hand</strong>, in control of the situation. Also, you get a lucky turn of events!",
@@ -510,7 +479,6 @@
         "Mixed": "You start on <strong>equal footing</strong>, ready to face the challenge.",
         "Failure": "You start in a <strong>tight spot</strong>, with consequences being inflicted."
       },
-
       "LOCK": {
         "Name": "Lock Roll",
         "Critical": "Each adventurer wastes a move trying to open it, then they go another way unless they have no other option.",
@@ -519,7 +487,6 @@
         "Failure": "They unlock the door and move past it.",
         "Note": "❖ When there is no other way forward, roll again for the lock."
       },
-
       "LOOT": {
         "Name": "Loot Roll",
         "Critical": "You may combine two successes into a Critical to pull a powerful item from the loot. The GM chooses what it is.",
@@ -528,7 +495,6 @@
         "Failure": "You enjoy some revelry, gaining a dark heart.",
         "Note": "If you gain excess dark hearts, you overdo it, suffering a frustrating or devastating consequence based on your revelry!"
       },
-
       "RESISTANCE": {
         "Name": "Resistance Roll",
         "Critical": "You <strong>clear</strong> 1 stress and <strong>fully</strong> resist the consequence.",
@@ -536,12 +502,10 @@
         "Mixed": "You spend 2 stress to <strong>partially</strong> resist the consequence.",
         "Failure": "You spend 3 stress to <strong>partially</strong> resist the consequence."
       },
-
       "RESISTDEATH": {
         "Mixed": "The consequence is reduced in severity but <strong>still devastating</strong>. Maybe you get knocked out of the scene, a clock starts as you start bleeding to death, or you lose a limb.",
         "Failure": "<strong>You die</strong>. If you have dark hearts, perform your <strong>death knell</strong>!"
       },
-
       "CREATURE": {
         "Name": "Creature Roll",
         "Critical": "You damage two adventurers of your choice. <strong>Roll again.</strong>",
@@ -550,7 +514,6 @@
         "Failure": "The creature is slain or flees the dungeon for good.",
         "Note": "❖ You can't damage the same adventurer twice in a row unless they're alone."
       },
-
       "TRAP": {
         "Name": "Trap Roll",
         "Critical": "You damage two adventurers of your choice. <strong>Roll again.</strong>",
@@ -559,7 +522,6 @@
         "Failure": "The trap is disabled or avoided by the adventurers.",
         "Note": "You can't damage the same adventurer twice in a row unless they're alone."
       },
-
       "STARTING": {
         "Name": "Starting Location Roll",
         "Critical": "A success starts you off in a good position. You begin in the exact dungeon room you want to be in with weapons nearby.",
@@ -567,7 +529,6 @@
         "Mixed": "A mixed starts you off in a less than ideal situation. You might not have weapons or maybe just not begin in a great location. You're likely busy doing some other task.",
         "Failure": "A failure starts you off in a terrible position. You're far from the action, rather distracted by something you're doing, likely without weapons, or maybe even sleeping. The adventurers have a decisive advantage against you."
       },
-
       "PATHING": {
         "Name": "Pathing Roll",
         "Critical": "On a mixed or success, the adventurers go the way the players want them to.",
@@ -575,7 +536,6 @@
         "Mixed": "On a mixed or success, the adventurers go the way the players want them to.",
         "Failure": "On a mixed or success, the adventurers go the way the players want them to. On a failure, <strong>they go the other way.</strong>"
       },
-
       "FORTUNE": {
         "Name": "Fortune Roll",
         "Critical": "It's an ideal situation as you get what you were hoping for. Also, you get more than you were hoping for!",
@@ -583,7 +543,6 @@
         "Mixed": "It's pretty good, but not perfect, with a tinge of disappointment.",
         "Failure": "Things go about as poorly as they could."
       },
-
       "SLUMBER": {
         "Name": "Slumber Roll",
         "Critical": "Also, you awaken invigorated and can increase a type effect's tier by 1 once this cycle!",
@@ -592,13 +551,11 @@
         "Failure": "Your slumber is disturbed and you overdo it, wreaking havoc on the dungeon or surrounding countryside in some way."
       }
     },
-
     "FACTION_SIDE": {
       "Dark": "Dark",
       "Neutral": "Neutral",
       "Light": "Light"
     },
-
     "ADV_CLASS": {
       "Academic": "Academic",
       "Alchemist": "Alchemist",
@@ -631,7 +588,6 @@
       "Weaponsmith": "Weaponsmith",
       "Wildling": "Wildling"
     },
-
     "ADV_CLASS_PASSIVE": {
       "Academic": "Excels at navigating dungeon paths",
       "Alchemist": "Can use any tier 1 or 2 concoction on pg. 121",
@@ -664,7 +620,6 @@
       "Weaponsmith": "Always has the right weapon for the job",
       "Wildling": "Can run through difficult terrain"
     },
-
     "ADV_TYPE": {
       "Archer": "Archer",
       "Boatman": "Boatman",
@@ -933,6 +888,19 @@
       "Doomseeker": "Doomseeker",
       "Facestealer": "Facestealer",
       "Goldmonger": "Goldmonger"
+    },
+    "MIGRATION": {
+      "Applying": "Applying WO Actors migration for version {version}. Please be patient and do not close your game or shut down your server.",
+      "Complete": "WO System Migration to version {version} completed!"
+    },
+    "DICE": {
+      "WhiteDots": "Wicked Dots",
+      "BlackDots": "Wicked Dark Dots",
+      "Claws": "Wicked Claws",
+      "Numbers": "Wicked Numbers",
+      "ColorsetName": "Wicked Dice",
+      "ColorsetDescription": "Wicked Style",
+      "Category": "Wicked Ones"
     }
   }
 }

@@ -1,0 +1,38 @@
+{
+  "lang": "ru",
+  "label": "Снаряжение и припасы",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "BxGo5cadZFdVvD0d": {
+      "name": "Новые припасы 4"
+    },
+    "SyFv50kyjMHheCtI": {
+      "name": "Новое снаряжение 2"
+    },
+    "WdNANe5JeGgkGUpN": {
+      "name": "Новые припасы 1"
+    },
+    "cnMq1EqNYlse0R5H": {
+      "name": "Новое снаряжение 1"
+    },
+    "iEH168He1LxwKirw": {
+      "name": "Новое снаряжение 3"
+    },
+    "iUMJa9zOOdZozUhF": {
+      "name": "Новые припасы 3"
+    },
+    "mkRoWeOhsUj0lsZd": {
+      "name": "Новое снаряжение 4"
+    },
+    "wELXs0o8ul9qLWF0": {
+      "name": "Новые припасы 2"
+    }
+  }
+}

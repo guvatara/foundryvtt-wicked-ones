@@ -1,0 +1,65 @@
+{
+  "lang": "ru",
+  "label": "Улучшения миньонов",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "2I4HE1wirJjeDV8q": {
+      "name": "Сочащиеся"
+    },
+    "37BLf4Nu0hK5Xfzy": {
+      "name": "Прожорливые"
+    },
+    "3A2XMJwWpnKOCEDT": {
+      "name": "Снаряжённые"
+    },
+    "BuFNW4KYdK5NKCmh": {
+      "name": "Охотничий питомец"
+    },
+    "By24OFpqmRcgxBxq": {
+      "name": "Искажённые"
+    },
+    "CWh8AUmDkUfioRFo": {
+      "name": "Связанный дух"
+    },
+    "Eq5fH0ap7M7I1vg6": {
+      "name": "Обученные"
+    },
+    "H3v8hp52vKfauucP": {
+      "name": "Путь призыва"
+    },
+    "Ir4hnanFqJkEqp2z": {
+      "name": "Настрой"
+    },
+    "LLMGUcvo3rlDy3K9": {
+      "name": "Разносторонние"
+    },
+    "RZNwoM5aguplVcTX": {
+      "name": "Спутник"
+    },
+    "VQDbG7SuIFmTPXEf": {
+      "name": "Вооружённые"
+    },
+    "WYkFGBYnkgWROyKp": {
+      "name": "Расходные"
+    },
+    "XJirDtcJbqkbpO6U": {
+      "name": "Дремлющие"
+    },
+    "dWakuzSCgr1AoxSY": {
+      "name": "Раб"
+    },
+    "lDOhz1PY4zmE9Kmv": {
+      "name": "Говорящие"
+    },
+    "mrUsnO4wraIkZx3v": {
+      "name": "Адепты"
+    }
+  }
+}

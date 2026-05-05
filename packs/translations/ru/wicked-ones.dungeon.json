@@ -1,0 +1,30 @@
+{
+  "lang": "ru",
+  "label": "Примеры подземелий",
+  "mapping": {
+    "name": "name",
+    "tokenName": "prototypeToken.name"
+  },
+  "entries": {
+    "9uY06warQvN1G7qx": {
+      "name": "Кузница",
+      "tokenName": "Кузница"
+    },
+    "A2EhtAgjpoOnP1K0": {
+      "name": "Анклав",
+      "tokenName": "Анклав"
+    },
+    "BVbbNSTnj7VaFaxM": {
+      "name": "Убежище",
+      "tokenName": "Убежище"
+    },
+    "KzWu3xibnFbkmdYw": {
+      "name": "Крепость",
+      "tokenName": "Крепость"
+    },
+    "TKQANuunjzrBEAIr": {
+      "name": "Храм",
+      "tokenName": "Храм"
+    }
+  }
+}

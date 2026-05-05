@@ -357,5 +357,15 @@
   "compatibility": {
     "minimum": "13",
     "verified": "14.360"
+  },
+  "relationships": {
+    "recommends": [
+      {
+        "id": "babele",
+        "type": "module",
+        "manifest": "https://gitlab.com/riccisi/foundryvtt-babele/raw/master/module/module.json",
+        "compatibility": {}
+      }
+    ]
   }
 }

@@ -1,0 +1,59 @@
+{
+  "lang": "ru",
+  "label": "Призвания",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "2DWwINsC08gtnnCR": {
+      "name": "Шаман"
+    },
+    "3M0AhBuVZDTxFKtK": {
+      "name": "Лич"
+    },
+    "76EPZbrCMgC8JNzk": {
+      "name": "Осквернитель"
+    },
+    "8jExf4Zqad6e3bvn": {
+      "name": "Зверь"
+    },
+    "CAHfNrPDJZKVNMrH": {
+      "name": "Интриган"
+    },
+    "JGxBjlbooxuUHe4E": {
+      "name": "Изобретатель"
+    },
+    "K6aBS0bi75Lgww1Z": {
+      "name": "Жнец"
+    },
+    "P6LMZBrG5U9eCjhX": {
+      "name": "Охотник"
+    },
+    "VbsAYSS4mnxiT2kf": {
+      "name": "Мерзость"
+    },
+    "WAmM71F2f5xAsRCf": {
+      "name": "Колдун"
+    },
+    "YUGDdyADj0PTBVcP": {
+      "name": "Мародёр"
+    },
+    "amJiCXi5LQmT0m83": {
+      "name": "Ревенант"
+    },
+    "npURLyFWzxCUbqpN": {
+      "name": "Скрытень"
+    },
+    "tEob41rtEbHcswNM": {
+      "name": "Тень"
+    },
+    "zOg14xy8ZEku6bNq": {
+      "name": "Фанатик"
+    }
+  }
+}

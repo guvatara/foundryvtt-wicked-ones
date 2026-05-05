@@ -1,0 +1,53 @@
+{
+  "lang": "ru",
+  "label": "Таблицы бросков",
+  "mapping": {
+    "name": "name",
+    "description": "description",
+    "results": {
+      "path": "results",
+      "converter": "tableResults"
+    }
+  },
+  "entries": {
+    "1Rilvlev2IyiskMa": {
+      "name": "Бедствия (крупные)"
+    },
+    "2zFw60f2VwF0HUKV": {
+      "name": "Находки (провал)"
+    },
+    "69zKt4RiEVugfQQI": {
+      "name": "Расплата (малая)"
+    },
+    "B4zIPmcxhMN46DX2": {
+      "name": "Расплата (крупная)"
+    },
+    "FZP1Ne1Lvo8EWdjf": {
+      "name": "Типы находок"
+    },
+    "KEi5D8U20VRGGrgi": {
+      "name": "Примеры зелий"
+    },
+    "RVJcR54tEmb36LJ2": {
+      "name": "Находки (частичный успех)"
+    },
+    "huidlIftLnEoMvWh": {
+      "name": "Примеры тёмных сделок"
+    },
+    "m9g3H1X8oGKgBUgK": {
+      "name": "Примеры механизмов"
+    },
+    "neNa58wleLaeq1j5": {
+      "name": "Примеры магических предметов"
+    },
+    "pYfq4R9v2qTbKpBJ": {
+      "name": "Бедствия (малые)"
+    },
+    "q5BuUkAIKkKH3ygE": {
+      "name": "Примеры снадобий"
+    },
+    "sWhHVRHcikYM3mb3": {
+      "name": "Находки (успех)"
+    }
+  }
+}

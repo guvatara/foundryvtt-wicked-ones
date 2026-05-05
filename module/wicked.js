@@ -29,6 +29,10 @@ CONFIG.WO = WO;
 
 window.WickedHelpers = WickedHelpers;
 
+Hooks.once("babele.init", (babele) => {
+  babele.setSystemTranslationsDir("packs/translations");
+});
+
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
