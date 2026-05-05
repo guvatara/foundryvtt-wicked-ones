@@ -7,32 +7,59 @@
     "systemDescription": "system.description",
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
-    "passive": "data.passive"
+    "passive": "data.passive",
+    "gearOrSupply": "data.gear_or_supply",
+    "qualityCategory": "data.quality_category",
+    "useType": "data.use_type"
   },
   "entries": {
     "BxGo5cadZFdVvD0d": {
-      "name": "Новые припасы 4"
+      "name": "Новые припасы 4",
+      "gearOrSupply": "Припас",
+      "qualityCategory": "Обычный",
+      "useType": "Без ограничений"
     },
     "SyFv50kyjMHheCtI": {
-      "name": "Новое снаряжение 2"
+      "name": "Новое снаряжение 2",
+      "gearOrSupply": "Снаряжение",
+      "qualityCategory": "Обычный",
+      "useType": "Без ограничений"
     },
     "WdNANe5JeGgkGUpN": {
-      "name": "Новые припасы 1"
+      "name": "Новые припасы 1",
+      "gearOrSupply": "Припас",
+      "qualityCategory": "Обычный",
+      "useType": "Без ограничений"
     },
     "cnMq1EqNYlse0R5H": {
-      "name": "Новое снаряжение 1"
+      "name": "Новое снаряжение 1",
+      "gearOrSupply": "Снаряжение",
+      "qualityCategory": "Обычный",
+      "useType": "Без ограничений"
     },
     "iEH168He1LxwKirw": {
-      "name": "Новое снаряжение 3"
+      "name": "Новое снаряжение 3",
+      "gearOrSupply": "Снаряжение",
+      "qualityCategory": "Обычный",
+      "useType": "Без ограничений"
     },
     "iUMJa9zOOdZozUhF": {
-      "name": "Новые припасы 3"
+      "name": "Новые припасы 3",
+      "gearOrSupply": "Припас",
+      "qualityCategory": "Обычный",
+      "useType": "Без ограничений"
     },
     "mkRoWeOhsUj0lsZd": {
-      "name": "Новое снаряжение 4"
+      "name": "Новое снаряжение 4",
+      "gearOrSupply": "Снаряжение",
+      "qualityCategory": "Обычный",
+      "useType": "Без ограничений"
     },
     "wELXs0o8ul9qLWF0": {
-      "name": "Новые припасы 2"
+      "name": "Новые припасы 2",
+      "gearOrSupply": "Припас",
+      "qualityCategory": "Обычный",
+      "useType": "Без ограничений"
     }
   }
 }

@@ -7,26 +7,40 @@
     "systemDescription": "system.description",
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
-    "passive": "data.passive"
+    "passive": "data.passive",
+    "type": "data.type",
+    "typeCustom": "data.type_custom"
   },
   "entries": {
     "6gyOrAD0EM4AaJ5h": {
-      "name": "Новая особая обязанность"
+      "name": "Новая особая обязанность",
+      "type": "Особая",
+      "typeCustom": "Особая"
     },
     "87kYDQHWcOKkmKZR": {
-      "name": "Новая обязанность: существо"
+      "name": "Новая обязанность: существо",
+      "type": "Тварь",
+      "typeCustom": "Тварь"
     },
     "HkPNWWMoQMfFCzKB": {
-      "name": "Новая обязанность: ловушка"
+      "name": "Новая обязанность: ловушка",
+      "type": "Ловушка",
+      "typeCustom": "Ловушка"
     },
     "IoptTix2CjsZugVv": {
-      "name": "Новая обязанность: замок"
+      "name": "Новая обязанность: замок",
+      "type": "Замок",
+      "typeCustom": "Замок"
     },
     "jyG9bRlb4f6Gp5rk": {
-      "name": "Новая обязанность: комната"
+      "name": "Новая обязанность: комната",
+      "type": "Комната",
+      "typeCustom": "Комната"
     },
     "pHSUhiD6lsl5cJQ8": {
-      "name": "Новая обязанность: уловка"
+      "name": "Новая обязанность: уловка",
+      "type": "Уловка",
+      "typeCustom": "Уловка"
     }
   }
 }
