@@ -4444,10 +4444,23 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   max-height: 90%;
   top: 5%;
 }
-#add-items-popup .dialog-content {
-  overflow-y: scroll;
+#add-items-popup .window-content {
+  overflow: hidden;
 }
-#add-items-popup .dialog-buttons {
+#add-items-popup .dialog-form.standard-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+#add-items-popup .dialog-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+#add-items-popup .dialog-buttons,
+#add-items-popup .form-footer {
+  flex: 0 0 auto;
   max-height: 34px;
   margin-top: 5px;
 }
