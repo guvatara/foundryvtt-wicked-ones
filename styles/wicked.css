@@ -91,6 +91,22 @@
   font-style: normal;
   font-weight: 400;
   src: local(""), url("../fonts/bloodcrow.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0100-024F;
+}
+/* Blood crow-regular - cyrillic fallback */
+@font-face {
+  font-family: "Blood Crow";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/Blood_Cyrillic.woff2") format("woff2");
+  unicode-range: U+0400-04FF, U+0500-052F, U+2DE0-2DFF, U+A640-A69F, U+1C80-1C8F;
+}
+/* Blood Cyrillic - explicit fallback family */
+@font-face {
+  font-family: "Blood Cyrillic";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/Blood_Cyrillic.woff2") format("woff2");
 }
 /* piedra-regular - latin */
 @font-face {
@@ -98,6 +114,14 @@
   font-style: normal;
   font-weight: 400;
   src: local(""), url("../fonts/piedra-v9-latin-regular.woff2") format("woff2");
+}
+/* piedra-regular - cyrillic fallback */
+@font-face {
+  font-family: "Piedra";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/RuslanDisplay-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* 
 *  Elements that can be changed will hint this by dimming and fading a little on hover
@@ -592,11 +616,11 @@ form.wicked-one-sheet #character-defenses table tr td:nth-child(3) {
 }
 form.wicked-one-sheet #character-defenses table tr td:nth-child(3) .item-name {
   text-transform: uppercase;
-  font-family: "Blood Crow";
+  font-family: "Blood Crow", "Blood Cyrillic";
   font-size: 28px;
   margin-left: 12px;
   margin-right: 0px;
-  font-weight: normal;
+  font-weight: 400;
 }
 form.wicked-one-sheet #character-defenses a.item-delete {
   align-self: center;
@@ -1161,7 +1185,7 @@ form.wicked-one-sheet #duties-table tbody td:nth-of-type(1) {
   justify-content: space-evenly;
   grid-gap: 10px;
   grid-column-gap: 20px;
-  font-family: Piedra;
+  font-family: Piedra, Bitter;
   text-transform: uppercase;
 }
 #tongue-grid div:first-child {
@@ -4167,7 +4191,7 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   background: #e8e8ef;
 }
 #chat .chat-message .message-header .message-sender {
-  font-family: Piedra;
+  font-family: Piedra, Bitter;
   font-weight: normal;
   font-size: 15px;
 }
@@ -4181,7 +4205,7 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   font-weight: 600;
 }
 #chat .label-stripe-chat-small, #chat .label-stripe-chat {
-  font-family: Piedra;
+  font-family: Piedra, Bitter;
   font-weight: normal;
   position: relative;
   padding-top: 3px;
@@ -4233,7 +4257,7 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
 #chat .wicked-die-tooltip .die {
   text-transform: uppercase;
   color: white;
-  font-family: Piedra;
+  font-family: Piedra, Bitter;
   font-weight: normal;
   font-size: 24px;
   text-align: center;
@@ -4601,7 +4625,7 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
 }
 .sheet.wicked-ones table.base-info tr .text-input input {
   font-weight: normal;
-  font-family: Piedra;
+  font-family: Piedra, Bitter;
   font-size: 20px;
   border: none;
   border-radius: 0;
@@ -4709,7 +4733,7 @@ body {
 .text-input input[type=text], .text-input input[type=number], .text-input input[type=password],
 .text-input input[type=date], .text-input input[type=time], .text-input input[type=range] {
   font-weight: normal;
-  font-family: Piedra;
+  font-family: Piedra, Bitter;
   font-size: 20px;
   border: none;
   border-radius: 0;
@@ -4843,7 +4867,7 @@ body {
   min-width: 370px;
   height: 52px;
   border: none;
-  font-family: Blood Crow;
+  font-family: "Blood Crow", "Blood Cyrillic";
   font-size: 55px;
   font-weight: normal;
   color: #68332c;
@@ -5068,7 +5092,7 @@ label.clock-zero-label i.nullifier:hover {
 .item .item-name {
   text-align: center;
   font-weight: 500;
-  font-family: Piedra;
+  font-family: Piedra, Bitter;
   font-size: 20px;
   padding: 0px 10px;
 }

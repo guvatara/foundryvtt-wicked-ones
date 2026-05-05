@@ -272,11 +272,11 @@ form.wicked-one-sheet {
 
                     .item-name {
                         text-transform: uppercase;
-                        font-family: 'Blood Crow';
+                        font-family: 'Blood Crow', 'Blood Cyrillic';
                         font-size: 28px;
                         margin-left: 12px;
                         margin-right: 0px;
-                        font-weight: normal;
+                        font-weight: 400;
                     }
                 }
             }
@@ -719,7 +719,7 @@ form.wicked-one-sheet {
 	justify-content: space-evenly;
 	grid-gap: 10px;
 	grid-column-gap: 20px;
-	font-family: Piedra;
+	font-family: Piedra, Bitter;
 	text-transform: uppercase;
 
 	& div:first-child {
