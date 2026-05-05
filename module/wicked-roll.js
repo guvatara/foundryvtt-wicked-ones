@@ -149,11 +149,15 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
   }
 
   // Prepare message options
-  const rMode = game.settings.get("core", "rollMode");
+  // v14+ renamed core.rollMode -> core.messageMode.
+  let rMode = game.settings.get("core", "messageMode");
+  if (!rMode) {
+    rMode = game.settings.get("core", "rollMode");
+  }
   if (["gmroll", "blindroll"].includes(rMode)) {
     messageData.whisper = ChatMessage.getWhisperRecipients("GM");
   }
-  const messageOptions = { rollMode: rMode };
+  const messageOptions = { messageMode: rMode };
 
   if (game.dice3d && dice3dDelay){
     await game.dice3d.showForRoll(r);

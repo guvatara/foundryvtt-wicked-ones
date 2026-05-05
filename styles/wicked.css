@@ -4225,23 +4225,28 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   text-transform: capitalize;
   font-size: 16px;
 }
-#chat .wicked-die-tooltip.dice-roll {
+#chat .wicked-die-tooltip.dice-roll,
+.chat-message .wicked-die-tooltip.dice-roll {
   display: block;
 }
-#chat .wicked-die-tooltip.dice-roll .dice-tooltip.exp {
+#chat .wicked-die-tooltip.dice-roll .dice-tooltip.exp,
+.chat-message .wicked-die-tooltip.dice-roll .dice-tooltip.exp {
   display: block;
 }
-#chat .wicked-die-tooltip.dice-roll .dice-rolls {
+#chat .wicked-die-tooltip.dice-roll .dice-rolls,
+.chat-message .wicked-die-tooltip.dice-roll .dice-rolls {
   list-style: none;
   display: flex;
 }
-#chat .wicked-die-tooltip.dice-roll .zero-hint {
+#chat .wicked-die-tooltip.dice-roll .zero-hint,
+.chat-message .wicked-die-tooltip.dice-roll .zero-hint {
   font-size: 18px;
   font-weight: 700;
   margin-left: 15px;
   align-self: center;
 }
-#chat .wicked-die-tooltip .label-type {
+#chat .wicked-die-tooltip .label-type,
+.chat-message .wicked-die-tooltip .label-type {
   text-transform: uppercase;
   color: white;
   display: flex;
@@ -4254,7 +4259,8 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   flex: 1 1 min-content;
   max-width: max-content;
 }
-#chat .wicked-die-tooltip .die {
+#chat .wicked-die-tooltip .die,
+.chat-message .wicked-die-tooltip .die {
   text-transform: uppercase;
   color: white;
   font-family: Piedra, Bitter;
@@ -4266,19 +4272,24 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-#chat .wicked-die-tooltip .die.critical {
+#chat .wicked-die-tooltip .die.critical,
+.chat-message .wicked-die-tooltip .die.critical {
   color: #b12c20;
 }
-#chat .wicked-die-tooltip .die.success {
+#chat .wicked-die-tooltip .die.success,
+.chat-message .wicked-die-tooltip .die.success {
   color: #862118;
 }
-#chat .wicked-die-tooltip .die.mixed {
+#chat .wicked-die-tooltip .die.mixed,
+.chat-message .wicked-die-tooltip .die.mixed {
   color: #2c3678;
 }
-#chat .wicked-die-tooltip .die.failure {
+#chat .wicked-die-tooltip .die.failure,
+.chat-message .wicked-die-tooltip .die.failure {
   color: #656666;
 }
-#chat .wicked-die-tooltip .wicked-die {
+#chat .wicked-die-tooltip .wicked-die,
+.chat-message .wicked-die-tooltip .wicked-die {
   width: 32px;
   height: 32px;
   float: left;
@@ -4286,22 +4297,28 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   background-size: contain;
   color: transparent;
 }
-#chat .wicked-die-tooltip .wicked-die.wd1 {
+#chat .wicked-die-tooltip .wicked-die.wd1,
+.chat-message .wicked-die-tooltip .wicked-die.wd1 {
   background-image: url("assets/dice/die-1-grey.png");
 }
-#chat .wicked-die-tooltip .wicked-die.wd2 {
+#chat .wicked-die-tooltip .wicked-die.wd2,
+.chat-message .wicked-die-tooltip .wicked-die.wd2 {
   background-image: url("assets/dice/die-2-grey.png");
 }
-#chat .wicked-die-tooltip .wicked-die.wd3 {
+#chat .wicked-die-tooltip .wicked-die.wd3,
+.chat-message .wicked-die-tooltip .wicked-die.wd3 {
   background-image: url("assets/dice/die-3-grey.png");
 }
-#chat .wicked-die-tooltip .wicked-die.wd4 {
+#chat .wicked-die-tooltip .wicked-die.wd4,
+.chat-message .wicked-die-tooltip .wicked-die.wd4 {
   background-image: url("assets/dice/die-4-blue.png");
 }
-#chat .wicked-die-tooltip .wicked-die.wd5 {
+#chat .wicked-die-tooltip .wicked-die.wd5,
+.chat-message .wicked-die-tooltip .wicked-die.wd5 {
   background-image: url("assets/dice/die-5-blue.png");
 }
-#chat .wicked-die-tooltip .wicked-die.wd6 {
+#chat .wicked-die-tooltip .wicked-die.wd6,
+.chat-message .wicked-die-tooltip .wicked-die.wd6 {
   background-image: url("assets/dice/die-6-red.png");
 }
 #chat .description {
