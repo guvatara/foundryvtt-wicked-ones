@@ -13,11 +13,26 @@
     max-height: 90%;
     top: 5%;
 
-    .dialog-content {
-        overflow-y: scroll;
+    .window-content {
+        overflow: hidden;
     }
 
-    .dialog-buttons {
+    .dialog-form.standard-form {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
+    }
+
+    .dialog-content {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+    .dialog-buttons,
+    .form-footer {
+        flex: 0 0 auto;
         max-height: 34px;
         margin-top: 5px;
     }
