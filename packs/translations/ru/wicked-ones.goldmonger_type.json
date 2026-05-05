@@ -7,23 +7,47 @@
     "systemDescription": "system.description",
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
-    "passive": "data.passive"
+    "passive": "data.passive",
+    "gmType": "data.gm_type",
+    "gmTypeCustom": "data.gm_type_custom",
+    "gmAntitype": "data.gm_antitype",
+    "gmAntitypeCustom": "data.gm_antitype_custom"
   },
   "entries": {
     "5jIEJdmgbh5lyRXO": {
-      "name": "Тень - кристалл"
+      "name": "Тень - кристалл",
+      "gmType": "Тень",
+      "gmTypeCustom": "Тень",
+      "gmAntitype": "Кристалл",
+      "gmAntitypeCustom": "Кристалл"
     },
     "PrWGHIHqIm7F9YRb": {
-      "name": "Огонь - лёд"
+      "name": "Огонь - лёд",
+      "gmType": "Огонь",
+      "gmTypeCustom": "Огонь",
+      "gmAntitype": "Лёд",
+      "gmAntitypeCustom": "Лёд"
     },
     "WjWoMrPUqM3WkAHd": {
-      "name": "Вода - земля"
+      "name": "Вода - земля",
+      "gmType": "Вода",
+      "gmTypeCustom": "Вода",
+      "gmAntitype": "Земля",
+      "gmAntitypeCustom": "Земля"
     },
     "nqSM115gjdSLuPtJ": {
-      "name": "Металл - растения"
+      "name": "Металл - растения",
+      "gmType": "Металл",
+      "gmTypeCustom": "Металл",
+      "gmAntitype": "Растение",
+      "gmAntitypeCustom": "Растение"
     },
     "wA4wbSg2i1Jiagtl": {
-      "name": "Иллюзия - разум"
+      "name": "Иллюзия - разум",
+      "gmType": "Иллюзия",
+      "gmTypeCustom": "Иллюзия",
+      "gmAntitype": "Разум",
+      "gmAntitypeCustom": "Разум"
     }
   }
 }

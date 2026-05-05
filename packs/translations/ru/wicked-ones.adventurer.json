@@ -7,110 +7,431 @@
     "systemDescription": "system.description",
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
-    "passive": "data.passive"
+    "passive": "data.passive",
+    "adventurerType": "data.adventurer_type",
+    "adventurerClass": "data.adventurer_class",
+    "adventurerClassCustom": "data.adventurer_class_custom",
+    "traitPos1": "data.trait_pos_1",
+    "traitPos1Custom": "data.trait_pos_1_custom",
+    "traitNeg1": "data.trait_neg_1",
+    "traitNeg1Custom": "data.trait_neg_1_custom",
+    "motivation1": "data.motivation_1",
+    "motivation1Custom": "data.motivation_1_custom"
   },
   "entries": {
     "5wtKWwLdLTUb2Miw": {
-      "name": "Копейщик"
+      "name": "Копейщик",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Копейщик",
+      "adventurerClassCustom": "Копейщик",
+      "passive": "Отлично удерживает врагов на расстоянии.",
+      "traitPos1": "Уверенный",
+      "traitPos1Custom": "Уверенный",
+      "traitNeg1": "Нетерпеливый",
+      "traitNeg1Custom": "Нетерпеливый",
+      "motivation1": "Вызов",
+      "motivation1Custom": "Вызов"
     },
     "74IduIfd1PqLbl7W": {
-      "name": "Маг хаоса"
+      "name": "Маг хаоса",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Маг хаоса",
+      "adventurerClassCustom": "Маг хаоса",
+      "passive": "При атаке творит случайную магию.",
+      "traitPos1": "Оптимистичный",
+      "traitPos1Custom": "Оптимистичный",
+      "traitNeg1": "Нерешительный",
+      "traitNeg1Custom": "Нерешительный",
+      "motivation1": "Исследование",
+      "motivation1Custom": "Исследование"
     },
     "Bz6lRsRLT4xNfJ3d": {
-      "name": "Наёмник 1"
+      "name": "Наёмник 1",
+      "adventurerType": "Наёмник",
+      "adventurerClass": "Монах",
+      "adventurerClassCustom": "Монах"
     },
     "DD6WUhCKYqmN5fgB": {
-      "name": "Оружейник"
+      "name": "Оружейник",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Оружейник",
+      "adventurerClassCustom": "Оружейник",
+      "passive": "Всегда имеет подходящее оружие для дела.",
+      "traitPos1": "Честный",
+      "traitPos1Custom": "Честный",
+      "traitNeg1": "Самоуверенный",
+      "traitNeg1Custom": "Самоуверенный",
+      "motivation1": "Вызов",
+      "motivation1Custom": "Вызов"
     },
     "FbZ0ncPURbAkbLyv": {
-      "name": "Рыцарь смерти"
+      "name": "Рыцарь смерти",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Рыцарь смерти",
+      "adventurerClassCustom": "Рыцарь смерти",
+      "passive": "Исцеляется, когда рядом кто-то умирает.",
+      "traitPos1": "Упорный",
+      "traitPos1Custom": "Упорный",
+      "traitNeg1": "Самоуверенный",
+      "traitNeg1Custom": "Самоуверенный",
+      "motivation1": "Месть",
+      "motivation1Custom": "Месть"
     },
     "I68nK49xyyVhh0O0": {
-      "name": "Буканьер"
+      "name": "Буканьер",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Пират",
+      "adventurerClassCustom": "Пират",
+      "passive": "Почти невозможно прижать к месту.",
+      "traitPos1": "Щедрый",
+      "traitPos1Custom": "Щедрый",
+      "traitNeg1": "Самоуверенный",
+      "traitNeg1Custom": "Самоуверенный",
+      "motivation1": "Богатство",
+      "motivation1Custom": "Богатство"
     },
     "IFC3xj1c2EM7WsE5": {
-      "name": "Инквизитор"
+      "name": "Инквизитор",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Инквизитор",
+      "adventurerClassCustom": "Инквизитор",
+      "passive": "Отлично распознаёт ложь и уловки.",
+      "traitPos1": "Упорный",
+      "traitPos1Custom": "Упорный",
+      "traitNeg1": "Упрямый",
+      "traitNeg1Custom": "Упрямый",
+      "motivation1": "Вызов",
+      "motivation1Custom": "Вызов"
     },
     "JYb4uBseieYTtFDe": {
-      "name": "Аристократ"
+      "name": "Аристократ",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Аристократ",
+      "adventurerClassCustom": "Аристократ",
+      "passive": "Отлично сражается один на один.",
+      "traitPos1": "Уверенный",
+      "traitPos1Custom": "Уверенный",
+      "traitNeg1": "Дерзкий",
+      "traitNeg1Custom": "Дерзкий",
+      "motivation1": "Уважение",
+      "motivation1Custom": "Уважение"
     },
     "Ld3PICMDOEx2gRex": {
-      "name": "Бард"
+      "name": "Бард",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Бард",
+      "adventurerClassCustom": "Бард",
+      "passive": "Улучшает действия всех союзников поблизости.",
+      "traitPos1": "Полезный",
+      "traitPos1Custom": "Полезный",
+      "traitNeg1": "Жадный",
+      "traitNeg1Custom": "Жадный",
+      "motivation1": "Богатство",
+      "motivation1Custom": "Богатство"
     },
     "UEU2ECU0yH85WYsV": {
-      "name": "Убийца"
+      "name": "Убийца",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Ассасин",
+      "adventurerClassCustom": "Ассасин",
+      "passive": "Всегда может начать сцену скрытно.",
+      "traitPos1": "Упорный",
+      "traitPos1Custom": "Упорный",
+      "traitNeg1": "Лживый",
+      "traitNeg1Custom": "Лживый",
+      "motivation1": "Богатство",
+      "motivation1Custom": "Богатство"
     },
     "VJQJQG0vAUJ1QGxH": {
-      "name": "Тамплиер"
+      "name": "Тамплиер",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Храмовник",
+      "adventurerClassCustom": "Храмовник",
+      "passive": "Его невозможно сбить с выбранного пути.",
+      "traitPos1": "Надёжный",
+      "traitPos1Custom": "Надёжный",
+      "traitNeg1": "Упрямый",
+      "traitNeg1Custom": "Упрямый",
+      "motivation1": "Справедливость",
+      "motivation1Custom": "Справедливость"
     },
     "Vd8qLqUmAznSS53F": {
-      "name": "Рыцарь"
+      "name": "Рыцарь",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Рыцарь",
+      "adventurerClassCustom": "Рыцарь",
+      "passive": "Почти неуязвим к физическому урону.",
+      "traitPos1": "Честный",
+      "traitPos1Custom": "Честный",
+      "traitNeg1": "Самоуверенный",
+      "traitNeg1Custom": "Самоуверенный",
+      "motivation1": "Уважение",
+      "motivation1Custom": "Уважение"
     },
     "XhrgKIBYVSPvdfbb": {
-      "name": "Следопыт"
+      "name": "Следопыт",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Рейнджер",
+      "adventurerClassCustom": "Рейнджер",
+      "passive": "Имеет верного медведя-спутника.",
+      "traitPos1": "Умный",
+      "traitPos1Custom": "Умный",
+      "traitNeg1": "Нетерпеливый",
+      "traitNeg1Custom": "Нетерпеливый",
+      "motivation1": "Исследование",
+      "motivation1Custom": "Исследование"
     },
     "YX6Lb3NLmkgKtGGj": {
-      "name": "Друид"
+      "name": "Друид",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Друид",
+      "adventurerClassCustom": "Друид",
+      "passive": "Может принимать облик любого животного.",
+      "traitPos1": "Честный",
+      "traitPos1Custom": "Честный",
+      "traitNeg1": "Нетерпеливый",
+      "traitNeg1Custom": "Нетерпеливый",
+      "motivation1": "Месть",
+      "motivation1Custom": "Месть"
     },
     "ZEqspUXS6ArVKxCo": {
-      "name": "Академик"
+      "name": "Академик",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Учёный",
+      "adventurerClassCustom": "Учёный",
+      "passive": "Отлично ориентируется в ходах подземелья.",
+      "traitPos1": "Умный",
+      "traitPos1Custom": "Умный",
+      "traitNeg1": "Жадный",
+      "traitNeg1Custom": "Жадный",
+      "motivation1": "Исследование",
+      "motivation1Custom": "Исследование"
     },
     "b3vDHdSmklipago0": {
-      "name": "Мистический воин"
+      "name": "Мистический воин",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Мистический воин",
+      "adventurerClassCustom": "Мистический воин",
+      "passive": "Может по желанию призывать мощный магический меч.",
+      "traitPos1": "Оптимистичный",
+      "traitPos1Custom": "Оптимистичный",
+      "traitNeg1": "Самоуверенный",
+      "traitNeg1Custom": "Самоуверенный",
+      "motivation1": "Вызов",
+      "motivation1Custom": "Вызов"
     },
     "cSpnRqWvEfpcGZhW": {
-      "name": "Иллюзионист"
+      "name": "Иллюзионист",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Иллюзионист",
+      "adventurerClassCustom": "Иллюзионист",
+      "passive": "Отвечает на атаки и внезапности иллюзиями.",
+      "traitPos1": "Полезный",
+      "traitPos1Custom": "Полезный",
+      "traitNeg1": "Нерешительный",
+      "traitNeg1Custom": "Нерешительный",
+      "motivation1": "Острые ощущения",
+      "motivation1Custom": "Острые ощущения"
     },
     "d2OkBZTaylyMJepB": {
-      "name": "Танцор теней"
+      "name": "Танцор теней",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Теневой танцор",
+      "adventurerClassCustom": "Теневой танцор",
+      "passive": "Может телепортироваться между тенями.",
+      "traitPos1": "Умный",
+      "traitPos1Custom": "Умный",
+      "traitNeg1": "Нетерпеливый",
+      "traitNeg1Custom": "Нетерпеливый",
+      "motivation1": "Острые ощущения",
+      "motivation1Custom": "Острые ощущения"
     },
     "eNb66MMPkzYer9OY": {
-      "name": "Центурион"
+      "name": "Центурион",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Центурион",
+      "adventurerClassCustom": "Центурион",
+      "passive": "Становится сильнее, когда ранен.",
+      "traitPos1": "Надёжный",
+      "traitPos1Custom": "Надёжный",
+      "traitNeg1": "Упрямый",
+      "traitNeg1Custom": "Упрямый",
+      "motivation1": "Уважение",
+      "motivation1Custom": "Уважение"
     },
     "emIDpnvLoXUpn3Cr": {
-      "name": "Маг-лучник"
+      "name": "Маг-лучник",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Магический лучник",
+      "adventurerClassCustom": "Магический лучник",
+      "passive": "Наполняет каждую стрелу стихийным эффектом.",
+      "traitPos1": "Умный",
+      "traitPos1Custom": "Умный",
+      "traitNeg1": "Жадный",
+      "traitNeg1Custom": "Жадный",
+      "motivation1": "Острые ощущения",
+      "motivation1Custom": "Острые ощущения"
     },
     "fz9nA2EBzZpxzX67": {
-      "name": "Алхимик"
+      "name": "Алхимик",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Алхимик",
+      "adventurerClassCustom": "Алхимик",
+      "passive": "Может использовать любое снадобье I или II ранга со стр. 121.",
+      "traitPos1": "Умный",
+      "traitPos1Custom": "Умный",
+      "traitNeg1": "Нетерпеливый",
+      "traitNeg1Custom": "Нетерпеливый",
+      "motivation1": "Острые ощущения",
+      "motivation1Custom": "Острые ощущения"
     },
     "iAqSSTG6Ew3JNRMd": {
-      "name": "Пращник"
+      "name": "Пращник",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Пращник",
+      "adventurerClassCustom": "Пращник",
+      "passive": "Отлично действует против тех, кто больше него.",
+      "traitPos1": "Оптимистичный",
+      "traitPos1Custom": "Оптимистичный",
+      "traitNeg1": "Нерешительный",
+      "traitNeg1Custom": "Нерешительный",
+      "motivation1": "Справедливость",
+      "motivation1Custom": "Справедливость"
     },
     "kYOyHH1dmF3g35QY": {
-      "name": "Варвар"
+      "name": "Варвар",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Варвар",
+      "adventurerClassCustom": "Варвар",
+      "passive": "Продолжает сражаться, когда уже должен быть мёртв.",
+      "traitPos1": "Уверенный",
+      "traitPos1Custom": "Уверенный",
+      "traitNeg1": "Глупый",
+      "traitNeg1Custom": "Глупый",
+      "motivation1": "Справедливость",
+      "motivation1Custom": "Справедливость"
     },
     "mqRDrmau1pzznTOG": {
-      "name": "Наёмник 4"
+      "name": "Наёмник 4",
+      "adventurerType": "Наёмник",
+      "adventurerClass": "Монах",
+      "adventurerClassCustom": "Монах"
     },
     "nTijuSfwyAH1P5mJ": {
-      "name": "Жрец"
+      "name": "Жрец",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Жрец",
+      "adventurerClassCustom": "Жрец",
+      "passive": "Немного исцеляет союзника во время передышки.",
+      "traitPos1": "Щедрый",
+      "traitPos1Custom": "Щедрый",
+      "traitNeg1": "Упрямый",
+      "traitNeg1Custom": "Упрямый",
+      "motivation1": "Справедливость",
+      "motivation1Custom": "Справедливость"
     },
     "oEJSumTWjLSwUw3Q": {
-      "name": "Монах"
+      "name": "Монах",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Монах",
+      "adventurerClassCustom": "Монах",
+      "passive": "Может бегать по стенам и по воде.",
+      "traitPos1": "Надёжный",
+      "traitPos1Custom": "Надёжный",
+      "traitNeg1": "Упрямый",
+      "traitNeg1Custom": "Упрямый",
+      "motivation1": "Вызов",
+      "motivation1Custom": "Вызов"
     },
     "oRlwp8OxVihG8swY": {
-      "name": "Охотник на мистику"
+      "name": "Охотник на мистику",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Охотник на нечисть",
+      "adventurerClassCustom": "Охотник на нечисть",
+      "passive": "Обладает шестым чувством на опасность.",
+      "traitPos1": "Упорный",
+      "traitPos1Custom": "Упорный",
+      "traitNeg1": "Лживый",
+      "traitNeg1Custom": "Лживый",
+      "motivation1": "Справедливость",
+      "motivation1Custom": "Справедливость"
     },
     "r5IzEtpJ3h8Jp2GP": {
-      "name": "Наёмник 3"
+      "name": "Наёмник 3",
+      "adventurerType": "Наёмник",
+      "adventurerClass": "Монах",
+      "adventurerClassCustom": "Монах"
     },
     "s3A994uKShGvEHXR": {
-      "name": "Защитник"
+      "name": "Защитник",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Защитник",
+      "adventurerClassCustom": "Защитник",
+      "passive": "Распространяет сильную защиту на ближайших союзников.",
+      "traitPos1": "Надёжный",
+      "traitPos1Custom": "Надёжный",
+      "traitNeg1": "Нерешительный",
+      "traitNeg1Custom": "Нерешительный",
+      "motivation1": "Вызов",
+      "motivation1Custom": "Вызов"
     },
     "sZLs343UdmzF7hE7": {
-      "name": "Разведчик"
+      "name": "Разведчик",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Разведчик",
+      "adventurerClassCustom": "Разведчик",
+      "passive": "Отлично замечает ловушки и опасности.",
+      "traitPos1": "Полезный",
+      "traitPos1Custom": "Полезный",
+      "traitNeg1": "Упрямый",
+      "traitNeg1Custom": "Упрямый",
+      "motivation1": "Исследование",
+      "motivation1Custom": "Исследование"
     },
     "vMloyuRuvVvFbAdc": {
-      "name": "Охотник на магов"
+      "name": "Охотник на магов",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Охотник на магов",
+      "adventurerClassCustom": "Охотник на магов",
+      "passive": "Почти невосприимчив к магии.",
+      "traitPos1": "Упорный",
+      "traitPos1Custom": "Упорный",
+      "traitNeg1": "Дерзкий",
+      "traitNeg1Custom": "Дерзкий",
+      "motivation1": "Месть",
+      "motivation1Custom": "Месть"
     },
     "vfeQ5BStkQrFWKxW": {
-      "name": "Наёмник 2"
+      "name": "Наёмник 2",
+      "adventurerType": "Наёмник",
+      "adventurerClass": "Монах",
+      "adventurerClassCustom": "Монах"
     },
     "xQrdchHYXMdq3Fgv": {
-      "name": "Дикарь"
+      "name": "Дикарь",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Дикарь",
+      "adventurerClassCustom": "Дикарь",
+      "passive": "Может бежать через труднопроходимую местность.",
+      "traitPos1": "Щедрый",
+      "traitPos1Custom": "Щедрый",
+      "traitNeg1": "Глупый",
+      "traitNeg1Custom": "Глупый",
+      "motivation1": "Острые ощущения",
+      "motivation1Custom": "Острые ощущения"
     },
     "yi1QXOJNLvMnO28g": {
-      "name": "Амазонка"
+      "name": "Амазонка",
+      "adventurerType": "Авантюрист",
+      "adventurerClass": "Амазонка",
+      "adventurerClassCustom": "Амазонка",
+      "passive": "Обладает очень сильным разумом и волей.",
+      "traitPos1": "Честный",
+      "traitPos1Custom": "Честный",
+      "traitNeg1": "Упрямый",
+      "traitNeg1Custom": "Упрямый",
+      "motivation1": "Вызов",
+      "motivation1Custom": "Вызов"
     }
   }
 }
