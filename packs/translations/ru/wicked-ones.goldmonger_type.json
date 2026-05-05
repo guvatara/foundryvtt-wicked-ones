@@ -1,0 +1,29 @@
+{
+  "lang": "ru",
+  "label": "Типы золотоискателя",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "5jIEJdmgbh5lyRXO": {
+      "name": "Тень - кристалл"
+    },
+    "PrWGHIHqIm7F9YRb": {
+      "name": "Огонь - лёд"
+    },
+    "WjWoMrPUqM3WkAHd": {
+      "name": "Вода - земля"
+    },
+    "nqSM115gjdSLuPtJ": {
+      "name": "Металл - растения"
+    },
+    "wA4wbSg2i1Jiagtl": {
+      "name": "Иллюзия - разум"
+    }
+  }
+}

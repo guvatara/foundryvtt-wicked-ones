@@ -1,0 +1,47 @@
+{
+  "lang": "ru",
+  "label": "Тёмные порывы Темнейшего",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "7q2RhjaBzYBoWmMa": {
+      "name": "Безумный"
+    },
+    "7zLXN88TgLkP0JlK": {
+      "name": "Одержимый"
+    },
+    "8bDf9RzcGeNz48Kp": {
+      "name": "Безрассудный"
+    },
+    "JGd3oz684O2PhwcB": {
+      "name": "Мучение"
+    },
+    "LexCN8yGtsVYYzZX": {
+      "name": "Грёзы"
+    },
+    "S1CvKYfGwHFq9yxR": {
+      "name": "Параноик"
+    },
+    "ZplBgIXHxWLUXX1o": {
+      "name": "Болтун"
+    },
+    "dUGHY7FwB4g87JUe": {
+      "name": "Мстительный"
+    },
+    "ex7Mqv42SKZrfUL0": {
+      "name": "Непостоянный"
+    },
+    "qGkgWsdxcnl0cFhm": {
+      "name": "Жестокий"
+    },
+    "qNjYObSgiSyP4DJt": {
+      "name": "Голод"
+    }
+  }
+}

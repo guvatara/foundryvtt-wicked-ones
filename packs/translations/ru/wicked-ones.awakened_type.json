@@ -1,0 +1,38 @@
+{
+  "lang": "ru",
+  "label": "Типы пробуждённых",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "0ZZDggIJo3oy4S7O": {
+      "name": "Сохранённый"
+    },
+    "5mRGMB4PEGfS4arR": {
+      "name": "Гнилой"
+    },
+    "Et94OuwtGsnGZFgB": {
+      "name": "Стихийный"
+    },
+    "IX6X6GPeOgimW87u": {
+      "name": "Демонический"
+    },
+    "MkQQdJ0UUaSfErMb": {
+      "name": "Иномирный"
+    },
+    "aJJx5uOCDwDYvWgg": {
+      "name": "Скелетный"
+    },
+    "dGZtG3dlO3nfXto2": {
+      "name": "Грибной"
+    },
+    "i1wQQwQS9PXCJDsg": {
+      "name": "Амальгама"
+    }
+  }
+}

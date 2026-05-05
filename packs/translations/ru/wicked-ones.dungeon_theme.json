@@ -1,0 +1,29 @@
+{
+  "lang": "ru",
+  "label": "Темы подземелья",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "DSEntTITEBkjCbLj": {
+      "name": "Кузница"
+    },
+    "KAzMDn5GErqLXwg5": {
+      "name": "Убежище"
+    },
+    "QbUaFHPJ7T0Y6ulV": {
+      "name": "Храм"
+    },
+    "cndOp6V790Kzl48P": {
+      "name": "Крепость"
+    },
+    "rNQRh7dgR9TwV5Ko": {
+      "name": "Анклав"
+    }
+  }
+}

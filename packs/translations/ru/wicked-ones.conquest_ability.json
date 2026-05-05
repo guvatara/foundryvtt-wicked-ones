@@ -1,0 +1,59 @@
+{
+  "lang": "ru",
+  "label": "Способности завоевания",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "1S8gma1Jvf8Srkft": {
+      "name": "Древнее хранилище"
+    },
+    "2pR7v6PLxdT0CyRm": {
+      "name": "Ненасытный"
+    },
+    "3P6TVBprixY6Mb0v": {
+      "name": "Понуждение"
+    },
+    "7kcm5JEpTKfcMeon": {
+      "name": "Драматическое появление"
+    },
+    "9rCOrbFU861bJtd4": {
+      "name": "Приспособительная мутация"
+    },
+    "GJ6LjHLnC5oEJ1qq": {
+      "name": "Яма порождения"
+    },
+    "Ja2mlb4KWC7M9JuP": {
+      "name": "Искажённый ландшафт"
+    },
+    "PkFpcUZCYqyTJXox": {
+      "name": "Осквернённый алтарь"
+    },
+    "RoeYhU5hNApqMfj5": {
+      "name": "Тёмный проводник"
+    },
+    "UUrbuhooXuOMjaRe": {
+      "name": "Мерзкий зверинец"
+    },
+    "Y8UxuL71ANuV6b6n": {
+      "name": "Разлом хаоса"
+    },
+    "gtiRYVZ7otCMMUks": {
+      "name": "Армия мёртвых"
+    },
+    "kMnohqqTjnMRLpoi": {
+      "name": "Бесконечная волна"
+    },
+    "ni36OR02cHNoNvOa": {
+      "name": "Сжигание сущности"
+    },
+    "rnpLboFAB4mYFTCf": {
+      "name": "Истории оказались правдой!"
+    }
+  }
+}

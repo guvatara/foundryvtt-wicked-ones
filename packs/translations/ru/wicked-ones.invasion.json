@@ -1,0 +1,29 @@
+{
+  "lang": "ru",
+  "label": "Крупные вторжения",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "ArdUK0E2ihctnCR7": {
+      "name": "Пример вторжения 4-го круга"
+    },
+    "MF7O784yQEUFcpNB": {
+      "name": "Пример вторжения 2-го круга"
+    },
+    "R0VUW3lJ8wXabRXk": {
+      "name": "Пример вторжения 0-го круга"
+    },
+    "YBTWDeM8qyzIWcBc": {
+      "name": "Пример вторжения 3-го круга"
+    },
+    "fjD0sOnPiJfD1DMi": {
+      "name": "Пример вторжения 1-го круга"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "lang": "ru",
+  "label": "Макросы",
+  "mapping": {
+    "name": "name"
+  },
+  "entries": {
+    "7yS7CHz8EiMQFJ07": {
+      "name": "Бросок: Тон"
+    },
+    "HPZh3ZfSJaZ9Q3ZH": {
+      "name": "Бросок: Плутовство"
+    },
+    "Q7PPpHB3X5KyCNHe": {
+      "name": "Бросок: Осмотр"
+    },
+    "Sh6I5grnQiWxtcIp": {
+      "name": "Бросок: Крадущийся"
+    },
+    "Ymm7upF5smCERCur": {
+      "name": "Бросок: Призыв"
+    },
+    "ZIE6h3TiGyAkyfTO": {
+      "name": "Бросок: Запугивание"
+    },
+    "f6L6Be5NXcux5mkR": {
+      "name": "Бросок: Болтовня"
+    },
+    "rc3je2ctWDvNzfMW": {
+      "name": "Бросок: Мощь"
+    },
+    "rvg9NJUanQOGFbzd": {
+      "name": "Бросок: Ковыряние"
+    }
+  }
+}

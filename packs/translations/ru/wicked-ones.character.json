@@ -1,0 +1,86 @@
+{
+  "lang": "ru",
+  "label": "Примеры персонажей",
+  "mapping": {
+    "name": "name",
+    "tokenName": "prototypeToken.name"
+  },
+  "entries": {
+    "3BgCaGuXhrz3KT0t": {
+      "name": "Изобретатель",
+      "tokenName": "Изобретатель"
+    },
+    "3hl2iKEXhIycxuYr": {
+      "name": "Фанатик",
+      "tokenName": "Фанатик"
+    },
+    "8cMCc7feHWikHZhS": {
+      "name": "Колдун",
+      "tokenName": "Колдун"
+    },
+    "DSK4s2c3u1J9I2mM": {
+      "name": "Интриган",
+      "tokenName": "Интриган"
+    },
+    "F9HZSGijiBaPtByM": {
+      "name": "Осквернитель (UA)",
+      "tokenName": "Осквернитель (UA)"
+    },
+    "Faiz9VmU3n0F7UHW": {
+      "name": "Первозданный Золотоискатель",
+      "tokenName": "Первозданный Золотоискатель"
+    },
+    "GHvZbI8kscSpIca1": {
+      "name": "Тень",
+      "tokenName": "Тень"
+    },
+    "N18cEi1aF2opNgL5": {
+      "name": "Скрытень (UA)",
+      "tokenName": "Скрытень (UA)"
+    },
+    "N8IV8aTUVXkSQqw7": {
+      "name": "Мерзость (UA)",
+      "tokenName": "Мерзость (UA)"
+    },
+    "QgB1uqdgJ1WfPhYl": {
+      "name": "Первозданный Искатель гибели",
+      "tokenName": "Первозданный Искатель гибели"
+    },
+    "UmDkMwHZ7jx9uU3x": {
+      "name": "Ревенант (UA)",
+      "tokenName": "Ревенант (UA)"
+    },
+    "Xibqe01xxwzgva8L": {
+      "name": "Лич (UA)",
+      "tokenName": "Лич (UA)"
+    },
+    "cbKAzP8n9GprnTTH": {
+      "name": "Первозданный Мозгоед",
+      "tokenName": "Первозданный Мозгоед"
+    },
+    "ekkKwgf2J0THCtu7": {
+      "name": "Шаман",
+      "tokenName": "Шаман"
+    },
+    "g1xBqWPlzi8cOaIN": {
+      "name": "Охотник",
+      "tokenName": "Охотник"
+    },
+    "iKFOBKkYNgCJ8VSZ": {
+      "name": "Первозданный Похититель лиц",
+      "tokenName": "Первозданный Похититель лиц"
+    },
+    "krFu56JtQFVij9LW": {
+      "name": "Зверь",
+      "tokenName": "Зверь"
+    },
+    "q7dFFIZWJ4j36pwK": {
+      "name": "Жнец (UA)",
+      "tokenName": "Жнец (UA)"
+    },
+    "wPIX6Phu0K3MdYtg": {
+      "name": "Мародёр",
+      "tokenName": "Мародёр"
+    }
+  }
+}

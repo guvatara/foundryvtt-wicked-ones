@@ -1,0 +1,347 @@
+{
+  "lang": "ru",
+  "label": "Особые способности",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "0GeLXtzpF8a3YDRE": {
+      "name": "Фамильяр"
+    },
+    "0VWzeM7TwQ2f7Qhl": {
+      "name": "Вьючный мул"
+    },
+    "1HFJ1ghwZFv9vUNz": {
+      "name": "Отравитель"
+    },
+    "1NrWkE928mHqaOIA": {
+      "name": "Осквернитель"
+    },
+    "1fh06tCLN5wd5WmI": {
+      "name": "Дикое знание"
+    },
+    "2BEu4HXkRgbBFNBG": {
+      "name": "Драматическое раскрытие"
+    },
+    "2hbQJUESadG1EaGM": {
+      "name": "Преследуемый"
+    },
+    "3bFH7YddmB1hIiGQ": {
+      "name": "Изобретательность"
+    },
+    "5AG3EvyKPlbm3npA": {
+      "name": "Творческое неистовство"
+    },
+    "5AmkRck6tZfqn9PO": {
+      "name": "Звериная форма"
+    },
+    "6MqxLmO98EeVQ8P3": {
+      "name": "Плетение паутины"
+    },
+    "6YbFUu8MuESH8qXw": {
+      "name": "Тёмный разум"
+    },
+    "7YAylz7AiH2jk2xH": {
+      "name": "Тактик"
+    },
+    "7nJjFqh38Vf1Lc0B": {
+      "name": "Мысленная речь"
+    },
+    "9ryP0TtXVsdvmyRl": {
+      "name": "Дыхание"
+    },
+    "A0OmP3g97jMtdZ1s": {
+      "name": "Сон"
+    },
+    "AbygKO8miFktegvn": {
+      "name": "Обман"
+    },
+    "Ao6mVSZerqsLKQpi": {
+      "name": "Перегрузка"
+    },
+    "AoBpKiuDOrscl41c": {
+      "name": "Шёпот духов"
+    },
+    "BAR1DDM9GOMTOWsZ": {
+      "name": "Внимательный взгляд"
+    },
+    "BRS7GpZfkUxOAA1k": {
+      "name": "Гротескные мутации"
+    },
+    "C1ZmzgkPhTwSz2IU": {
+      "name": "Оппортунист"
+    },
+    "Ca64mFVck6WuiEtk": {
+      "name": "Командир"
+    },
+    "DF7tnI59km65ieDu": {
+      "name": "Крадущийся"
+    },
+    "FDSv5qT2njmmx95W": {
+      "name": "Нити"
+    },
+    "FKoBSHUXncAKlj21": {
+      "name": "Гордость"
+    },
+    "FQAjX9vPDlDOTA39": {
+      "name": "Штурм"
+    },
+    "FkFrSwoKL8Lvz37Y": {
+      "name": "Жнец"
+    },
+    "FyJKEVFk1V9i3A7V": {
+      "name": "Меняющиеся уловки"
+    },
+    "HfkCEj29b0LUxhbW": {
+      "name": "Стойкость"
+    },
+    "HvkQd0OPxZHyNs9w": {
+      "name": "Нечестивые ритуалы"
+    },
+    "I5IuHCIzi2LDZN1I": {
+      "name": "Колдовство"
+    },
+    "IKUFcXiwTSx7TIE5": {
+      "name": "Сталкер"
+    },
+    "LBn9NUyghLjUPErg": {
+      "name": "Фирменный эликсир"
+    },
+    "MhOcrnb5YZs1pmZM": {
+      "name": "Ужас"
+    },
+    "MlkODNsxGLnRIEwA": {
+      "name": "Тирания"
+    },
+    "NVdLROmvYKdFhKQ0": {
+      "name": "Воплощение"
+    },
+    "Nkclv04fPdeCUHkU": {
+      "name": "Псионика"
+    },
+    "Nt3Ad3cBIIgg6Hij": {
+      "name": "Похититель мыслей"
+    },
+    "NyqHJVquhFFsMYCO": {
+      "name": "Шкура"
+    },
+    "O58fsLahFdCsiSlo": {
+      "name": "Кара"
+    },
+    "ORdXb1wrQjoEFdym": {
+      "name": "Смена облика"
+    },
+    "OxIQQy8TQF99Ijc2": {
+      "name": "Ярость"
+    },
+    "PIYq08yCXBLn0OZE": {
+      "name": "Угроза"
+    },
+    "PQ6NAdAnLcUSM48T": {
+      "name": "Глазные лучи"
+    },
+    "Q1tomq8kMKzzQefi": {
+      "name": "Звериные чувства"
+    },
+    "QUE3UElTFeK7Nb65": {
+      "name": "Живое оружие"
+    },
+    "QqAMnRwYwIYb4DTS": {
+      "name": "Интуиция"
+    },
+    "RsDlSNaBeQgIdSEL": {
+      "name": "Пиршество"
+    },
+    "SV30Zg9lvE51gn1L": {
+      "name": "Надсмотрщик"
+    },
+    "SXWOYIPKIDZy1HPA": {
+      "name": "Странное тело"
+    },
+    "SbMPARYP3sLDF6VM": {
+      "name": "Неистовство"
+    },
+    "TAlQ3gagokieRjfR": {
+      "name": "Плетение"
+    },
+    "TUgCoZlUw5Vw5Vqz": {
+      "name": "Прыжок"
+    },
+    "UKwFBB1iQ1dUQ0NX": {
+      "name": "Языки"
+    },
+    "UNTYRV602GiwvCoh": {
+      "name": "Отпор"
+    },
+    "VlpIkBLv0mXBJlQK": {
+      "name": "Присадка"
+    },
+    "VqiMzc9vkopnmB01": {
+      "name": "Боевые барабаны"
+    },
+    "WVlP5CkupOKaYbFi": {
+      "name": "Инквизитор"
+    },
+    "XP5nsx1DQhfks8p5": {
+      "name": "Скользкий"
+    },
+    "XUwIqA9NBBnWbUIi": {
+      "name": "Склад снаряжения"
+    },
+    "YDIJQqpVJGns5SLL": {
+      "name": "Дикие варева"
+    },
+    "YHbLRwec64EocgLI": {
+      "name": "Охотничий питомец"
+    },
+    "YUCjLN8Jj7MIMC9X": {
+      "name": "Господство"
+    },
+    "Yr9LuempRh5V9M7Y": {
+      "name": "Мастер боя"
+    },
+    "Z0GjOXRnLFSc4Y7g": {
+      "name": "Голоса"
+    },
+    "ZTAeY7ObwAsTe11i": {
+      "name": "Охотничий азарт"
+    },
+    "Zw0v9BCXrBc2lH6H": {
+      "name": "Разведчик"
+    },
+    "aKp5Z0yFYiRVPAYl": {
+      "name": "Пропустил местечко"
+    },
+    "arV9TXM8lz15dOF2": {
+      "name": "Дублёная кожа"
+    },
+    "avJjqQ8MlVFOq0CW": {
+      "name": "Надзиратель"
+    },
+    "bQbkOnUf0abmDrqI": {
+      "name": "Ведовство"
+    },
+    "bYzA6KVv8a08i398": {
+      "name": "Когорта"
+    },
+    "cLQV67ZfMJY23bL4": {
+      "name": "Броски сна"
+    },
+    "cQzLvfLR5SBiAY7h": {
+      "name": "Великое колдовство"
+    },
+    "cYbfOoQR2m2sRlMy": {
+      "name": "Прототип"
+    },
+    "e6OkYhyTntiyHKMq": {
+      "name": "Наука монстров"
+    },
+    "epZMi6lxBY3ju1dQ": {
+      "name": "Невидимая рука"
+    },
+    "ez7QQRReMjgUgpjc": {
+      "name": "Контрзаклинание"
+    },
+    "f51Nl3LOKOv23zj2": {
+      "name": "Аколиты"
+    },
+    "fswdEAwoiHhL6UnQ": {
+      "name": "Маньяк"
+    },
+    "fwgxLzW6W6S2oJmm": {
+      "name": "Мастер варева"
+    },
+    "gKR2mIpzDdBF3ymY": {
+      "name": "Полёт"
+    },
+    "gmT1VSt8fotI23Wj": {
+      "name": "Хитрые выстрелы"
+    },
+    "gms12MeT3peanpPD": {
+      "name": "Гнев"
+    },
+    "hIC8c4oKhVRaxbqw": {
+      "name": "Погребальный костёр"
+    },
+    "iI6Xt4nW2IY2o8bs": {
+      "name": "Оплот"
+    },
+    "iRcSehan8pyYwDvf": {
+      "name": "Новое лицо"
+    },
+    "iYYyJMLDn9qY4dKw": {
+      "name": "Идеальное появление"
+    },
+    "iYZnAn4AKk2a5H6w": {
+      "name": "Пылкая аура"
+    },
+    "jLkbVg2ATftZtkzE": {
+      "name": "Связанный дух"
+    },
+    "jtVTEin06i4i4cZj": {
+      "name": "Лица"
+    },
+    "juDBDiKJPqTwk1MV": {
+      "name": "Источник силы"
+    },
+    "k3t423IZffPwiLaW": {
+      "name": "Вмешательство"
+    },
+    "lKQ5OR64wPnSzcrK": {
+      "name": "Дотошный"
+    },
+    "mPRbheLQ0FaEjOIx": {
+      "name": "Настройка глазных лучей"
+    },
+    "nmliHGomE70ZYyNa": {
+      "name": "Паранойя"
+    },
+    "oYQgSo0feunP4YLs": {
+      "name": "Голод"
+    },
+    "pOPWOIMu69YLf0mT": {
+      "name": "Падальщик"
+    },
+    "pQ4Rd4aiXzDuUdze": {
+      "name": "Телекинез"
+    },
+    "pRVaqA5clybBuKh9": {
+      "name": "Контроль"
+    },
+    "qBeDfzOjl2xZj02z": {
+      "name": "Радость битвы"
+    },
+    "qbeBw3u4hCrLBjgr": {
+      "name": "Липкие пальцы"
+    },
+    "qdALY9HzILPLBdhb": {
+      "name": "Телепатия"
+    },
+    "ufTxmJCuAwlaZD8n": {
+      "name": "Артефактор"
+    },
+    "vt6DBPZpQLAv43Df": {
+      "name": "Игра слов"
+    },
+    "w86Z3z8AFMV1C8lg": {
+      "name": "Проводник силы"
+    },
+    "wDSKjfgi0u5pR4jg": {
+      "name": "Логово"
+    },
+    "wEdUOQtcsMtTZdkd": {
+      "name": "Мерзкая форма"
+    },
+    "xkPkTcHxiY5aVwHE": {
+      "name": "Искусный лжец"
+    },
+    "ysnewAxaspn5EUlk": {
+      "name": "Свирепость"
+    }
+  }
+}

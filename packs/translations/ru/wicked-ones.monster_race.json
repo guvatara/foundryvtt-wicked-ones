@@ -1,0 +1,44 @@
+{
+  "lang": "ru",
+  "label": "Народы монстров",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "2MT1kJZYlO0MMvRV": {
+      "name": "Орк"
+    },
+    "51xZOWTUoWGl85YR": {
+      "name": "Золотоискатель"
+    },
+    "5qX1pBu8dq2BR6XN": {
+      "name": "Гоблин"
+    },
+    "AyIY89VQr1pvXamB": {
+      "name": "Искатель гибели"
+    },
+    "FNwyXmsqYDGBseWW": {
+      "name": "Слиссик"
+    },
+    "WRi4i7x29tUugy3q": {
+      "name": "Демон"
+    },
+    "hoy76mu674sT5xTb": {
+      "name": "Багбир"
+    },
+    "mWUevb4uMrWZDIPg": {
+      "name": "Мозгоед"
+    },
+    "v1kalmt4yT0n31Ut": {
+      "name": "Похититель лиц"
+    },
+    "wNmXolhwl2Io45rI": {
+      "name": "Кобольд"
+    }
+  }
+}

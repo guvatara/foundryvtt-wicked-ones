@@ -1,0 +1,119 @@
+{
+  "lang": "ru",
+  "label": "Комнаты 3-го круга",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "2IQ1HwG2InrPZXld": {
+      "name": "Алтарь"
+    },
+    "6ByKSDJo9GaqwfVY": {
+      "name": "Лаборатория зелий"
+    },
+    "BQra9WsMqHaUMYIQ": {
+      "name": "Кузня"
+    },
+    "FwOefcGk3z28dCOe": {
+      "name": "Казармы"
+    },
+    "GawUIq3chJEgCLB1": {
+      "name": "Фабрика"
+    },
+    "IRJAjsNbDLKyAxPy": {
+      "name": "Палата порождения"
+    },
+    "J9Uxm0mzBr0UvOke": {
+      "name": "Боевые барабаны"
+    },
+    "KkSntuu8QXNOxp75": {
+      "name": "Мастерская"
+    },
+    "NmJb10XDzkrq9WyS": {
+      "name": "Шахта"
+    },
+    "OPKAkw0YL2apLQhy": {
+      "name": "Библиотека"
+    },
+    "Q2grgsmLBeMwzoEw": {
+      "name": "Испытательная комната"
+    },
+    "SNINn2mpv8bOR8W1": {
+      "name": "Академия"
+    },
+    "Wh8F9Abm3yr6hzsm": {
+      "name": "Погребальный костёр"
+    },
+    "YATccWMzMD1cp5hH": {
+      "name": "Полоса препятствий"
+    },
+    "aB24rPk5bAtdV2f3": {
+      "name": "Горнило"
+    },
+    "cN6ZyQTfR6ZWFGbd": {
+      "name": "Таверна"
+    },
+    "cxAnNA9hqNgfjdNP": {
+      "name": "Додзё"
+    },
+    "eXGnJfDi17mzvIs5": {
+      "name": "Круг предсказаний"
+    },
+    "fmV81yT38JyJty7J": {
+      "name": "Комната покаяния"
+    },
+    "hYlyY0XyEkO3f6x3": {
+      "name": "Спальня"
+    },
+    "iVAe5hUD140eQFnP": {
+      "name": "Комната планирования"
+    },
+    "ixoblTpkYHmOGq6j": {
+      "name": "Оракульский водоём"
+    },
+    "jvpqNe3vaZKHXuEF": {
+      "name": "Зелёная зона"
+    },
+    "kENISp6WGMdMmpUd": {
+      "name": "Насест"
+    },
+    "kQ8m63lOSVnVOvZl": {
+      "name": "Игорный притон"
+    },
+    "l9BHyjIuACpPyvMd": {
+      "name": "Стоянка машин"
+    },
+    "mVUQyXHZr0tL5zGG": {
+      "name": "Реликварий"
+    },
+    "oLoWWhtKAasNOPAE": {
+      "name": "Боевая яма"
+    },
+    "ogjX3gmt1KhDx9TU": {
+      "name": "Преддверие"
+    },
+    "s2q9yThNcJxuc7ir": {
+      "name": "Военный зал"
+    },
+    "uEyWxXzInTP6uyJW": {
+      "name": "Склад снаряжения"
+    },
+    "uTG9qHcCBNkxjR9b": {
+      "name": "Зал гильдии"
+    },
+    "wllKJBSasFiPvvA2": {
+      "name": "Лаборатория алхимика"
+    },
+    "yy8q6T29hasGQLOH": {
+      "name": "Скрипторий"
+    },
+    "zEgfq1YVILXZNMVl": {
+      "name": "Бестиарий"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "lang": "ru",
+  "label": "Защита",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "rQwce7Yc4oyeJbWK": {
+      "name": "Новая защита"
+    }
+  }
+}

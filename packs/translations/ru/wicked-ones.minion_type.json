@@ -1,0 +1,62 @@
+{
+  "lang": "ru",
+  "label": "Типы миньонов",
+  "mapping": {
+    "name": "name",
+    "description": "data.description",
+    "systemDescription": "system.description",
+    "flashbackClues": "data.flashback_clues",
+    "systemFlashbackClues": "system.flashback_clues",
+    "passive": "data.passive"
+  },
+  "entries": {
+    "08nLvzTZH7h2MnZQ": {
+      "name": "Воры"
+    },
+    "5WLuQcAAQZjndE4T": {
+      "name": "Шахтёры"
+    },
+    "6EIYu0KaJqxPomU3": {
+      "name": "Ловчие"
+    },
+    "6oMLbb6QKILcv2K4": {
+      "name": "Разведчики"
+    },
+    "AXUku8Tc8g9QpzDZ": {
+      "name": "Ведьмы"
+    },
+    "EXrnqBnGdt8yiwF6": {
+      "name": "Громилы"
+    },
+    "GfBMvUcwLx0dyfkw": {
+      "name": "Посланники"
+    },
+    "Iv3GJBa61bKMJw4D": {
+      "name": "Налётчики"
+    },
+    "KnKyY6df79smp2jX": {
+      "name": "Аколиты"
+    },
+    "RI9EdDtlZkp2OYk5": {
+      "name": "Жрецы"
+    },
+    "TPcOnpKc7xmMV5tZ": {
+      "name": "Трикстеры"
+    },
+    "TwlfsbkcWxhx4giL": {
+      "name": "Рабочие"
+    },
+    "YizSq84FcNoBhIug": {
+      "name": "Головорезы"
+    },
+    "c1SwFj1g21ejkogB": {
+      "name": "Строители"
+    },
+    "dqU3b7nnQlzQJwXE": {
+      "name": "Маги"
+    },
+    "oFsGeXuQudqBh2a0": {
+      "name": "Алхимики"
+    }
+  }
+}

@@ -4,7 +4,7 @@ export const registerSystemSettings = function() {
    * Track the system version upon which point a migration was last applied
    */
   game.settings.register("wicked-ones", "systemMigrationVersion", {
-    name: "System Migration Version",
+    name: "SETTINGS.SystemMigrationVersion.Name",
     scope: "world",
     config: false,
     type: Number,

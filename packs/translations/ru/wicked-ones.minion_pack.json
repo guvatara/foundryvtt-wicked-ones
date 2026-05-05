@@ -1,0 +1,22 @@
+{
+  "lang": "ru",
+  "label": "Примеры смен миньонов",
+  "mapping": {
+    "name": "name",
+    "tokenName": "prototypeToken.name"
+  },
+  "entries": {
+    "IvgSo3W9wafIOUaF": {
+      "name": "Гоблины-разведчики",
+      "tokenName": "Гоблины-разведчики"
+    },
+    "LMguBAg0oZjJWRLA": {
+      "name": "Адепты демоны-трикстеры",
+      "tokenName": "Адепты демоны-трикстеры"
+    },
+    "Qvjy9t9aCrKy6jdh": {
+      "name": "Расходные орки-громилы",
+      "tokenName": "Расходные орки-громилы"
+    }
+  }
+}
