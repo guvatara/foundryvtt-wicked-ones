@@ -174,7 +174,7 @@ export class WickedSheet extends BaseActorSheet {
       }
     }
 
-    let html = `<div id="items-to-add">`;
+    let html = `<form id="items-to-add-form"><div id="items-to-add">`;
     const translationEntries = await WickedHelpers.getCompendiumTranslationEntries(item_type);
     const localizeGameLogicName = (value) => {
       if (!value) return value;
@@ -260,7 +260,7 @@ export class WickedSheet extends BaseActorSheet {
       html += `</label>`;
     });
 
-    html += `</div>`;
+    html += `</div></form>`;
 
     const label = CONFIG.Item?.typeLabels?.[item_type] ?? item_type;
     let title = game.i18n.has(label) ? game.i18n.localize(label) : item_type;
@@ -274,8 +274,13 @@ export class WickedSheet extends BaseActorSheet {
           action: "add",
           icon: "fas fa-check",
           label: game.i18n.localize('Add'),
-          callback: () => {
-            this.addItemsToSheet(item_type, $(document).find('#items-to-add'));
+          callback: (event, button) => {
+            const form =
+              button?.form
+              ?? event?.currentTarget?.closest?.("form")
+              ?? document.getElementById("items-to-add-form");
+            if (!form) return;
+            this.addItemsToSheet(item_type, form);
           },
         },
         {
@@ -290,15 +295,44 @@ export class WickedSheet extends BaseActorSheet {
 
   /* -------------------------------------------- */
 
-  async addItemsToSheet(item_type, el) {
+  async addItemsToSheet(item_type, formEl) {
 
     let items = await WickedHelpers.getAllItemsByType(item_type, game);
     let items_to_add = [];
-    el.find("input:checked").each(function () {
+    const checkedInputs = formEl.querySelectorAll("input[name='select_items']:checked");
+    checkedInputs.forEach((input) => {
+      const selectedItem = items.find(e => e._id === input.value);
+      if (!selectedItem) return;
 
-      items_to_add.push(items.find(e => e._id === $(this).val()));
+      // Embedded creation expects plain item data, not document instances.
+      const itemData = typeof selectedItem.toObject === "function"
+        ? selectedItem.toObject()
+        : foundry.utils.deepClone(selectedItem);
+
+      // Backward compatibility: old compendium entries may still use `data`.
+      if (!itemData.system && itemData.data) {
+        itemData.system = itemData.data;
+      }
+      delete itemData.data;
+      delete itemData.permission;
+
+      // Ensure minion upgrades always have a visible section on minion sheets.
+      if (item_type === "minion_upgrade") {
+        itemData.system = itemData.system ?? {};
+        itemData.system.upgrade_type = itemData.system.upgrade_type || "regular";
+      }
+
+      // Avoid id collisions when copying from world/compendium.
+      delete itemData._id;
+      delete itemData.folder;
+      delete itemData.pack;
+      delete itemData.sort;
+
+      items_to_add.push(itemData);
     });
-    this.document.createEmbeddedDocuments("Item", items_to_add);
+
+    if (items_to_add.length === 0) return;
+    await this.document.createEmbeddedDocuments("Item", items_to_add);
   }
   /* -------------------------------------------- */
 
