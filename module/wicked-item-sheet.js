@@ -37,8 +37,11 @@ export class WickedItemSheet extends BaseItemSheet {
     const localizeGameLogicName = (value) => {
       if (!value) return "";
       const key = String(value).replace(/\s+/g, "");
-      const i18nKey = `FITD.GAME_LOGIC.${key}`;
-      return game.i18n.has(i18nKey) ? game.i18n.localize(i18nKey) : String(value);
+      const gameLogicKey = `FITD.GAME_LOGIC.${key}`;
+      if (game.i18n.has(gameLogicKey)) return game.i18n.localize(gameLogicKey);
+      const genericKey = `FITD.${key}`;
+      if (game.i18n.has(genericKey)) return game.i18n.localize(genericKey);
+      return String(value);
     };
 
     const sourceDisplay = translatedEntry?.source ?? localizeGameLogicName(sheetData.system.source);

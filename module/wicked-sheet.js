@@ -39,13 +39,25 @@ export class WickedSheet extends BaseActorSheet {
           item.system.source = translatedEntry.source;
         } else if (item.system.source) {
           const sourceKey = String(item.system.source).replace(/\s+/g, "");
-          const sourceI18n = `FITD.GAME_LOGIC.${sourceKey}`;
-          if (game.i18n.has(sourceI18n)) {
-            item.system.source = game.i18n.localize(sourceI18n);
+          const gameLogicKey = `FITD.GAME_LOGIC.${sourceKey}`;
+          const genericKey = `FITD.${sourceKey}`;
+          if (game.i18n.has(gameLogicKey)) {
+            item.system.source = game.i18n.localize(gameLogicKey);
+          } else if (game.i18n.has(genericKey)) {
+            item.system.source = game.i18n.localize(genericKey);
           }
         }
         if (translatedEntry.theme) {
           item.system.theme = translatedEntry.theme;
+        }
+        if (translatedEntry.specialName) {
+          item.system.special_name = translatedEntry.specialName;
+        }
+        if (translatedEntry.specialFeature) {
+          item.system.special_feature = translatedEntry.specialFeature;
+        }
+        if (translatedEntry.themeCheckbox1Text) {
+          item.system.theme_checkbox_1_text = translatedEntry.themeCheckbox1Text;
         }
       }
     }
@@ -179,8 +191,11 @@ export class WickedSheet extends BaseActorSheet {
     const localizeGameLogicName = (value) => {
       if (!value) return value;
       const key = String(value).replace(/\s+/g, "");
-      const i18nKey = `FITD.GAME_LOGIC.${key}`;
-      return game.i18n.has(i18nKey) ? game.i18n.localize(i18nKey) : value;
+      const gameLogicKey = `FITD.GAME_LOGIC.${key}`;
+      if (game.i18n.has(gameLogicKey)) return game.i18n.localize(gameLogicKey);
+      const genericKey = `FITD.${key}`;
+      if (game.i18n.has(genericKey)) return game.i18n.localize(genericKey);
+      return value;
     };
 
     items.forEach(e => {
