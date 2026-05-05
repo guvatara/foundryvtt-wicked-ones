@@ -163,7 +163,8 @@
                 {{!-- General Upgrades --}}
                 {{#each actor.items as |item id|}}
                 {{#if (eq item.type "minion_upgrade")}}
-                {{#if (eq item.system.upgrade_type "regular")}}
+                {{#unless (eq item.system.upgrade_type "path")}}
+                {{#unless (eq item.system.upgrade_type "external")}}
                 <tr class="item" data-item-id="{{item._id}}">
                   <td class="item-body">
                     <div class="item-name item-open-editor">{{item.name}}</div>
@@ -193,7 +194,8 @@
                     <a class="item-control item-delete" title="{{localize 'FITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
                   </td>
                 </tr>
-                {{/if}}
+                {{/unless}}
+                {{/unless}}
                 {{/if}}
                 {{/each}}
 
