@@ -13,6 +13,9 @@
     <textarea name="system.requirements">{{system.requirements}}</textarea>
     <label class="label-stripe">{{localize "FITD.DungeonTheme"}}</label>
     <input type="text" name="system.theme" value="{{system.theme}}">
+    {{#if system.localized_display.hasTheme}}
+    <label>{{localize "FITD.DungeonTheme"}} (Localized): {{system.localized_display.theme}}</label>
+    {{/if}}
     <label class="label-stripe">{{localize "FITD.MissingMaterials"}}</label>
     <div>
       <input type="checkbox" name="system.missing_materials" {{checked system.missing_materials}}>

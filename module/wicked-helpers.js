@@ -1,4 +1,5 @@
 export class WickedHelpers {
+  static _compendiumTranslationCache = new Map();
 
   /**
    * Removes a duplicate item type from charlist.
@@ -186,6 +187,43 @@ export class WickedHelpers {
 
     return list_of_items;
 
+  }
+
+  /**
+   * Loads compendium translation entries for the current language.
+   * Returns null when no translation file exists for the given type/lang.
+   *
+   * @param {string} item_type
+   * @returns {Promise<Object|null>}
+   */
+  static async getCompendiumTranslationEntries(item_type) {
+    const lang = String(game.i18n.lang || "en").toLowerCase();
+    if (lang === "en" || lang.startsWith("en-")) return null;
+
+    const cacheKey = `${lang}:${item_type}`;
+    if (WickedHelpers._compendiumTranslationCache.has(cacheKey)) {
+      return WickedHelpers._compendiumTranslationCache.get(cacheKey);
+    }
+
+    const langBase = lang.split("-")[0];
+    const langCandidates = [...new Set([lang, langBase])];
+
+    for (const locale of langCandidates) {
+      const path = `systems/wicked-ones/packs/translations/${locale}/wicked-ones.${item_type}.json`;
+      try {
+        const response = await fetch(path);
+        if (!response.ok) continue;
+        const data = await response.json();
+        const entries = data?.entries ?? null;
+        WickedHelpers._compendiumTranslationCache.set(cacheKey, entries);
+        return entries;
+      } catch (_err) {
+        // Missing translation file is expected for many locales.
+      }
+    }
+
+    WickedHelpers._compendiumTranslationCache.set(cacheKey, null);
+    return null;
   }
 
   /* -------------------------------------------- */
