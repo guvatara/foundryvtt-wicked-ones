@@ -8,9 +8,7 @@
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
     "passive": "data.passive",
-    "gmType": "data.gm_type",
     "gmTypeCustom": "data.gm_type_custom",
-    "gmAntitype": "data.gm_antitype",
     "gmAntitypeCustom": "data.gm_antitype_custom"
   },
   "entries": {

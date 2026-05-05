@@ -8,7 +8,6 @@
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
     "passive": "data.passive",
-    "type": "data.type",
     "typeCustom": "data.type_custom"
   },
   "entries": {

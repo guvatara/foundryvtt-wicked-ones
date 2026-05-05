@@ -8,7 +8,6 @@
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
     "passive": "data.passive",
-    "upgradeType": "system.upgrade_type",
     "upgradeCheckboxText": "system.upgrade_checkbox_text",
     "upgradeCheckbox2Text": "system.upgrade_checkbox_2_text"
   },
