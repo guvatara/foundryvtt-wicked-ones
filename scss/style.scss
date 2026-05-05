@@ -103,7 +103,7 @@ table.base-info {
 
             input {
                 font-weight: normal;
-                font-family: Piedra;
+                font-family: Piedra, Bitter;
                 font-size: 20px;
                 border: none;
                 border-radius: 0;
@@ -234,7 +234,7 @@ input[type="date"], input[type="time"],   input[type="range"] {
     input[type="text"], input[type="number"], input[type="password"],
     input[type="date"], input[type="time"],   input[type="range"] {
         font-weight: normal;
-        font-family: Piedra;
+        font-family: Piedra, Bitter;
         font-size: 20px;
         border: none;
         border-radius: 0;
@@ -381,7 +381,7 @@ button {
     min-width: 370px;
     height: 52px;
     border: none;
-    font-family: Blood Crow;
+    font-family: 'Blood Crow', 'Blood Cyrillic';
     font-size: 55px;
     font-weight: normal;
     color: $mud;
@@ -468,7 +468,7 @@ label.clock-zero-label {
     .item-name {
         text-align: center;
         font-weight: 500;
-        font-family: Piedra;
+        font-family: Piedra, Bitter;
         font-size: 20px;
         padding: 0px 10px;
     }
