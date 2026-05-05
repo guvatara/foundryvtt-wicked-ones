@@ -8,14 +8,9 @@
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
     "passive": "data.passive",
-    "adventurerType": "data.adventurer_type",
-    "adventurerClass": "data.adventurer_class",
     "adventurerClassCustom": "data.adventurer_class_custom",
-    "traitPos1": "data.trait_pos_1",
     "traitPos1Custom": "data.trait_pos_1_custom",
-    "traitNeg1": "data.trait_neg_1",
     "traitNeg1Custom": "data.trait_neg_1_custom",
-    "motivation1": "data.motivation_1",
     "motivation1Custom": "data.motivation_1_custom"
   },
   "entries": {

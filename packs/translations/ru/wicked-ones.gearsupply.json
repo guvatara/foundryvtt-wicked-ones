@@ -7,10 +7,7 @@
     "systemDescription": "system.description",
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
-    "passive": "data.passive",
-    "gearOrSupply": "data.gear_or_supply",
-    "qualityCategory": "data.quality_category",
-    "useType": "data.use_type"
+    "passive": "data.passive"
   },
   "entries": {
     "BxGo5cadZFdVvD0d": {

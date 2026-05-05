@@ -7,8 +7,7 @@
     "systemDescription": "system.description",
     "flashbackClues": "data.flashback_clues",
     "systemFlashbackClues": "system.flashback_clues",
-    "passive": "data.passive",
-    "domain": "system.domain"
+    "passive": "data.passive"
   },
   "entries": {
     "1S8gma1Jvf8Srkft": {

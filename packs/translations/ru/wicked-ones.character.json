@@ -4,11 +4,9 @@
   "mapping": {
     "name": "name",
     "tokenName": "prototypeToken.name",
-    "pcType": "system.pc_type",
     "look": "system.look",
     "vilefriend": "system.vilefriend",
-    "projectClock": "system.project_clock",
-    "goldmongerSize": "system.goldmonger_size"
+    "projectClock": "system.project_clock"
   },
   "entries": {
     "3BgCaGuXhrz3KT0t": {
