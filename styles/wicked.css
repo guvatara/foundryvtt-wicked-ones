@@ -4427,6 +4427,7 @@ form.special-ability-sheet #ray-selection div.ray-line select:nth-child(2) {
   font-weight: 900;
   src: local(""), url("../fonts/bitter-v16-latin_cyrillic-900italic.woff2") format("woff2");
 }
+
 /* Blood crow-regular - latin */
 @font-face {
   font-family: "Blood Crow";
