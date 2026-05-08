@@ -370,7 +370,10 @@ export class WickedHelpers {
   static installCompendiumLocalization() {
     if (WickedHelpers._compendiumLocalizationInstalled) return;
 
-    const proto = globalThis.CompendiumCollection?.prototype;
+    const CompendiumCtor =
+      foundry?.documents?.collections?.CompendiumCollection ??
+      globalThis.CompendiumCollection;
+    const proto = CompendiumCtor?.prototype;
     if (!proto) return;
 
     const originalGetIndex = proto.getIndex;
