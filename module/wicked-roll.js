@@ -7,6 +7,63 @@ function getGameVersionString() {
   return v != null && v !== "" ? String(v) : "10.0.0";
 }
 
+const LEGACY_CHAT_MESSAGE_MODES = {
+  public: "publicroll",
+  gm: "gmroll",
+  blind: "blindroll",
+  self: "selfroll",
+};
+
+const V14_CHAT_MESSAGE_MODES = {
+  publicroll: "public",
+  gmroll: "gm",
+  blindroll: "blind",
+  selfroll: "self",
+};
+
+/**
+ * Resolve the user's default chat visibility mode for the active core version.
+ * @param {number} coreMajor
+ * @returns {string}
+ */
+function getDefaultChatMessageMode(coreMajor) {
+  const primarySetting = coreMajor >= 14 ? "messageMode" : "rollMode";
+  const fallbackSetting = coreMajor >= 14 ? "rollMode" : "messageMode";
+  let mode = game.settings.get("core", primarySetting) || game.settings.get("core", fallbackSetting);
+  if (!mode) mode = coreMajor >= 14 ? "public" : "publicroll";
+
+  if (coreMajor >= 14) {
+    return V14_CHAT_MESSAGE_MODES[mode] ?? mode;
+  }
+  return LEGACY_CHAT_MESSAGE_MODES[mode] ?? mode;
+}
+
+/**
+ * Apply the requested chat visibility mode to pending message data.
+ * @param {object} messageData
+ * @param {string} mode
+ * @param {number} coreMajor
+ */
+function applyChatMessageMode(messageData, mode, coreMajor) {
+  if (coreMajor >= 14 && typeof ChatMessage.applyMode === "function") {
+    ChatMessage.applyMode(messageData, mode);
+    return;
+  }
+
+  if (typeof ChatMessage.applyRollMode === "function") {
+    ChatMessage.applyRollMode(messageData, mode);
+    return;
+  }
+
+  const legacyMode = LEGACY_CHAT_MESSAGE_MODES[mode] ?? mode;
+  if (["gmroll", "blindroll"].includes(legacyMode)) {
+    messageData.whisper = ChatMessage.getWhisperRecipients("GM");
+    if (legacyMode === "blindroll") messageData.blind = true;
+  } else if (legacyMode === "selfroll") {
+    messageData.whisper = [game.user.id];
+  }
+}
+
 /**
  * Roll Dice.
  * @param {int} dice_amount
@@ -148,16 +205,11 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
     messageData.user = game.user.id;
   }
 
-  // Prepare message options
-  // v14+ renamed core.rollMode -> core.messageMode.
-  let rMode = game.settings.get("core", "messageMode");
-  if (!rMode) {
-    rMode = game.settings.get("core", "rollMode");
-  }
-  if (["gmroll", "blindroll"].includes(rMode)) {
-    messageData.whisper = ChatMessage.getWhisperRecipients("GM");
-  }
-  const messageOptions = { messageMode: rMode };
+  const chatMode = getDefaultChatMessageMode(coreMajor);
+  applyChatMessageMode(messageData, chatMode, coreMajor);
+  const messageOptions = coreMajor >= 14
+    ? { messageMode: chatMode }
+    : { rollMode: chatMode };
 
   if (game.dice3d && dice3dDelay){
     await game.dice3d.showForRoll(r);
