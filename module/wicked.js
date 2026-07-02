@@ -6,7 +6,7 @@
 
 // Import Modules
 import { WO } from "./config.js";
-import { registerSystemSettings } from "./settings.js";
+import { registerSystemSettings, SYSTEM_MIGRATION_VERSION } from "./settings.js";
 import { preloadHandlebarsTemplates } from "./wicked-templates.js";
 import { wickedRoll, simpleRollPopup } from "./wicked-roll.js";
 import { WickedHelpers } from "./wicked-helpers.js";
@@ -269,9 +269,8 @@ Hooks.once("ready", function() {
 
   // Determine whether a system migration is required
   const currentVersion = game.settings.get("wicked-ones", "systemMigrationVersion");
-  const NEEDS_MIGRATION_VERSION = 0.91;
 
-  let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null);
+  let needMigration = (currentVersion < SYSTEM_MIGRATION_VERSION) || (currentVersion === null);
 
   // Perform the migration
   if ( needMigration && game.user.isGM ) {

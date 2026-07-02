@@ -1,3 +1,6 @@
+/** Numeric migration gate for the current one-time world migration (0.9.1). */
+export const SYSTEM_MIGRATION_VERSION = 0.91;
+
 export const registerSystemSettings = function() {
 
   /**
