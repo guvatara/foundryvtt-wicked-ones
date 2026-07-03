@@ -1,9 +1,13 @@
+import { SYSTEM_MIGRATION_VERSION } from "./settings.js";
+
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
  * @return {Promise}      A Promise which resolves once the migration is completed
  */
 export const migrateWorld = async function() {
   ui.notifications.info(game.i18n.format("FITD.MIGRATION.Applying", { version: game.system.version }), {permanent: true});
+
+  let migrationFailed = false;
 
     // Migrate World Actors
     // Use game.actors.contents (array of Actor documents) for Foundry VTT 13+
@@ -17,13 +21,16 @@ export const migrateWorld = async function() {
                 }
                 await _migrateEmbeddedMinionUpgrades(a);
             } catch(err) {
+                migrationFailed = true;
                 console.error(err);
             }
         }
     }
 
-  // Set the migration as complete
-  game.settings.set("wicked-ones", "systemMigrationVersion", game.system.version);
+  if (migrationFailed) return;
+
+  // Store a numeric migration gate, not the semver string (Number("0.9.3") is not reliable).
+  game.settings.set("wicked-ones", "systemMigrationVersion", SYSTEM_MIGRATION_VERSION);
   ui.notifications.info(game.i18n.format("FITD.MIGRATION.Complete", { version: game.system.version }), {permanent: true});
 };
 
@@ -107,12 +114,11 @@ function _migrateMinionUpgradeItem(item) {
 
   if (legacyData && typeof legacyData === "object") {
     for (const field of fieldsFromLegacy) {
-      if (sourceSystem[field] === undefined && legacyData[field] !== undefined) {
-        update[`system.${field}`] = legacyData[field];
-        changed = true;
-      }
+      if (!_shouldCopyLegacyField(field, sourceSystem[field], legacyData[field])) continue;
+      update[`system.${field}`] = legacyData[field];
+      changed = true;
     }
-    update["data"] = null;
+    update["-=data"] = null;
     changed = true;
   }
 
@@ -123,6 +129,22 @@ function _migrateMinionUpgradeItem(item) {
 
   if (!changed) return {};
   return update;
+}
+
+/**
+ * Decide whether a legacy minion-upgrade field should overwrite the current system value.
+ * @param {string} field
+ * @param {*} current
+ * @param {*} legacyValue
+ * @returns {boolean}
+ */
+function _shouldCopyLegacyField(field, current, legacyValue) {
+  if (legacyValue === undefined) return false;
+  if (current === undefined) return true;
+  if (current === legacyValue) return false;
+  if (typeof current === "string" && current === "" && legacyValue !== "") return true;
+  if (field === "upgrade_type" && (current === "" || current === "regular") && legacyValue !== "") return true;
+  return false;
 }
 
 /* -------------------------------------------- */
