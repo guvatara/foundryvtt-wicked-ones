@@ -1,5 +1,18 @@
 import { SYSTEM_MIGRATION_VERSION } from "./settings.js";
 
+/** Template defaults from template.json Item.minion_upgrade. */
+const MINION_UPGRADE_TEMPLATE_DEFAULTS = {
+  upgrade_type: "regular",
+  upgrade_checkbox_text: "",
+  upgrade_checkbox_checked: false,
+  upgrade_checkbox_2_text: "",
+  upgrade_checkbox_2_checked: false,
+  upgrade_skill_name: "",
+  upgrade_skill_value: 2,
+  is_for_wo: true,
+  is_for_ua: true,
+};
+
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
  * @return {Promise}      A Promise which resolves once the migration is completed
@@ -138,12 +151,17 @@ function _migrateMinionUpgradeItem(item) {
  * @param {*} legacyValue
  * @returns {boolean}
  */
-function _shouldCopyLegacyField(field, current, legacyValue) {
+export function _shouldCopyLegacyField(field, current, legacyValue) {
   if (legacyValue === undefined) return false;
   if (current === undefined) return true;
   if (current === legacyValue) return false;
+
+  const templateDefault = MINION_UPGRADE_TEMPLATE_DEFAULTS[field];
+  if (templateDefault !== undefined && current === templateDefault && legacyValue !== templateDefault) {
+    return true;
+  }
+
   if (typeof current === "string" && current === "" && legacyValue !== "") return true;
-  if (field === "upgrade_type" && (current === "" || current === "regular") && legacyValue !== "") return true;
   return false;
 }
 
