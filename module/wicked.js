@@ -270,7 +270,9 @@ Hooks.once("ready", function() {
   // Determine whether a system migration is required
   const currentVersion = game.settings.get("wicked-ones", "systemMigrationVersion");
 
-  let needMigration = (currentVersion < SYSTEM_MIGRATION_VERSION) || (currentVersion === null);
+  let needMigration = (currentVersion === null)
+    || !Number.isFinite(currentVersion)
+    || (currentVersion < SYSTEM_MIGRATION_VERSION);
 
   // Perform the migration
   if ( needMigration && game.user.isGM ) {
