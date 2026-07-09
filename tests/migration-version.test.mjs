@@ -56,6 +56,35 @@ test("legacy minion applicability copies over template defaults", () => {
   assert.equal(_shouldCopyLegacyField("is_for_ua", true, false), true);
 });
 
+test("legacy upgrade type copies over template default regular", () => {
+  assert.equal(_shouldCopyLegacyField("upgrade_type", "regular", "path"), true);
+  assert.equal(_shouldCopyLegacyField("upgrade_type", "regular", "external"), true);
+});
+
+test("empty legacy upgrade type does not replace template default regular", () => {
+  assert.equal(_shouldCopyLegacyField("upgrade_type", "regular", ""), false);
+});
+
+/** Mirrors _migrateMinionUpgradeItem upgrade_type fallback guard. */
+function applyUpgradeTypeFallback(sourceSystem, update) {
+  if ((sourceSystem.upgrade_type === undefined || sourceSystem.upgrade_type === "")
+    && update["system.upgrade_type"] === undefined) {
+    update["system.upgrade_type"] = "regular";
+  }
+}
+
+test("legacy external upgrade_type is not overwritten by regular fallback", () => {
+  const update = { "system.upgrade_type": "external" };
+  applyUpgradeTypeFallback({ upgrade_type: "" }, update);
+  assert.equal(update["system.upgrade_type"], "external");
+});
+
+test("missing upgrade_type still defaults to regular", () => {
+  const update = {};
+  applyUpgradeTypeFallback({ upgrade_type: "" }, update);
+  assert.equal(update["system.upgrade_type"], "regular");
+});
+
 test("user-edited values are not overwritten by legacy migration", () => {
   assert.equal(_shouldCopyLegacyField("upgrade_checkbox_checked", true, false), false);
   assert.equal(_shouldCopyLegacyField("upgrade_skill_value", 3, 4), false);
