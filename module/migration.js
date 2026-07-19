@@ -104,7 +104,7 @@ async function _migrateEmbeddedMinionUpgrades(actor) {
  * @param {Item} item
  * @returns {Object}
  */
-function _migrateMinionUpgradeItem(item) {
+export function _migrateMinionUpgradeItem(item) {
   const update = { _id: item.id };
   let changed = false;
 
@@ -135,7 +135,8 @@ function _migrateMinionUpgradeItem(item) {
     changed = true;
   }
 
-  if (sourceSystem.upgrade_type === undefined || sourceSystem.upgrade_type === "") {
+  if ((sourceSystem.upgrade_type === undefined || sourceSystem.upgrade_type === "")
+      && update["system.upgrade_type"] === undefined) {
     update["system.upgrade_type"] = "regular";
     changed = true;
   }
@@ -153,6 +154,7 @@ function _migrateMinionUpgradeItem(item) {
  */
 export function _shouldCopyLegacyField(field, current, legacyValue) {
   if (legacyValue === undefined) return false;
+  if (legacyValue === "") return false;
   if (current === undefined) return true;
   if (current === legacyValue) return false;
 

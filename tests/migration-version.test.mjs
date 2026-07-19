@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { _shouldCopyLegacyField } from "../module/migration.js";
+import { _migrateMinionUpgradeItem, _shouldCopyLegacyField } from "../module/migration.js";
 
 /** Foundry Number settings commonly coerce semver via parseFloat. */
 function coerceMigrationSetting(value) {
@@ -60,4 +60,37 @@ test("user-edited values are not overwritten by legacy migration", () => {
   assert.equal(_shouldCopyLegacyField("upgrade_checkbox_checked", true, false), false);
   assert.equal(_shouldCopyLegacyField("upgrade_skill_value", 3, 4), false);
   assert.equal(_shouldCopyLegacyField("upgrade_type", "external", "regular"), false);
+});
+
+test("empty legacy upgrade_type does not replace template default regular", () => {
+  assert.equal(_shouldCopyLegacyField("upgrade_type", "regular", ""), false);
+});
+
+test("legacy external upgrade_type is preserved when source system field is empty", () => {
+  const item = {
+    id: "test-item",
+    system: { upgrade_type: "" },
+    data: { _source: { data: { upgrade_type: "external" } } },
+  };
+  const update = _migrateMinionUpgradeItem(item);
+  assert.equal(update["system.upgrade_type"], "external");
+});
+
+test("legacy path upgrade_type is preserved when source system field is empty", () => {
+  const item = {
+    id: "test-item",
+    system: { upgrade_type: "" },
+    _source: { data: { upgrade_type: "path" } },
+  };
+  const update = _migrateMinionUpgradeItem(item);
+  assert.equal(update["system.upgrade_type"], "path");
+});
+
+test("missing upgrade_type defaults to regular when no legacy data exists", () => {
+  const item = {
+    id: "test-item",
+    system: { upgrade_type: "" },
+  };
+  const update = _migrateMinionUpgradeItem(item);
+  assert.equal(update["system.upgrade_type"], "regular");
 });
