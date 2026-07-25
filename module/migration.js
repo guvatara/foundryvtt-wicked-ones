@@ -135,7 +135,8 @@ function _migrateMinionUpgradeItem(item) {
     changed = true;
   }
 
-  if (sourceSystem.upgrade_type === undefined || sourceSystem.upgrade_type === "") {
+  if ((sourceSystem.upgrade_type === undefined || sourceSystem.upgrade_type === "")
+    && update["system.upgrade_type"] === undefined) {
     update["system.upgrade_type"] = "regular";
     changed = true;
   }
@@ -158,6 +159,7 @@ export function _shouldCopyLegacyField(field, current, legacyValue) {
 
   const templateDefault = MINION_UPGRADE_TEMPLATE_DEFAULTS[field];
   if (templateDefault !== undefined && current === templateDefault && legacyValue !== templateDefault) {
+    if (typeof legacyValue === "string" && legacyValue === "" && templateDefault !== "") return false;
     return true;
   }
 
