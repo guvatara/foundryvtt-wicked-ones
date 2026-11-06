@@ -4,6 +4,10 @@
 
 Сообщественная система для игры в **Wicked Ones** в Foundry VTT.
 
+Этот репозиторий — форк для русскоязычного сообщества: русская локализация и багфиксы поверх
+[оригинальной системы](https://github.com/eHanus/foundryvtt-wicked-ones). Манифесты релизов
+из этого форка указывают на этот репозиторий.
+
 - Совместимость с Foundry: **минимум v13**, **проверено на v14**
 - ID системы: `wicked-ones`
 - Включённые языки: **English** (`en`) и **Русский** (`ru`)
@@ -17,12 +21,13 @@
 ### Через Manifest URL
 
 1. Скопируйте URL:
-   `https://github.com/eHanus/foundryvtt-wicked-ones/releases/latest/download/system.json`
+   `https://github.com/guvatara/foundryvtt-wicked-ones/releases/latest/download/system.json`
 2. В Foundry откройте **Install System** и вставьте его в поле **Manifest URL**.
 
 ### Через браузер систем Foundry
 
-Найдите **Wicked Ones** и нажмите **Install**.
+Найдите **Wicked Ones** и нажмите **Install**. В браузере систем лежит оригинальная английская
+сборка — если нужна локализованная версия, ставьте по Manifest URL выше.
 
 ---
 
@@ -102,7 +107,15 @@ SCSS компилируется вручную:
 sass scss/style.scss styles/wicked.css
 ```
 
-Автотестов сейчас нет; проверка выполняется вручную в Foundry через ключевые сценарии листов и бросков.
+Автотесты лежат в `tests/` и запускаются встроенным раннером Node:
+
+```
+npm test   # node --test tests/migration-version.test.mjs
+```
+
+Покрыта логика версий и миграций (исправления зацикленной миграции мира и миграции апгрейдов
+прислужников). Всё остальное по-прежнему проверяется вручную в Foundry на ключевых сценариях
+листов и бросков.
 
 ---
 

@@ -4,6 +4,10 @@
 
 Official-ish community system for playing **Wicked Ones** in Foundry VTT.
 
+This repository is a fork maintained for the Russian-speaking community: Russian localization
+and bug fixes on top of the [original system](https://github.com/eHanus/foundryvtt-wicked-ones).
+Release manifests published from this fork point to this repository.
+
 - Foundry compatibility: **minimum v13**, **verified on v14**
 - System ID: `wicked-ones`
 - Languages included: **English** (`en`) and **Russian** (`ru`)
@@ -17,12 +21,13 @@ Project page: [Wicked Ones – Bandit Camp](https://banditcamp.io/wickedones/)
 ### Manifest URL
 
 1. Copy this URL:
-   `https://github.com/eHanus/foundryvtt-wicked-ones/releases/latest/download/system.json`
+   `https://github.com/guvatara/foundryvtt-wicked-ones/releases/latest/download/system.json`
 2. In Foundry, open **Install System** and paste it into **Manifest URL**.
 
 ### Foundry System Browser
 
-Find **Wicked Ones** and click **Install**.
+Find **Wicked Ones** and click **Install**. The browser lists the original English build, so
+install through the manifest URL above if you need the localized fork.
 
 ---
 
@@ -102,7 +107,14 @@ SCSS is compiled manually:
 sass scss/style.scss styles/wicked.css
 ```
 
-There are currently no automated tests; validation is done in Foundry by running key sheet/roll flows.
+Automated checks live in `tests/` and run with Node's built-in runner:
+
+```
+npm test   # node --test tests/migration-version.test.mjs
+```
+
+They cover the version/migration logic (the world migration loop and minion upgrade migration
+fixes). Everything else is still validated manually in Foundry by running key sheet/roll flows.
 
 ---
 
