@@ -25,8 +25,15 @@ export class WickedClockSheet extends WickedSheet {
     sheetData.editable = this.options.editable;
 
     sheetData.actor = sheetData.data;
-    sheetData.system = sheetData.data.system // project system data so that handlebars has the same name and value paths
-    sheetData.notes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.object.system.notes, { async: true });
+    sheetData.system = sheetData.data?.system ?? this.document.system.toObject() // project system data so that handlebars has the same name and value paths
+    sheetData.notes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+      this.object.system.notes ?? "",
+      {
+        relativeTo: this.object,
+        secrets: this.object.isOwner,
+        async: true
+      }
+    );
 
     // Override Code for updating the sheet goes here
 

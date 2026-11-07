@@ -12,7 +12,7 @@ export class WickedActor extends Actor {
   * @override
   */
   static async create(data, options = {}) {
-    if (Object.keys(data).includes("type")) {
+    if (data && typeof data === "object" && !Array.isArray(data) && Object.keys(data).includes("type")) {
 
       if (!(Object.keys(data).includes("prototypeToken"))) {
         data.prototypeToken = {};
@@ -108,7 +108,7 @@ export class WickedActor extends Actor {
           if (items[i].system.source != data.primal_monster_type) {
             items[i].system.flex_slot = true;
           } else {
-            items[i].flex_slot = false;
+            items[i].system.flex_slot = false;
           }
         } else if (items[i].system.source != data.calling_name) {
           items[i].system.flex_slot = true;
@@ -238,8 +238,7 @@ export class WickedActor extends Actor {
           dice_amount[specialAbility.system.primal['ds_eye_ray_' + i]] = this.system.attributes["guts"].shocked ? -1 : 0;
         }
       } else if (specialAbility.type == "specialability" && specialAbility.system.ability_type == "be_psi") {
-        dice_amount[specialAbility.system.primal.be_psi_skill_name] = dice_amount[specialAbility.system.primal['ds_eye_ray_' + i]] = this.system.attributes["guts"].shocked ? -1 : 0;
-
+        dice_amount[specialAbility.system.primal.be_psi_skill_name] = this.system.attributes["guts"].shocked ? -1 : 0;
       }
     });
 
@@ -461,7 +460,8 @@ export class WickedActor extends Actor {
    */
   createListOfActions() {
 
-    let text, attribute, skill;
+    let text = "";
+    let attribute, skill;
     let attributes = this.system.attributes;
 
     for ( attribute in attributes ) {

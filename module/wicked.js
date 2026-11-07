@@ -263,6 +263,48 @@ Hooks.once("init", async function() {
 });
 
 /**
+ * Import the bundled "Interface & Sheet Guide" journal entry into the world once.
+ * The guide ships in the `system-documentation` compendium pack.
+ * @returns {Promise<void>}
+ */
+async function importInterfaceGuide() {
+  if ( !game.user.isGM ) return;
+  if ( game.settings.get("wicked-ones", "guideImported") ) return;
+
+  try {
+    const pack = game.packs.get("wicked-ones.system-documentation");
+    if ( !pack ) return;
+
+    const index = await pack.getIndex();
+    const entryIndex = index.find(e => e.name.includes("Interface & Sheet Guide"))
+      ?? index.contents?.[0]
+      ?? Array.from(index)[0];
+    if ( !entryIndex ) return;
+
+    const doc = await pack.getDocument(entryIndex._id);
+
+    // `Document.fromCompendium` is the v10+ API; keep the collection helper as a fallback.
+    const JournalEntryClass = CONFIG.JournalEntry?.documentClass ?? JournalEntry;
+    const docData = typeof JournalEntryClass.fromCompendium === "function"
+      ? JournalEntryClass.fromCompendium(doc)
+      : game.journal.fromCompendium(doc);
+
+    // Grant Observer permission by default so all players can read the guide immediately
+    docData.ownership = foundry.utils.mergeObject(docData.ownership ?? {}, {
+      default: CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER
+    });
+
+    const created = await JournalEntryClass.create(docData);
+    await game.settings.set("wicked-ones", "guideImported", true);
+
+    // Automatically pop open the guide on its first import
+    created?.sheet?.render(true);
+  } catch (err) {
+    console.error("Wicked Ones | Failed to import the Interface & Sheet Guide journal entry:", err);
+  }
+}
+
+/**
  * Once the entire VTT framework is initialized, check to see if we should perform a data migration
  */
 Hooks.once("ready", function() {
@@ -278,6 +320,9 @@ Hooks.once("ready", function() {
   if ( needMigration && game.user.isGM ) {
     migrations.migrateWorld();
   }
+
+  // One-time import of the bundled Interface & Sheet Guide
+  void importInterfaceGuide();
 
   for (const pack of game.packs) {
     void WickedHelpers.localizeCompendiumMetadata(pack);

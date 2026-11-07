@@ -11,8 +11,15 @@ Release manifests published from this fork point to this repository.
 - Foundry compatibility: **minimum v13**, **verified on v14**
 - System ID: `wicked-ones`
 - Languages included: **English** (`en`) and **Russian** (`ru`)
+- Based on upstream **1.2.1** (v13/v14 update), which also ships a short **Interface & Sheet Guide**
+  journal entry. The guide is imported into each new world automatically once.
 
 Project page: [Wicked Ones – Bandit Camp](https://banditcamp.io/wickedones/)
+
+The original Wicked Ones site has been discontinued; the game is currently available here:
+
+- An unaffiliated page on itch.io: <https://boxman214.itch.io/wicked-ones-ttrpg>
+- The files of the original Wicked Ones title under CC0: <https://github.com/chuckdee68/WickedOnes>
 
 ---
 
@@ -85,6 +92,9 @@ The official Wicked Ones art/token pack is strongly recommended for maps and ric
   - `lang/ru-ru.json`
 - Compendium translation assets are under:
   - `packs/translations/`
+  - `packs/translations/<locale>/index.json` lists the packs that the locale translates;
+    packs missing from the manifest are never probed (no 404s for untranslated packs).
+    When you add a translation file, add its pack name to the manifest as well.
 
 When adding a new language, mirror key structure from `lang/en.json`.
 

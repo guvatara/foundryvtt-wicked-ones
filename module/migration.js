@@ -28,7 +28,7 @@ export const migrateWorld = async function() {
         if (a.type === 'character' || a.type === 'minion_pack') {
             try {
                 const updateData = _migrateActor(a);
-                if ( !isObjectEmpty(updateData) ) {
+                if ( !foundry.utils.isEmpty(updateData) ) {
                     console.log(`Migrating Actor entity ${a.name}`);
                     await a.update(updateData, {enforceTypes: false});
                 }
@@ -42,10 +42,93 @@ export const migrateWorld = async function() {
 
   if (migrationFailed) return;
 
+  // Adapt legacy pre-V12 chat roll data so old roll cards keep rendering in V14
+  await _migrateLegacyChatRolls();
+
   // Store a numeric migration gate, not the semver string (Number("0.9.3") is not reliable).
   game.settings.set("wicked-ones", "systemMigrationVersion", SYSTEM_MIGRATION_VERSION);
   ui.notifications.info(game.i18n.format("FITD.MIGRATION.Complete", { version: game.system.version }), {permanent: true});
 };
+
+/* -------------------------------------------- */
+
+/**
+ * Repair legacy chat message roll data that V14's `Roll.fromData` rejects
+ * (roll terms stored without a `class` key). Unparseable rolls are dropped so the
+ * pre-rendered HTML in `message.content` still displays in chat.
+ * @returns {Promise<void>}
+ */
+async function _migrateLegacyChatRolls() {
+  const messageUpdates = [];
+
+  for ( let msg of game.messages ) {
+    const rawRolls = msg._source?.rolls ?? [];
+    if ( !rawRolls.length ) continue;
+
+    let needsUpdate = false;
+    const migratedRolls = [];
+
+    for ( let r of rawRolls ) {
+      const { changed, data } = _patchLegacyRollData(r);
+      if ( changed ) needsUpdate = true;
+
+      // Unparseable payload: drop the roll data, keep the pre-rendered HTML
+      if ( data === null ) continue;
+
+      try {
+        // Verify that Roll.fromData accepts the patched roll
+        Roll.fromData(data);
+        migratedRolls.push(JSON.stringify(data));
+      } catch(err) {
+        needsUpdate = true;
+      }
+    }
+
+    if ( needsUpdate ) {
+      messageUpdates.push({ _id: msg.id, rolls: migratedRolls });
+    }
+  }
+
+  if ( messageUpdates.length === 0 ) return;
+
+  console.log(`Wicked Ones | Adapting ${messageUpdates.length} legacy chat roll messages for V14 compatibility.`);
+  await ChatMessage.updateDocuments(messageUpdates);
+}
+
+/**
+ * Patch one legacy chat roll payload so V14's `Roll.fromData` accepts it.
+ * Legacy Wicked Ones rolls are d6 pools whose terms were stored without a `class`.
+ *
+ * @param {string|object} rawRoll   Raw roll entry from `message._source.rolls`
+ * @returns {{changed: boolean, data: object|null}}  `data` is null when the payload is unusable
+ */
+export function _patchLegacyRollData(rawRoll) {
+  let parsed;
+
+  try {
+    parsed = typeof rawRoll === "string"
+      ? JSON.parse(rawRoll)
+      : JSON.parse(JSON.stringify(rawRoll));
+  } catch(err) {
+    return { changed: true, data: null };
+  }
+
+  if ( !parsed || !Array.isArray(parsed.terms) ) {
+    return { changed: true, data: null };
+  }
+
+  let changed = false;
+
+  for ( const term of parsed.terms ) {
+    // Only dice terms carry `faces`; operator terms must keep their own class.
+    if ( term && !term.class && term.faces !== undefined && term.operator === undefined ) {
+      term.class = "Die";
+      changed = true;
+    }
+  }
+
+  return { changed, data: parsed };
+}
 
 /* -------------------------------------------- */
 
@@ -89,7 +172,7 @@ async function _migrateEmbeddedMinionUpgrades(actor) {
     if (item.type !== "minion_upgrade") continue;
 
     const update = _migrateMinionUpgradeItem(item);
-    if (!isObjectEmpty(update)) updates.push(update);
+    if (!foundry.utils.isEmpty(update)) updates.push(update);
   }
 
   if (updates.length === 0) return;

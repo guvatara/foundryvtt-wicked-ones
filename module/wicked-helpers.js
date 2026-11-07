@@ -21,8 +21,8 @@ export class WickedHelpers {
     // Remove Duplicate items from the array.
     actor.items.forEach(i => {
       if (item._id == i.id) { return; }
-      let has_double = (item.type === i.system.type);
-      if (i.system.name === item.name || (should_be_distinct && has_double)) {
+      let has_double = (item.type === i.type);
+      if (i.name === item.name || (should_be_distinct && has_double)) {
         actor.deleteEmbeddedDocuments("Item", [i.id]);
       }
     });
@@ -82,7 +82,7 @@ export class WickedHelpers {
    */
   static undoItemLogic(item, entity) {
 
-    if ('logic' in item.data && item.system.logic !== '') {
+    if ('logic' in item.system && item.system.logic !== '') {
       let logic = JSON.parse(item.system.logic)
 
       // Should be an array to support multiple expressions
@@ -92,7 +92,7 @@ export class WickedHelpers {
 
       if (logic) {
 
-        var entity_data = entity.data;
+        var entity_data = entity.system;
 
         logic.forEach(expression => {
           // Different logic behav. dep on operator.
@@ -109,7 +109,7 @@ export class WickedHelpers {
             case "attribute_change":
               // Get the array path to take data.
               let default_expression_attribute_path = expression.attribute + '_default';
-              let default_name = default_expression_attribute_path.split(".").reduce((o, i) => o[i], entity_data);
+              let default_name = default_expression_attribute_path.split(".").reduce((o, i) => o?.[i], entity_data);
 
               entity.update({
                 [expression.attribute]: default_name
@@ -144,7 +144,7 @@ export class WickedHelpers {
     const item_type = a.dataset.itemType;
 
     let data = {
-      name: randomID(),
+      name: foundry.utils.randomID(),
       type: item_type
     };
     return actor.createEmbeddedDocuments("Item", [data]);
@@ -266,9 +266,67 @@ export class WickedHelpers {
     return null;
   }
 
+  /**
+   * Loads the locale manifest that lists which compendium packs ship with a translation.
+   * Returns null when the locale has no manifest (older installs) — callers then fall back
+   * to probing individual pack files.
+   *
+   * @returns {Promise<Object|null>}
+   */
+  static async getCompendiumTranslationManifest() {
+    const lang = String(game.i18n.lang || "en").toLowerCase();
+    if (lang === "en" || lang.startsWith("en-")) return null;
+
+    const cacheKey = `manifest:${lang}`;
+    if (WickedHelpers._compendiumTranslationDataCache.has(cacheKey)) {
+      return WickedHelpers._compendiumTranslationDataCache.get(cacheKey);
+    }
+
+    const langBase = lang.split("-")[0];
+    const langCandidates = [...new Set([lang, langBase])];
+
+    for (const locale of langCandidates) {
+      const path = `systems/wicked-ones/packs/translations/${locale}/index.json`;
+      try {
+        const response = await fetch(path);
+        if (!response.ok) continue;
+        const data = await response.json();
+        WickedHelpers._compendiumTranslationDataCache.set(cacheKey, data);
+        return data;
+      } catch (_err) {
+        // No manifest for this locale — fall back to per-pack probing.
+      }
+    }
+
+    WickedHelpers._compendiumTranslationDataCache.set(cacheKey, null);
+    return null;
+  }
+
+  /**
+   * Whether a compendium pack has a translation file for the active language.
+   * Unknown when the locale ships no manifest: then every Item/Actor pack is probed.
+   *
+   * @param {Object} pack
+   * @returns {Promise<boolean>}
+   */
+  static async compendiumPackIsTranslated(pack) {
+    const item_type = pack?.metadata?.name;
+    if (!item_type) return false;
+
+    // Journal/Table/RollTable packs never carry compendium translations.
+    const documentType = pack?.metadata?.type;
+    if (documentType && documentType !== "Item" && documentType !== "Actor") return false;
+
+    const manifest = await WickedHelpers.getCompendiumTranslationManifest();
+    if (manifest?.packs && !(item_type in manifest.packs)) return false;
+
+    return true;
+  }
+
   static async localizeCompendiumMetadata(pack) {
     const item_type = pack?.metadata?.name;
     if (!item_type) return;
+    if (!await WickedHelpers.compendiumPackIsTranslated(pack)) return;
 
     const data = await WickedHelpers.getCompendiumTranslationData(item_type);
     if (!data?.label) return;
@@ -279,6 +337,7 @@ export class WickedHelpers {
   static async localizeCompendiumIndex(pack, index) {
     const item_type = pack?.metadata?.name;
     if (!item_type) return index;
+    if (!await WickedHelpers.compendiumPackIsTranslated(pack)) return index;
 
     const data = await WickedHelpers.getCompendiumTranslationData(item_type);
     const entries = data?.entries;
