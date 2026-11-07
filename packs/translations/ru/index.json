@@ -1,0 +1,83 @@
+{
+  "lang": "ru",
+  "packs": {
+    "adventurer": {
+      "label": "Авантюристы"
+    },
+    "awakened_type": {
+      "label": "Типы пробуждённых"
+    },
+    "calling": {
+      "label": "Призвания"
+    },
+    "character": {
+      "label": "Примеры персонажей"
+    },
+    "conquest_ability": {
+      "label": "Способности завоевания"
+    },
+    "defense": {
+      "label": "Защита"
+    },
+    "dungeon-generator": {
+      "label": "Генератор подземелья"
+    },
+    "dungeon": {
+      "label": "Примеры подземелий"
+    },
+    "dungeon_theme": {
+      "label": "Темы подземелья"
+    },
+    "duty": {
+      "label": "Обязанности"
+    },
+    "gearsupply": {
+      "label": "Снаряжение и припасы"
+    },
+    "goldmonger_type": {
+      "label": "Типы золотоискателя"
+    },
+    "invasion": {
+      "label": "Крупные вторжения"
+    },
+    "minion_pack": {
+      "label": "Примеры смен миньонов"
+    },
+    "minion_type": {
+      "label": "Типы миньонов"
+    },
+    "minion_upgrade": {
+      "label": "Улучшения миньонов"
+    },
+    "minionimpulse": {
+      "label": "Порывы миньонов"
+    },
+    "monster_race": {
+      "label": "Народы монстров"
+    },
+    "party": {
+      "label": "Примеры партий авантюристов"
+    },
+    "project": {
+      "label": "Проекты"
+    },
+    "revelry": {
+      "label": "Разгулы"
+    },
+    "rollable-tables": {
+      "label": "Таблицы бросков"
+    },
+    "specialability": {
+      "label": "Особые способности"
+    },
+    "tier3room": {
+      "label": "Комнаты 3-го круга"
+    },
+    "wickedimpulse": {
+      "label": "Тёмные порывы Темнейшего"
+    },
+    "wo-macros": {
+      "label": "Макросы"
+    }
+  }
+}

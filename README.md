@@ -92,6 +92,9 @@ The official Wicked Ones art/token pack is strongly recommended for maps and ric
   - `lang/ru-ru.json`
 - Compendium translation assets are under:
   - `packs/translations/`
+  - `packs/translations/<locale>/index.json` lists the packs that the locale translates;
+    packs missing from the manifest are never probed (no 404s for untranslated packs).
+    When you add a translation file, add its pack name to the manifest as well.
 
 When adding a new language, mirror key structure from `lang/en.json`.
 

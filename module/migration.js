@@ -28,7 +28,7 @@ export const migrateWorld = async function() {
         if (a.type === 'character' || a.type === 'minion_pack') {
             try {
                 const updateData = _migrateActor(a);
-                if ( !isObjectEmpty(updateData) ) {
+                if ( !foundry.utils.isEmpty(updateData) ) {
                     console.log(`Migrating Actor entity ${a.name}`);
                     await a.update(updateData, {enforceTypes: false});
                 }
@@ -172,7 +172,7 @@ async function _migrateEmbeddedMinionUpgrades(actor) {
     if (item.type !== "minion_upgrade") continue;
 
     const update = _migrateMinionUpgradeItem(item);
-    if (!isObjectEmpty(update)) updates.push(update);
+    if (!foundry.utils.isEmpty(update)) updates.push(update);
   }
 
   if (updates.length === 0) return;
