@@ -69,31 +69,16 @@ async function _migrateLegacyChatRolls() {
     const migratedRolls = [];
 
     for ( let r of rawRolls ) {
+      const { changed, data } = _patchLegacyRollData(r);
+      if ( changed ) needsUpdate = true;
+
+      // Unparseable payload: drop the roll data, keep the pre-rendered HTML
+      if ( data === null ) continue;
+
       try {
-        const parsed = typeof r === "string"
-          ? foundry.utils.deepClone(JSON.parse(r))
-          : foundry.utils.deepClone(r);
-
-        if ( !parsed || !Array.isArray(parsed.terms) ) {
-          needsUpdate = true;
-          continue;
-        }
-
-        let termPatched = false;
-        for ( let term of parsed.terms ) {
-          // Only dice terms carry `faces`; operator terms must keep their own class.
-          if ( term && !term.class && term.faces !== undefined && term.operator === undefined ) {
-            // Legacy Wicked Ones rolls are always d6 pools (Die terms)
-            term.class = "Die";
-            termPatched = true;
-          }
-        }
-
-        if ( termPatched ) needsUpdate = true;
-
         // Verify that Roll.fromData accepts the patched roll
-        Roll.fromData(parsed);
-        migratedRolls.push(JSON.stringify(parsed));
+        Roll.fromData(data);
+        migratedRolls.push(JSON.stringify(data));
       } catch(err) {
         needsUpdate = true;
       }
@@ -108,6 +93,41 @@ async function _migrateLegacyChatRolls() {
 
   console.log(`Wicked Ones | Adapting ${messageUpdates.length} legacy chat roll messages for V14 compatibility.`);
   await ChatMessage.updateDocuments(messageUpdates);
+}
+
+/**
+ * Patch one legacy chat roll payload so V14's `Roll.fromData` accepts it.
+ * Legacy Wicked Ones rolls are d6 pools whose terms were stored without a `class`.
+ *
+ * @param {string|object} rawRoll   Raw roll entry from `message._source.rolls`
+ * @returns {{changed: boolean, data: object|null}}  `data` is null when the payload is unusable
+ */
+export function _patchLegacyRollData(rawRoll) {
+  let parsed;
+
+  try {
+    parsed = typeof rawRoll === "string"
+      ? JSON.parse(rawRoll)
+      : JSON.parse(JSON.stringify(rawRoll));
+  } catch(err) {
+    return { changed: true, data: null };
+  }
+
+  if ( !parsed || !Array.isArray(parsed.terms) ) {
+    return { changed: true, data: null };
+  }
+
+  let changed = false;
+
+  for ( const term of parsed.terms ) {
+    // Only dice terms carry `faces`; operator terms must keep their own class.
+    if ( term && !term.class && term.faces !== undefined && term.operator === undefined ) {
+      term.class = "Die";
+      changed = true;
+    }
+  }
+
+  return { changed, data: parsed };
 }
 
 /* -------------------------------------------- */

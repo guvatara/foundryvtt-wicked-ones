@@ -284,8 +284,8 @@ async function importInterfaceGuide() {
     const doc = await pack.getDocument(entryIndex._id);
 
     // `Document.fromCompendium` is the v10+ API; keep the collection helper as a fallback.
-    const JournalEntryClass = CONFIG.JournalEntry?.documentClass;
-    const docData = JournalEntryClass?.fromCompendium
+    const JournalEntryClass = CONFIG.JournalEntry?.documentClass ?? JournalEntry;
+    const docData = typeof JournalEntryClass.fromCompendium === "function"
       ? JournalEntryClass.fromCompendium(doc)
       : game.journal.fromCompendium(doc);
 
