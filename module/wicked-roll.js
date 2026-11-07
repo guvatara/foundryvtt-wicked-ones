@@ -124,8 +124,8 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
   let method = {};
   method.type = (r.terms)[0].method;
   if( method.type ) {
-    method.icon = CONFIG.Dice.fulfillment.methods[method.type].icon;
-    method.label = CONFIG.Dice.fulfillment.methods[method.type].label;
+    method.icon = CONFIG.Dice.fulfillment.methods[method.type]?.icon;
+    method.label = CONFIG.Dice.fulfillment.methods[method.type]?.label;
   }
 
   let position_localize = '';
@@ -238,7 +238,7 @@ export function getWickedRollStatus(rolls, zeromode = false) {
   if (isBelow070) {
     sorted_rolls = rolls.map(i => i.roll).sort();
   } else {
-    sorted_rolls = rolls.map(i => i.result).sort();
+    sorted_rolls = rolls.map(i => i.result).sort((a, b) => a - b);
   }
 
   let roll_status = "failure"

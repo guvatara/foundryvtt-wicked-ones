@@ -29,7 +29,7 @@ export class WickedItemSheet extends BaseItemSheet {
     sheetData.editable = this.options.editable;
     sheetData.config = CONFIG.WO;
 
-    sheetData.system = sheetData.data.system // project system data so that handlebars has the same name and value paths
+    sheetData.system = sheetData.data?.system ?? this.document.system.toObject() // project system data so that handlebars has the same name and value paths
     sheetData.system.localized_display = {};
 
     const entries = await WickedHelpers.getCompendiumTranslationEntries(sheetData.item.type);

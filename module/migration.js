@@ -42,10 +42,73 @@ export const migrateWorld = async function() {
 
   if (migrationFailed) return;
 
+  // Adapt legacy pre-V12 chat roll data so old roll cards keep rendering in V14
+  await _migrateLegacyChatRolls();
+
   // Store a numeric migration gate, not the semver string (Number("0.9.3") is not reliable).
   game.settings.set("wicked-ones", "systemMigrationVersion", SYSTEM_MIGRATION_VERSION);
   ui.notifications.info(game.i18n.format("FITD.MIGRATION.Complete", { version: game.system.version }), {permanent: true});
 };
+
+/* -------------------------------------------- */
+
+/**
+ * Repair legacy chat message roll data that V14's `Roll.fromData` rejects
+ * (roll terms stored without a `class` key). Unparseable rolls are dropped so the
+ * pre-rendered HTML in `message.content` still displays in chat.
+ * @returns {Promise<void>}
+ */
+async function _migrateLegacyChatRolls() {
+  const messageUpdates = [];
+
+  for ( let msg of game.messages ) {
+    const rawRolls = msg._source?.rolls ?? [];
+    if ( !rawRolls.length ) continue;
+
+    let needsUpdate = false;
+    const migratedRolls = [];
+
+    for ( let r of rawRolls ) {
+      try {
+        const parsed = typeof r === "string"
+          ? foundry.utils.deepClone(JSON.parse(r))
+          : foundry.utils.deepClone(r);
+
+        if ( !parsed || !Array.isArray(parsed.terms) ) {
+          needsUpdate = true;
+          continue;
+        }
+
+        let termPatched = false;
+        for ( let term of parsed.terms ) {
+          // Only dice terms carry `faces`; operator terms must keep their own class.
+          if ( term && !term.class && term.faces !== undefined && term.operator === undefined ) {
+            // Legacy Wicked Ones rolls are always d6 pools (Die terms)
+            term.class = "Die";
+            termPatched = true;
+          }
+        }
+
+        if ( termPatched ) needsUpdate = true;
+
+        // Verify that Roll.fromData accepts the patched roll
+        Roll.fromData(parsed);
+        migratedRolls.push(JSON.stringify(parsed));
+      } catch(err) {
+        needsUpdate = true;
+      }
+    }
+
+    if ( needsUpdate ) {
+      messageUpdates.push({ _id: msg.id, rolls: migratedRolls });
+    }
+  }
+
+  if ( messageUpdates.length === 0 ) return;
+
+  console.log(`Wicked Ones | Adapting ${messageUpdates.length} legacy chat roll messages for V14 compatibility.`);
+  await ChatMessage.updateDocuments(messageUpdates);
+}
 
 /* -------------------------------------------- */
 
