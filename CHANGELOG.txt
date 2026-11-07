@@ -1,3 +1,13 @@
+v1.3.0 updated the system core to upstream 1.2.1 (Foundry v13/v14 support from the original system)
+       compendium packs converted to the LevelDB format (v14) while keeping the old .db files
+       added the "Interface & Sheet Guide" journal entry, imported automatically once per world
+       reworked sheet styles for v14 (:where scoping, checkboxes, toasts, chat cards)
+       fixed the world migration aborting with "isObjectEmpty is not defined" on v13/v14
+       fixed 404 requests for compendium translation files of untranslated packs
+       legacy chat rolls are repaired during migration so old roll cards render in v14
+       data-path fixes (item.system logic, flex slots, be_psi modifiers, action lists)
+       Russian localization preserved as-is
+
 v0.9.3 added rollable tables to compendia
        updated some items for the 1.1 version of the rulebook
        improved style for the Braineater, Doomseeker and Goldmonger UI elements
